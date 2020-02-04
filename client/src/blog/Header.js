@@ -44,6 +44,9 @@ const useStyles = makeStyles(theme => ({
   fullList: {
     width: 'auto',
   },
+  link: {
+    color: '#77837D'
+  }
 }));
 
 export default function Header(props) {
@@ -87,25 +90,33 @@ export default function Header(props) {
       <ListItem button key={'우리동네 후보자 살펴보기'}>
           <ListItemIcon>
             <FaceIcon />
+            <Link to='/CandidateMain' className={classes.link}>
             <ListItemText primary={'우리동네 후보자 살펴보기'} style={{marginTop:0, marginLeft:15}} />
+            </Link>
           </ListItemIcon>
         </ListItem>
         <ListItem button key={'국회의원 찾기'}>
           <ListItemIcon>
             <SearchIcon />
+            <Link to='/MemberList' className={classes.link}>
             <ListItemText primary={'국회의원 찾기'} style={{marginTop:0, marginLeft:15}} />
+            </Link>
           </ListItemIcon>
         </ListItem>
         <ListItem button key={'나와 잘맞는 정치인 찾기'}>
           <ListItemIcon>
             <GroupIcon />
+            <Link to='/CardGame' className={classes.link}>
             <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{marginTop:0, marginLeft:15}} />
+            </Link>
           </ListItemIcon>
         </ListItem>
         <ListItem button key={'나의 정치성향 테스트'}>
           <ListItemIcon>
             <CheckIcon />
+            <Link to='/Test' className={classes.link}>
             <ListItemText primary={'나의 정치성향 테스트'} style={{marginTop:0, marginLeft:15}} />
+            </Link>
           </ListItemIcon>
         </ListItem>
       </List>
