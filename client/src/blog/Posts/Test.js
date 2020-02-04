@@ -1,6 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./Test.css";
-import { maxWidth } from "@material-ui/system";
 
 const questions = [
   {
@@ -206,18 +205,18 @@ const questions = [
 ];
 
 function Test() {
-  var max_score; // Max possible scores
+  // var max_score; // Max possible scores
   // var qn = 0; // Question number
-  var prev_answer = null;
+  // var prev_answer = null;
   const [qn, setQn] = useState(0);
   const [count, setCount] = useState(0);
   const [score, setScore] = useState(0);
   const [result_flag, setResult] = useState(false);
 
   // init_question();
-  for (var i = 0; i < questions.length; i++) {
-    max_score += Math.abs(questions[i].effect.score);
-  }
+  // for (var i = 0; i < questions.length; i++) {
+  //   max_score += Math.abs(questions[i].effect.score);
+  // }
 
   function init_question() {
     console.log(questions[qn].question);
@@ -240,7 +239,7 @@ function Test() {
     setScore(score + mult);
     // score += mult * questions[qn].effect.score;
     setQn(qn + 1);
-    prev_answer = mult;
+    // prev_answer = mult;
     if (qn < questions.length - 2) {
       init_question();
     } else {

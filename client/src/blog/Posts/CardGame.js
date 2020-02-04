@@ -52,15 +52,14 @@ const db = [
   }
 ];
 
-var name_array = [];
-var id_array = [];
-var buttonText = "결과확인";
-var flag_array = new Array();
-
-for (var i = 0; i < db.length; i++) {
-  flag_array[i] = 0;
-}
 function Cardgame() {
+  var buttonText = "결과확인";
+  var flag_array = new Array();
+  var name_array = [];
+  var id_array = [];
+  for (var i = 0; i < db.length; i++) {
+    flag_array[i] = 0;
+  }
   const characters = db;
   const [lastDirection, setLastDirection] = useState();
   const [flag, flagCount] = useState(db.length);
@@ -70,19 +69,14 @@ function Cardgame() {
   const textChange = () => {
     if (button_flag) {
       buttonTextChange(!button_flag);
-      buttonText = "결과확인";
       flagCount(db.length);
-      name_array = [];
-      id_array = [];
+      // name_array = [];
+      // id_array = [];
     } else {
+      for (var i = 0; i < db.length; i++) {
+        flag_array[i] = 0;
+      }
       buttonTextChange(!button_flag);
-      buttonText = "재시작";
-    }
-  };
-
-  const reStart = () => {
-    for (var i = 0; i < db.length; i++) {
-      flag_array[i] = 0;
     }
   };
 
@@ -173,18 +167,16 @@ function Cardgame() {
         <div>
           <button
             onClick={() => {
-              reStart();
               booleanChange(!boolean_flag);
               textChange();
             }}
           >
-            {buttonText}
+            {button_flag ? ('재시작') : ('결과확인')}
           </button>
         </div>
       )}
     </Grid>
   );
 }
-console.log(name_array);
 
 export default Cardgame;
