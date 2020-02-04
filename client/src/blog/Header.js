@@ -16,6 +16,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
+import UserIcon from '@material-ui/icons/AccountCircle';
+import BoardIcon from '@material-ui/icons/BorderColor';
+import FaceIcon from '@material-ui/icons/Face';
+import SearchIcon from '@material-ui/icons/FindInPage';
+import GroupIcon from '@material-ui/icons/Group';
+import CheckIcon from '@material-ui/icons/Check';
+
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -62,21 +69,45 @@ export default function Header(props) {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {['마이페이지', '자유게시판'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem button key={'마이페이지'}>
+          <ListItemIcon>
+            <UserIcon />
+            <ListItemText primary={'마이페이지'} style={{marginTop:0, marginLeft:15}} />
+          </ListItemIcon>
+        </ListItem>
+        <ListItem button key={'자유게시판'}>
+          <ListItemIcon>
+            <BoardIcon />
+            <ListItemText primary={'자유게시판'} style={{marginTop:0, marginLeft:15}} />
+          </ListItemIcon>
+        </ListItem>
       </List>
       <Divider />
       <List>
-        {['우리동네 후보자 살펴보기', '국회의원 찾기', '나와 잘 맞는 정치인 찾기', '나의 정치성향 테스트'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+      <ListItem button key={'우리동네 후보자 살펴보기'}>
+          <ListItemIcon>
+            <FaceIcon />
+            <ListItemText primary={'우리동네 후보자 살펴보기'} style={{marginTop:0, marginLeft:15}} />
+          </ListItemIcon>
+        </ListItem>
+        <ListItem button key={'국회의원 찾기'}>
+          <ListItemIcon>
+            <SearchIcon />
+            <ListItemText primary={'국회의원 찾기'} style={{marginTop:0, marginLeft:15}} />
+          </ListItemIcon>
+        </ListItem>
+        <ListItem button key={'나와 잘맞는 정치인 찾기'}>
+          <ListItemIcon>
+            <GroupIcon />
+            <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{marginTop:0, marginLeft:15}} />
+          </ListItemIcon>
+        </ListItem>
+        <ListItem button key={'나의 정치성향 테스트'}>
+          <ListItemIcon>
+            <CheckIcon />
+            <ListItemText primary={'나의 정치성향 테스트'} style={{marginTop:0, marginLeft:15}} />
+          </ListItemIcon>
+        </ListItem>
       </List>
     </div>
   );
