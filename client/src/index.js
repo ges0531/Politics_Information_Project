@@ -10,7 +10,7 @@ import 'semantic-ui-css/semantic.min.css';
 
 const theme = createMuiTheme({
     typography: {
-        fontFamily: '양진체',
+        fontFamily: 'RIDIBatang',
     },
 });
 
