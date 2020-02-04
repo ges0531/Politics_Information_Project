@@ -23,7 +23,7 @@ const featuredPosts = [
     link: '/MemberList',
   },
   {
-    title: '나와 잘 맞는 정치인 찾기',
+    title: '나와 잘맞는 정치인 찾기',
     description:
       '공약으로 찾아가는 카드게임',
     image: 'https://alinechicago.com/wp-content/uploads/2019/12/shot-cropped-1565091512150.png',
