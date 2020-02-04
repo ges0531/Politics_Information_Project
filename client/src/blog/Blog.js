@@ -16,7 +16,6 @@ const mainFeaturedPost = {
 const featuredPosts = [
   {
     title: '국회의원 찾기',
-    date: '2020.01 Update',
     description:
       '우리 지역의 국회의원을 찾아보세요!',
     image: 'http://www.urbanbrush.net/web/wp-content/uploads/edd/2018/06/web-20180620025328990421.png',
@@ -25,7 +24,6 @@ const featuredPosts = [
   },
   {
     title: '나와 잘 맞는 정치인 찾기',
-    date: '2020.01 Update',
     description:
       '공약으로 찾아가는 카드게임',
     image: 'https://alinechicago.com/wp-content/uploads/2019/12/shot-cropped-1565091512150.png',
@@ -34,7 +32,6 @@ const featuredPosts = [
   },
   {
     title: '나의 정치성향 테스트',
-    date: '2020.01 Update',
     description:
       '나의 정치 성향은 무엇일까?',
     image: 'https://images.joins.com/newsroom/myPoliticsTest/sns_thumb.png',

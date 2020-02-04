@@ -28,7 +28,7 @@ export default function FeaturedPost(props) {
   const { post } = props;
 
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={6} style={{margin:15}}>
       <CardActionArea component="a" href="#">
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
@@ -36,14 +36,8 @@ export default function FeaturedPost(props) {
               <Typography component="h2" variant="h5">
                 {post.title}
               </Typography>
-              <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
-              </Typography>
               <Typography variant="subtitle1" paragraph>
                 {post.description}
-              </Typography>
-              <Typography variant="subtitle1" color="primary">
-                자세히 알아보기...
               </Typography>
             </CardContent>
           </div>
