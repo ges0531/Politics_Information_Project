@@ -62,7 +62,7 @@ export default function Header(props) {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {['마이페이지', '우리동네 후보 찾아보기', '국회의원 리스트', '카드게임'].map((text, index) => (
+        {['마이페이지', '자유게시판'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
@@ -71,7 +71,7 @@ export default function Header(props) {
       </List>
       <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['우리동네 후보자 살펴보기', '국회의원 찾기', '나와 잘 맞는 정치인 찾기', '나의 정치성향 테스트'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
             <ListItemText primary={text} />
