@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Cardgame.css";
-import Reactcard from "./react_card/react_card";
+import Reactcard from "./react_card";
 import Grid from "@material-ui/core/Grid";
 
 const db = [

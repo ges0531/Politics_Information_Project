@@ -81,7 +81,9 @@ export default function Header(props) {
         <ListItem button key={'자유게시판'}>
           <ListItemIcon>
             <BoardIcon />
+            <Link to='/PostPage' className={classes.link}>
             <ListItemText primary={'자유게시판'} style={{marginTop:0, marginLeft:15}} />
+            </Link>
           </ListItemIcon>
         </ListItem>
       </List>
