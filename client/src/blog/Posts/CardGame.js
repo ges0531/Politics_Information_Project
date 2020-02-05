@@ -53,7 +53,6 @@ const db = [
 ];
 
 function Cardgame() {
-  var buttonText = "결과확인";
   var flag_array = new Array();
   var name_array = [];
   var id_array = [];
@@ -70,8 +69,6 @@ function Cardgame() {
     if (button_flag) {
       buttonTextChange(!button_flag);
       flagCount(db.length);
-      // name_array = [];
-      // id_array = [];
     } else {
       for (var i = 0; i < db.length; i++) {
         flag_array[i] = 0;
@@ -117,6 +114,11 @@ function Cardgame() {
     }
     console.log(name + " left the screen!");
   };
+
+  fetch("http://70.12.247.60:8080/promise/3")
+    .then(response => response.json())
+    .then(json => console.log(json[2].title))
+    .catch(err => console.log(err));
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">
