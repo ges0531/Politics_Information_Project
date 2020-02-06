@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { Provider } from 'react-redux';
-import store from './redux/store';
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -17,11 +15,9 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-    <Provider store={store}>
     <MuiThemeProvider theme={theme}>
     <App />
     </MuiThemeProvider>
-    </Provider>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
