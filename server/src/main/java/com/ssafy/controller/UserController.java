@@ -33,7 +33,6 @@ public class UserController {
 	private JwtService jwtService;
 
 	// 모든 유저 조회
-
 	@GetMapping
 	public ResponseEntity<List<User>> getAllUser() {
 
@@ -52,9 +51,7 @@ public class UserController {
 	}
 
 	//유저삭제
-
 	@DeleteMapping
-
 	public ResponseEntity<Void> deleteUser(@RequestBody User user) {
 		HttpStatus status;
 		try {
@@ -71,9 +68,7 @@ public class UserController {
 	}
 
 	// userId로 사원 수정
-
 	@PutMapping
-
 	public ResponseEntity<Void> updateUser(@RequestBody User user) {
 
 		userService.update(user);
@@ -83,9 +78,7 @@ public class UserController {
 	}
 
 	// 사원 입력 회원가입
-
 	@PostMapping(value = "/signUp")
-
 	public ResponseEntity<User> signUp(@RequestBody User user) {
 
 		return new ResponseEntity<User>(userService.save(user), HttpStatus.OK);
@@ -93,10 +86,11 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/signIn")
-	public ResponseEntity<Map<String, Object>> signIn(@RequestBody User user, HttpServletResponse res) {
+	public ResponseEntity<Map<String, Object>> signIn(@RequestBody HashMap<String, String> map, HttpServletResponse res) {
 		Map<String, Object> resultMap = new HashMap<>();
 		HttpStatus status = null;
 		try {
+			User user = new User(map.get("uMail"), map.get("uPass"), "", "");
 			User reqUser = userService.checkPass(user);
 			
 			String token;

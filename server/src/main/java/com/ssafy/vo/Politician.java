@@ -1,7 +1,10 @@
 package com.ssafy.vo;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 
 @Entity
 public class Politician {
@@ -109,7 +112,5 @@ public class Politician {
 				+ ", pEducation=" + pEducation + ", pCareer=" + pCareer + ", pContact=" + pContact + ", pMail=" + pMail
 				+ "]";
 	}
-	
-	
 	
 }

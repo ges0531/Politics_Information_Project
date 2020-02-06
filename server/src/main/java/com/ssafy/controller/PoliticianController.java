@@ -30,8 +30,16 @@ public class PoliticianController {
 	@GetMapping(value = "/{category}/{input}")
 	public ResponseEntity<List<Politician>> searchPolitician(@PathVariable("input") String input,
 			@PathVariable("category") String cate) {
-		
+
 		return new ResponseEntity<List<Politician>>(politicianService.searchPolitician(input, cate), HttpStatus.OK);
 
 	}
+
+	@GetMapping(value = "/{pid}")
+	public ResponseEntity<Politician> detailPolitician(@PathVariable("pid") int pId) {
+
+		return new ResponseEntity<Politician>(politicianService.findById(pId), HttpStatus.OK);
+
+	}
+
 }
