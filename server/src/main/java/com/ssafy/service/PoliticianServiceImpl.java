@@ -1,5 +1,6 @@
 package com.ssafy.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ssafy.repository.PoliticianRepository;
 import com.ssafy.vo.Politician;
+import com.ssafy.vo.Promise;
 
 @Service
 public class PoliticianServiceImpl implements PoliticianService {
@@ -53,5 +55,18 @@ public class PoliticianServiceImpl implements PoliticianService {
 		}
 		
 		return null;
+	}
+	
+	public Politician findById(int pId) {
+		return politicianRepository.findById(pId);
+	}
+	
+	// 랜덤으로 국회의원 뽑기
+	public List<Politician> getRandom() {
+		List<Politician> tempList = new ArrayList();
+		tempList.addAll(politicianRepository.findRandom("자유한국당",2));
+		tempList.addAll(politicianRepository.findRandom("더불어민주당",2));
+		tempList.addAll(politicianRepository.findRandom("바른미래당",1));
+		return tempList;
 	}
 }

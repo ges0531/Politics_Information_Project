@@ -13,4 +13,6 @@ public interface PoliticianService {
 	List<Politician> findByConsitiuency(String pConsitiuency);
 	List<Politician> findAll();
 	List<Politician> searchPolitician(String input, String cate);
+	Politician findById(int pId);
+	List<Politician> getRandom();
 }
