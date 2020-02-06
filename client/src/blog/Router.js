@@ -20,7 +20,6 @@ import CandidateCardDetail from './candidate/CandidateCardDetail';
 import Test from './Posts/Test';
 
 import TeamPage from './TeamPage';
-import SignInCopy from '../sign/SignInCopy';
 
 const Router = () => {
     return (
@@ -30,8 +29,7 @@ const Router = () => {
         <Switch>
           <Route exact path="/" component={Blog} />
           <Route exact path="/SignUp" component={SignUp} />
-          {/* <Route exact path="/SignIn" component={SignIn} /> */}
-          <Route exact path="/SignIn" component={SignInCopy} />
+          <Route exact path="/SignIn" component={SignIn} />
           <Route exact path="/MemberList" component={MemberList} />
           <Route exact path="/MemberDetail" component={MemberDetail} />
           <Route exact path="/CardGame" component={CardGame} />
