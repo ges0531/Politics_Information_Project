@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cardgame.css";
 import Reactcard from "./react_card";
 import Grid from "@material-ui/core/Grid";
+import axios from 'axios';
+
+
 
 const db = [
   {
@@ -53,6 +56,7 @@ const db = [
 ];
 
 function Cardgame() {
+  
   var flag_array = new Array();
   var name_array = [];
   var id_array = [];
@@ -64,7 +68,20 @@ function Cardgame() {
   const [flag, flagCount] = useState(db.length);
   const [boolean_flag, booleanChange] = useState(false);
   const [button_flag, buttonTextChange] = useState(false);
+ 
+  const [data, dataSet] = useState(false)
 
+    async function fetchMyAPI() {
+      let response = await fetch('http://52.79.219.137:8000/cardgame/')
+      response = await response.json()
+      dataSet(response)
+    }
+
+    useEffect(() => {
+      fetchMyAPI();
+    }, []);
+
+    console.log(data)
   const textChange = () => {
     if (button_flag) {
       buttonTextChange(!button_flag);
@@ -115,10 +132,7 @@ function Cardgame() {
     console.log(name + " left the screen!");
   };
 
-  fetch("http://70.12.247.60:8080/promise/3")
-    .then(response => response.json())
-    .then(json => console.log(json[2].title))
-    .catch(err => console.log(err));
+  
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">

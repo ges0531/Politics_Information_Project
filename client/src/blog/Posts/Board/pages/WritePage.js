@@ -1,12 +1,13 @@
 import React from 'react';
 import { Responsive } from 'semantic-ui-react';
-import Editor from '../write/Editor';
-import WriteActionButtons from '../write/WriteActionButtons';
+import Editor from '../components/write/Editor';
+import WriteActionButtons from '../components/write/WriteActionButtons';
+import EditorContainer from '../containers/write/EditorContainer';
 
 const WritePage = () => {
     return (
         <Responsive>
-            <Editor />
+            <EditorContainer />
             <WriteActionButtons />
         </Responsive>
     );
