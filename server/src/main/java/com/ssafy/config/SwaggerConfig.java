@@ -1,7 +1,11 @@
 package com.ssafy.config;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.Spring;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,11 +13,14 @@ import io.jsonwebtoken.lang.Arrays;
 import io.swagger.annotations.AuthorizationScope;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.AuthorizationCodeGrantBuilder;
+import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.ApiKey;
 import springfox.documentation.service.GrantType;
+import springfox.documentation.service.Parameter;
 import springfox.documentation.service.SecurityReference;
 import springfox.documentation.service.SecurityScheme;
 import springfox.documentation.service.TokenEndpoint;
@@ -28,13 +35,27 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+	
+	
+	
 	private ApiInfo metadata() {
-		return new ApiInfoBuilder().title("SaffyDang").description("Saffy desc by swagger").version("1.0").build();
+	
+		return new ApiInfoBuilder().title("SaffyDang").description("Saffy desc by swagger").version("2.0").build();
 	}
 
 	@Bean
 	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
+		ParameterBuilder aParameterBuilder = new ParameterBuilder();
+        aParameterBuilder.name("jwt-auth-token")
+                .description("JWT Token")
+                .modelRef(new ModelRef("string"))
+                .parameterType("header")
+                .required(false)
+                .build();
+        List<Parameter> headerParams = new ArrayList<>();
+        headerParams.add(aParameterBuilder.build());
+
+		return new Docket(DocumentationType.SWAGGER_2).globalOperationParameters(headerParams).select().apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build().apiInfo(metadata());
 	}
 	

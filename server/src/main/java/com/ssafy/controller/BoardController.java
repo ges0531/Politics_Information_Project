@@ -30,41 +30,53 @@ public class BoardController {
 	BoardService bodService;
 	@Autowired
 	JwtService jwtService;
+
 	@PostMapping
-	public void post (Board bod) {
+	public void post(Board bod) {
 		bodService.insertBod(bod);
 	}
+
 	@GetMapping
-	public ResponseEntity<List<Board>>  readAll() {
-		
-		return new ResponseEntity<List<Board>>(bodService.selectAllBod(),HttpStatus.OK);
-		
+	public ResponseEntity<List<Board>> readAll() {
+
+		return new ResponseEntity<List<Board>>(bodService.selectAllBod(), HttpStatus.OK);
+
 	}
-	
+
 	@DeleteMapping
 	public void deletePost(int bodId) {
 		bodService.deleteBod(bodId);
 	}
+
+	@GetMapping(value = "/{bodId}")
+	public ResponseEntity<Map<String, Object>> readPost(@PathVariable("bodId") int bodId, HttpServletRequest req) {
+
+		String token = req.getHeader("jwt-auth-token");
+		Map<String, Object> resMap = new HashMap();
+
+		Map<String, Object> map = null;
+		if (token != null && token.length() > 0) {
+			map = jwtService.get(token);
+			map = (Map<String, Object>) map.get("User");
+			resMap.put("post", bodService.readPost(bodId, (String) map.get("uMail")));
+		} else {
+			resMap.put("post", bodService.readPost(bodId, "nonuser"));
+		}
+
+		return new ResponseEntity<Map<String, Object>>(resMap, HttpStatus.OK);
+
+	}
 	
-	@GetMapping(value="/{bodId}")
-	public ResponseEntity<Map<String,Object>> readPost(@PathVariable("bodId") int bodId,  String token, HttpServletRequest req) {
-		//gethaeder
-		//String token=req.getHeader("jwt-auth-token");
-		//if(token.isEmpty()){
-		//Map<String, Object> map=jwtService.get(req.getHeader("jwt-auth-token")) 헤더에서 뽑을경우 
-		Map<String, Object> map= jwtService.get(token);
+	@PostMapping(value="/{bodId}/{uMail}")
+	public ResponseEntity<Void> likeBod(@PathVariable("bodId") int bodId, @PathVariable("uMail") String uMail){
+		Board bod=bodService.selectOne(bodId);
+		if(bod.getuMail().equals(uMail)) {
+			return new ResponseEntity<Void>(HttpStatus.NOT_ACCEPTABLE);
+		}
+		bodService.plusLikeCnt(bodId);
+		bodService.insertLikeBod(bodId, uMail);
 		
-		String str;
-		
-		map=(Map<String, Object>) map.get("User");
-		
-		Map<String, Object> resMap=new HashMap();
-		resMap.put("post", bodService.readPost(bodId, (String)map.get("uMail"))) ;
-		
-		return new ResponseEntity<Map<String,Object>>(resMap,HttpStatus.OK);
-		
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
-	
-	
 }

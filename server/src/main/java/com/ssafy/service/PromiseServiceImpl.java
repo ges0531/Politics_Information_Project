@@ -19,9 +19,4 @@ public class PromiseServiceImpl implements PromiseService {
 		// TODO Auto-generated method stub
 		return promiseRepository.findByPoliticianId(pId);
 	}
-
-	@Override
-	public List<Promise> findByPoliticianIdRandom(int pId) {
-		return promiseRepository.findByPoliticianIdRandom(pId);
-	}
 }

@@ -6,12 +6,15 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.repository.BoardLikeRepository;
 import com.ssafy.repository.BoardRepository;
 import com.ssafy.vo.Board;
+import com.ssafy.vo.Boardlike;
 
 @Service
+@Transactional
 public class BoardServiceImpl implements BoardService {
 
 	
@@ -42,12 +45,14 @@ public class BoardServiceImpl implements BoardService {
 		bodRepository.save(bod);
 		
 	}
+	@Override
 	public void plusLikeCnt(int bodId) {
-		
+		bodRepository.addLikeCnt(bodId);
 	}
-	
+	@Override
 	public void insertLikeBod(int bodId, String uMail) {
-		
+		Boardlike boardLike=new Boardlike(bodId,uMail);
+		bodLikeRepository.save(boardLike);
 	}
 
 
@@ -70,6 +75,9 @@ public class BoardServiceImpl implements BoardService {
 		map.put("post", bodRepository.findById(bodId)) ;
 		return map;
 	}
+
+
+	
 
 	
 }

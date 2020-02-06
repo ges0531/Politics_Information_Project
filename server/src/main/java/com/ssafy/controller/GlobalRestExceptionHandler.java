@@ -1,4 +1,4 @@
-package com.ssafy.controller;
+/*package com.ssafy.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,3 +21,4 @@ public class GlobalRestExceptionHandler {
 		return resultMap;
 	}
 }
+*/

@@ -3,6 +3,7 @@ package com.ssafy;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -13,8 +14,10 @@ import com.ssafy.interceptor.JwtInterceptor;
 
 @SpringBootApplication
 public class SaffyOneApplication implements WebMvcConfigurer{
-
+	
+	
 	public static void main(String[] args) {
+		
 		SpringApplication.run(SaffyOneApplication.class, args);
 	}
 	@Autowired
