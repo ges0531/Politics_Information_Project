@@ -1,4 +1,4 @@
-package com.ssafy.controller;
+/*package com.ssafy.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,3 +40,4 @@ public class CardGameController {
 	}
 
 }
+*/

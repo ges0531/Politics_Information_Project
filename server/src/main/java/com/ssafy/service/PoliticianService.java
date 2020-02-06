@@ -1,6 +1,7 @@
 package com.ssafy.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ssafy.vo.Politician;
 
@@ -15,4 +16,5 @@ public interface PoliticianService {
 	List<Politician> searchPolitician(String input, String cate);
 	Politician findById(int pId);
 	List<Politician> getRandom();
+	Map<String, Object> detailPolitician(int pId, String uMail);
 }
