@@ -13,8 +13,6 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 import UserIcon from '@material-ui/icons/AccountCircle';
 import BoardIcon from '@material-ui/icons/BorderColor';
@@ -81,7 +79,9 @@ export default function Header(props) {
         <ListItem button key={'자유게시판'}>
           <ListItemIcon>
             <BoardIcon />
+            <Link to='/PostPage' className={classes.link}>
             <ListItemText primary={'자유게시판'} style={{marginTop:0, marginLeft:15}} />
+            </Link>
           </ListItemIcon>
         </ListItem>
       </List>
@@ -127,8 +127,7 @@ export default function Header(props) {
   const logout = (evt) => {
     evt.preventDefault();
     alert(`로그아웃 되었습니다`);
-    window.sessionStorage.removeItem("email");
-    setEmail(null);
+    localStorage.removeItem('username');
   }
 
   return (
@@ -156,7 +155,7 @@ export default function Header(props) {
           </Link>
         </Typography>
         {
-          email === null ?
+          localStorage.username === undefined ?
             <div>
               <Link to="/SignIn">
                 <Button variant="outlined" size="small" style={{ margin: 15 }}>
@@ -169,7 +168,7 @@ export default function Header(props) {
         </Button>
               </Link>
             </div>
-            : <div>{window.sessionStorage.getItem("email")} 님 안녕하세요 !
+            : <div>{localStorage.getItem('username')} 님 안녕하세요 !
             <Button variant="outlined" size="small" onClick={logout} style={{ margin: 15 }}>
                 로그아웃
             </Button></div>}

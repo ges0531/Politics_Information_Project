@@ -7,15 +7,19 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import 'semantic-ui-css/semantic.min.css';
 
+import "semantic-ui-css/semantic.min.css";
 
 const theme = createMuiTheme({
-    typography: {
-        fontFamily: 'RIDIBatang',
-    },
+  typography: {
+    fontFamily: "RIDIBatang"
+  }
 });
 
-ReactDOM.render(<MuiThemeProvider theme={theme}>
-    <App />
+const store = createStore(rootReducer, composeWithDevTools());
+
+ReactDOM.render(
+    <MuiThemeProvider theme={theme}>
+      <App />
     </MuiThemeProvider>
     , document.getElementById('root'));
 
