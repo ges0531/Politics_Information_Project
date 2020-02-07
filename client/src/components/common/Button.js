@@ -38,7 +38,7 @@ const buttonStyle = css`
 
     &:disabled {
     background: ${palette.gray[3]};
-    color: ${palette.gray[5]};
+    color: ${palette.gray[10]};
     cursor: not-allowed;
   }
 `;

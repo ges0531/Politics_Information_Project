@@ -2,40 +2,36 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import palette from '../../lib/styles/palette';
-import Button from '../common/Button';
 
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Avatar from '@material-ui/core/Avatar';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 
+import { Button } from 'semantic-ui-react';
 
-/**
- * 회원가입 또는 로그인 폼을 보여줍니다.
- */
-
-const AuthFormBlock = styled.div`
-  h3 {
-    margin: 0;
-    color: ${palette.gray[8]};
-    margin-bottom: 1rem;
-  }
-`;
-
-/**
- * 스타일링된 input
- */
-const StyledInput = styled.input`
-  font-size: 1rem;
-  border: none;
-  border-bottom: 1px solid ${palette.gray[5]};
-  padding-bottom: 0.5rem;
-  outline: none;
-  width: 100%;
-  &:focus {
-    color: $oc-teal-7;
-    border-bottom: 1px solid ${palette.gray[7]};
-  }
-  & + & {
-    margin-top: 1rem;
-  }
-`;
+const useStyles = makeStyles(theme => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    margin: theme.spacing(1),
+  },
+  submit: {
+    width: '100%',
+  },
+}));
 
 /**
  * 폼 하단에 로그인 혹은 회원가입 링크를 보여줌
@@ -50,10 +46,6 @@ const Footer = styled.div`
       color: ${palette.gray[9]};
     }
   }
-`;
-
-const ButtonWithMarginTop = styled(Button)`
-  margin-top: 1rem;
 `;
 
 const textMap = {
@@ -72,49 +64,82 @@ const ErrorMessage = styled.div`
 `;
 
 const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
+  const classes = useStyles();
   const text = textMap[type];
   return (
-    <AuthFormBlock>
-      <h3>{text}</h3>
-      <form onSubmit={onSubmit}>
-        <StyledInput
-          autoComplete="username"
-          name="username"
-          placeholder="아이디"
-          onChange={onChange}
-          value={form.username}
-        />
-        <StyledInput
-          autoComplete="new-password"
-          name="password"
-          placeholder="비밀번호"
-          type="password"
-          onChange={onChange}
-          value={form.password}
-        />
-        {type === 'register' && (
-          <StyledInput
-            autoComplete="new-password"
-            name="passwordConfirm"
-            placeholder="비밀번호 확인"
-            type="password"
-            onChange={onChange}
-            value={form.passwordConfirm}
-          />
-        )}
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        <ButtonWithMarginTop cyan fullWidth style={{ marginTop: '1rem' }}>
-          {text}
-        </ButtonWithMarginTop>
-      </form>
-      <Footer>
-        {type === 'login' ? (
-          <Link to="/register">회원가입</Link>
-        ) : (
-          <Link to="/login">로그인</Link>
-        )}
-      </Footer>
-    </AuthFormBlock>
+    <React.Fragment>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            {text}
+          </Typography>
+
+          <form className={classes.form} onSubmit={onSubmit}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="이메일 주소"
+              autoFocus
+
+              autoComplete="uMail"
+              name="uMail"
+              onChange={onChange}
+              value={form.uMail}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="비밀번호"
+
+              autoComplete="new-password"
+              name="password"
+              type="password"
+              onChange={onChange}
+              value={form.password}
+            />
+            {type === 'register' && (
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                label="비밀번호 확인"
+
+                autoComplete="new-password"
+                name="passwordConfirm"
+                type="password"
+                onChange={onChange}
+                value={form.passwordConfirm}
+              />
+            )}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+            <Button
+              fullWidth
+              className={classes.submit}
+              variant="contained"
+              style={{ marginTop: '1rem', 'font-size': '1rem' }}
+            >
+              {text}
+            </Button>
+          </form>
+          <Footer>
+            {type === 'login' ? (
+              <Link to="/SignUp">회원가입</Link>
+            ) : (
+                <Link to="/SignIn">로그인</Link>
+              )}
+          </Footer>
+        </div>
+      </Container>
+    </React.Fragment>
   );
 };
 

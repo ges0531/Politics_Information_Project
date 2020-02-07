@@ -15,14 +15,14 @@ const PaginationContainer = ({ location }) => {
   if (!posts || loading) return null;
 
   // page가 없으면 1을 기본값으로 사용
-  const { tag, username, page = 1 } = qs.parse(location.search, {
+  const { tag, uMail, page = 1 } = qs.parse(location.search, {
     ignoreQueryPrefix: true,
   });
 
   return (
     <Pagination
       tag={tag}
-      username={username}
+      uMail={uMail}
       page={parseInt(page, 10)}
       lastPage={lastPage}
     />
