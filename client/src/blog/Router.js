@@ -9,7 +9,8 @@ import Header from './Header';
 import Footer from './Footer';
 import MemberList from './Posts/MemberList';
 import MemberDetail from './Posts/MemberDetail';
-import CardGame from './Posts/CardGame';
+
+import CardGame from './Posts/react_card/CardGame';
 
 import CandidateMain from './candidate/CandidateMain';
 import CandidateDetail from './candidate/CandidateDetail';
@@ -17,7 +18,15 @@ import CandidateDetail2 from './candidate/CandidateDetail2';
 
 import CandidateCard from './candidate/CandidateCard';
 import CandidateCardDetail from './candidate/CandidateCardDetail';
-import Test from './Posts/Test';
+
+import Test from './Posts/test_policy/Test';
+
+import PostListPage from './Posts/Board/pages/PostListPage';
+import PostPage from './Posts/Board/pages/PostPage';
+import WritePage from './Posts/Board/pages/WritePage';
+
+
+import TeamPage from './TeamPage';
 
 const Router = () => {
     return (
@@ -38,7 +47,14 @@ const Router = () => {
           <Route exact path="/CandidateCard" component={CandidateCard} />
           <Route exact path="/CandidateCardDetail" component={CandidateCardDetail} />
           <Route exact path="/Test" component={Test} />
+          
+          <Route exact path="/@:username/:postId" component={PostPage} />
+          <Route exact path={['/@:username', '/']} component={PostListPage} />
+          <Route exact path="/write" component={WritePage} />
 
+          
+
+          <Route exact path="TeamPage" component={TeamPage} />
         </Switch>
       <Footer />
       </HashRouter>
