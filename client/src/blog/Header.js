@@ -125,7 +125,7 @@ export default function Header(props) {
   const logout = (evt) => {
     evt.preventDefault();
     alert(`로그아웃 되었습니다`);
-    localStorage.removeItem('username');
+    localStorage.removeItem('nick');
   }
 
   return (

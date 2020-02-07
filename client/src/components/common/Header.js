@@ -48,7 +48,7 @@ const Header = ({ nick, onLogout }) => {
       <HeaderBlock>
         <Wrapper>
           <Link to="/" className="logo">
-            REACTERS
+            싸피는하나당
           </Link>
           {nick ? (
             <div className="right">
