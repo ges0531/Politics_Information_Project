@@ -20,7 +20,7 @@ const checkSaga = createRequestSaga(CHECK, authAPI.check);
 
 function checkFailureSaga() {
   try {
-    localStorage.removeItem('user'); // localStorage 에서 user 제거하고
+    localStorage.removeItem('nick'); // localStorage 에서 user 제거하고
   } catch (e) {
     console.log('localStorage is not working');
   }
@@ -29,7 +29,7 @@ function checkFailureSaga() {
 function* logoutSaga() {
   try {
     yield call(authAPI.logout); // logout API 호출
-    localStorage.removeItem('user'); // localStorage 에서 user 제거
+    localStorage.removeItem('nick'); // localStorage 에서 user 제거
   } catch (e) {
     console.log(e);
   }
@@ -43,7 +43,7 @@ export function* userSaga() {
 
 const initialState = {
   user: null,
-  checkError: null,
+  checkError: null
 };
 
 export default handleActions(
@@ -64,7 +64,7 @@ export default handleActions(
     }),
     [LOGOUT]: state => ({
       ...state,
-      user: null,
+      user: null
     }),
   },
   initialState,

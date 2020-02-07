@@ -8,11 +8,12 @@ import { withRouter } from 'react-router-dom';
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
+  const { form, auth, authError, user, nick } = useSelector(({ auth, user, nick }) => ({
     form: auth.register,
     auth: auth.auth,
     authError: auth.authError,
     user: user.user,
+    nick: nick.nick
   }));
   // 인풋 변경 이벤트 핸들러
   const onChange = e => {
@@ -72,17 +73,17 @@ const RegisterForm = ({ history }) => {
     }
   }, [auth, authError, dispatch]);
 
-  // user 값이 잘 설정되었는지 확인
+  // nick 값이 잘 설정되었는지 확인
   useEffect(() => {
-    if (user) {
+    if (nick) {
       history.push('/'); // 홈 화면으로 이동
       try {
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('nick', JSON.stringify(nick));
       } catch (e) {
         console.log('localStorage is not working');
       }
     }
-  }, [history, user]);
+  }, [history, nick]);
 
   return (
     <AuthForm

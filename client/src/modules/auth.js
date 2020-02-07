@@ -51,7 +51,8 @@ const initialState = {
   },
   login: {
     uMail: '',
-    password: ''
+    password: '',
+    isLoginSuccess:false
   },
   auth: null,
   authError: null
@@ -83,6 +84,7 @@ const auth = handleActions(
     [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
       ...state,
       authError: null,
+      isLoginSuccess:true,
       auth
     }),
     // 로그인 실패
