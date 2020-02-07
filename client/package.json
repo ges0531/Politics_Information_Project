@@ -35,10 +35,6 @@
     "react-scripts": "3.3.0",
     "react-social-login": "^3.4.6",
     "redux": "^4.0.5",
-<<<<<<< HEAD
-    "redux-action": "^1.2.2",
-=======
->>>>>>> 0fc09007107c2f37ee45181c7e88ccc191e60165
     "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
