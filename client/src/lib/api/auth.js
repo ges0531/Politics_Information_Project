@@ -9,6 +9,7 @@ export const register = ({ uMail, password }) =>
   client.post('/user/signUp', { uMail:uMail, uPass:password, uName:null, uParty:null });
 
 // 로그인 상태 확인
+// export const check = () => client.get('/user/signIn');
 export const check = () => client.get('/user/signIn');
 
 // 로그아웃

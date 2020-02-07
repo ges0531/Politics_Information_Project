@@ -57,7 +57,7 @@ const Header = ({ user, onLogout }) => {
             </div>
           ) : (
             <div className="right">
-              <Button to="/login">로그인</Button>
+              <Button to="/signIn">로그인</Button>
             </div>
           )}
         </Wrapper>

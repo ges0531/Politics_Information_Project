@@ -125,7 +125,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
               fullWidth
               className={classes.submit}
               variant="contained"
-              style={{ marginTop: '1rem', 'font-size': '1rem' }}
+              style={{ marginTop: '1rem', fontSize: '1rem' }}
             >
               {text}
             </Button>
