@@ -23,6 +23,7 @@ import CandidateCard from './blog/candidate/CandidateCard';
 import CandidateCardDetail from './blog/candidate/CandidateCardDetail';
 import Test from './blog/Posts/Test';
 import TeamPage from './blog/TeamPage'
+import HeaderContainer from './containers/common/HeaderContainer';
 
 const App = () => {
   return (
@@ -30,7 +31,8 @@ const App = () => {
       <Helmet>
         <title>싸피는하나당</title>
       </Helmet>
-      <Header title="싸피는하나당" />
+      <HeaderContainer />
+      {/* <Header title="싸피는하나당" /> */}
       <Route exact path="/" component={Blog} />
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
