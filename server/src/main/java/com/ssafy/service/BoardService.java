@@ -15,6 +15,10 @@ public interface BoardService {
 	List<Board> selectAllBod();
 	void deleteBod(int bodId);
 	Board selectOne(int bodId);
-	Map<String,Object> readPost(int bodId,String uMail);
+	Map<String,Object> readPost(int bodId,String token);
+	public void plusLikeCnt(int bodId) ;
+	
+	public void insertLikeBod(int bodId, String uMail);
+	
 	
 }

@@ -2,6 +2,9 @@ package com.ssafy.vo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Promise {
@@ -41,6 +44,5 @@ public class Promise {
 	public String toString() {
 		return "Promise [prId=" + prId + ", pId=" + pId + ", title=" + title + "]";
 	}
-	
 	
 }
