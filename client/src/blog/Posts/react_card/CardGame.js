@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./Cardgame.css";
 import Reactcard from "./react_card";
 import Grid from "@material-ui/core/Grid";
-import axios from 'axios';
-
-
 
 const db = [
   {
@@ -56,32 +53,34 @@ const db = [
 ];
 
 function Cardgame() {
-  
   var flag_array = new Array();
   var name_array = [];
   var id_array = [];
   for (var i = 0; i < db.length; i++) {
     flag_array[i] = 0;
   }
-  const characters = db;
+  var characters = db;
   const [lastDirection, setLastDirection] = useState();
   const [flag, flagCount] = useState(db.length);
   const [boolean_flag, booleanChange] = useState(false);
   const [button_flag, buttonTextChange] = useState(false);
- 
-  const [data, dataSet] = useState(false)
 
-    async function fetchMyAPI() {
-      let response = await fetch('http://52.79.219.137:8000/cardgame/')
-      response = await response.json()
-      dataSet(response)
-    }
+  const [data, dataSet] = useState(false);
 
-    useEffect(() => {
-      fetchMyAPI();
-    }, []);
+  async function fetchMyAPI() {
+    let response = await fetch("http://52.79.219.137:8000/cardgame/");
+    response = await response.json();
+    dataSet(response);
+  }
 
-    console.log(data)
+  useEffect(() => {
+    fetchMyAPI();
+  }, []);
+  if (data.promises) {
+  var useData = data;
+  }
+  console.log(useData)
+
   const textChange = () => {
     if (button_flag) {
       buttonTextChange(!button_flag);
@@ -131,8 +130,6 @@ function Cardgame() {
     }
     console.log(name + " left the screen!");
   };
-
-  
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">
@@ -187,7 +184,7 @@ function Cardgame() {
               textChange();
             }}
           >
-            {button_flag ? ('재시작') : ('결과확인')}
+            {button_flag ? "재시작" : "결과확인"}
           </button>
         </div>
       )}

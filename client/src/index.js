@@ -15,7 +15,7 @@ const theme = createMuiTheme({
   }
 });
 
-const store = createStore(rootReducer, composeWithDevTools());
+// const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
     <MuiThemeProvider theme={theme}>
