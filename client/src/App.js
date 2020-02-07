@@ -13,7 +13,7 @@ import Footer from './blog/Footer';
 
 import MemberList from './blog/Posts/MemberList';
 import MemberDetail from './blog/Posts/MemberDetail';
-import CardGame from './blog/Posts/CardGame';
+import CardGame from './blog/Posts/react_card/CardGame';
 
 import CandidateMain from './blog/candidate/CandidateMain';
 import CandidateDetail from './blog/candidate/CandidateDetail';
@@ -21,7 +21,7 @@ import CandidateDetail2 from './blog/candidate/CandidateDetail2';
 
 import CandidateCard from './blog/candidate/CandidateCard';
 import CandidateCardDetail from './blog/candidate/CandidateCardDetail';
-import Test from './blog/Posts/Test';
+import Test from './blog/Posts/test_policy/Test';
 import TeamPage from './blog/TeamPage'
 import HeaderContainer from './containers/common/HeaderContainer';
 
