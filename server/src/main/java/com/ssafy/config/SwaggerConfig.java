@@ -39,8 +39,8 @@ public class SwaggerConfig {
 	
 	
 	private ApiInfo metadata() {
-	
-		return new ApiInfoBuilder().title("SaffyDang").description("Saffy desc by swagger").version("2.0").build();
+	//saffy
+		return new ApiInfoBuilder().title("SSAFYyDang").description("SSAFY desc by swagger").version("2.0").build();
 	}
 
 	@Bean
@@ -54,7 +54,7 @@ public class SwaggerConfig {
                 .build();
         List<Parameter> headerParams = new ArrayList<>();
         headerParams.add(aParameterBuilder.build());
-
+        
 		return new Docket(DocumentationType.SWAGGER_2).globalOperationParameters(headerParams).select().apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build().apiInfo(metadata());
 	}

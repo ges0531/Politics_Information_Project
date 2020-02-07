@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.service.BoardService;
 import com.ssafy.service.JwtService;
+import com.ssafy.tool.PageRequest;
 import com.ssafy.vo.Board;
 import com.ssafy.vo.User;
 
@@ -78,5 +80,13 @@ public class BoardController {
 		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
+	
+	/*
+    @GetMapping("accounts")
+        public Page<Board .Res> getAccounts(final PageRequest pageable) {
+            return accountService.findAll(pageable.of()).map(AccountDto.Res::new);
+        }
+    */
+    
 
 }
