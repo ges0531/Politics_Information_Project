@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
+import Axios from "axios";
 
 const classes = makeStyles(theme => ({
   icon: {
@@ -37,30 +38,30 @@ const classes = makeStyles(theme => ({
   },
 }));
 
-const Item = ({ num }) => (
+const Item = ({ item }) => (
   <Card className={classes.card}>
     <Link to="/MemberDetail">
       <CardMedia
         className={classes.cardMedia}
-        image="https://pbs.twimg.com/profile_images/798463233774350336/KlHqUNgL_400x400.jpg"
+        image={item.pImg}
         style={{ height: '300px' }}
       />
     </Link>
     <CardContent className={classes.cardContent}>
       <Typography gutterBottom variant="h5" component="h2">
-        문 재 인
-                    </Typography>
+        {item.pName}
+      </Typography>
       <Typography color="textSecondary">
-        싸하당
-                    </Typography>
+        {item.pParty}
+      </Typography>
       <Typography>
         국정운영과 의정활동 36년<br />김싸피는 경제의 맥을 확실히 알고 있습니다
                     </Typography>
     </CardContent>
     <CardActions>
       <Button size="small" color="primary">
-        강남구 갑
-                    </Button>
+        {item.pConstituency}
+      </Button>
       <Button size="small" color="primary">
         공약이행률 54.00%
                     </Button>
@@ -69,29 +70,50 @@ const Item = ({ num }) => (
 );
 
 class GridList extends React.Component {
-  state = { list: [] };
-  loadItems(groupKey, num) {
-    const items = [];
-    const start = this.start || 0;
+  state = {
+    list: [],
+    url: "http://localhost:8000/test/",
+    pageNumber: 0,
+    totalPage: 0
+  };
 
-    for (let i = 0; i < num; ++i) {
-      items.push(
-        <Item groupKey={groupKey} num={1 + start + i} key={start + i} />
-      );
-    }
-    this.start = start + num;
-    return items;
+
+  // 하단에 닿으면 새로운 컴포턴트 로딩
+  loadItems = async (groupKey, size) => {
+    
+    const pn = this.state.pageNumber;
+    console.log(pn);
+    const res = await Axios.get(this.state.url + "?pageNumber=" + pn + "&pageSize=" + size);
+    const politicians = res.data.content;
+    const totalPeges = res.data.pageable.totalPages;
+    console.log(res.data);
+    const newPoliticians = politicians.map((politician) => (
+      <Item groupKey={groupKey} key={politician.pId} item={politician} />
+    ));
+    this.setState({
+      list: this.state.list.push(newPoliticians)
+    })
+    // politicians.map(element => {
+    //   console.log(element);
+    //   items.push(
+    //     <Item groupKey={groupKey} key={element.pId} item={element} />
+    //   );
+    // });
+
+    // 한번 로딩 끝나면 페이지 넘버 업데이트
+    this.setState({
+      pageNumber: this.state.pageNumber + 1
+    })
   }
+
   onAppend = ({ groupKey, startLoading }) => {
     startLoading();
-    const list = this.state.list;
-    const items = this.loadItems(parseFloat(groupKey) + 1, 5);
-
-    this.setState({ list: list.concat(items) });
+    this.loadItems(parseFloat(groupKey) + 1, 20);
   };
   onLayoutComplete = ({ isLayout, endLoading }) => {
     !isLayout && endLoading();
   };
+
   render() {
     return (
       <GridLayout
