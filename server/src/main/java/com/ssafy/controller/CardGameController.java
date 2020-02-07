@@ -1,4 +1,4 @@
-/*package com.ssafy.controller;
+package com.ssafy.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +39,7 @@ public class CardGameController {
 		
 		for (int i = 0; i < promises.size(); i++) {
 			randArr[i] = (int)(Math.random()*25);
-			System.out.println(randArr[i]);
+//			System.out.println(randArr[i]);
 			for(int search = 0; search < i ; search++) {
 				if(randArr[i] == randArr[search]) {
 					i--;
@@ -62,4 +62,3 @@ public class CardGameController {
 	}
 
 }
-*/

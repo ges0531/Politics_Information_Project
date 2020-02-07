@@ -24,7 +24,7 @@ public class PagingTestController {
 	PageTestService pageTestService;
 	
 	@GetMapping("/")
-	ResponseEntity<Page<Politician>> getBillBypName(@RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) {
+	ResponseEntity<Page<Politician>> getPoliticians(@RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) {
 		return new ResponseEntity<Page<Politician>>(pageTestService.findAll(pageNumber, pageSize), HttpStatus.OK);
 	}
 }
