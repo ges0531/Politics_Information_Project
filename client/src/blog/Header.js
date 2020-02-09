@@ -47,9 +47,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Header(props) {
+const Header = ({ isLoginSuccess, nick, onLogout }) => {
+// export default function Header(isLoginSuccess, nick, onLogout) {
+  console.log(isLoginSuccess);
   const classes = useStyles();
-  const { title } = props;
+  // const { title } = props;
   const [state, setState] = React.useState({
     left: false,
   });
@@ -121,39 +123,45 @@ export default function Header(props) {
     </div>
   );
 
-  const [email, setEmail] = useState(window.sessionStorage.getItem("email"));
-  const logout = (evt) => {
-    evt.preventDefault();
-    alert(`로그아웃 되었습니다`);
-    localStorage.removeItem('nick');
-  }
-
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
+
       <div>
-      <Button onClick={toggleDrawer('left', true)}><MenuIcon/></Button>
-      <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
-        {sideList('left')}
-      </Drawer>
-    </div>
-          <Button variant="outlined" size="small" style={{ margin: 15 }}>
-            실시간 채팅 참여하기
-          </Button>
-        <Typography
+        <Button onClick={toggleDrawer('left', true)}><MenuIcon/></Button>
+        <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+          {sideList('left')}
+        </Drawer>
+      </div>
+
+      <Button variant="outlined" size="small" style={{ margin: 15 }}>
+        실시간 채팅 참여하기
+      </Button>
+
+      <Typography
           component="h2"
           variant="h5"
           color="inherit"
           align="center"
           noWrap
           className={classes.toolbarTitle}
-        >
-          <Link to="/">
-          {title}
-          </Link>
-        </Typography>
-        {
-          localStorage.username === undefined ?
+      >
+
+      <Link to="/">
+        {'싸피는하나당'}
+      </Link>
+      
+      </Typography>
+        {          
+          // (((!isLoginSuccess) && nick) || (isLoginSuccess === true)) ?
+          nick ?
+            <div>
+              {nick} 님 안녕하세요 !
+            <Button variant="outlined" size="small" onClick={onLogout} style={{ margin: 15 }}>
+                로그아웃
+            </Button>
+            </div>
+            :
             <div>
               <Link to="/SignIn">
                 <Button variant="outlined" size="small" style={{ margin: 15 }}>
@@ -163,19 +171,13 @@ export default function Header(props) {
               <Link to="/SignUp">
                 <Button variant="outlined" size="small">
                   회원가입
-        </Button>
+                </Button>
               </Link>
             </div>
-            : <div>{localStorage.getItem('username')} 님 안녕하세요 !
-            <Button variant="outlined" size="small" onClick={logout} style={{ margin: 15 }}>
-                로그아웃
-            </Button></div>}
+        }
       </Toolbar>
     </React.Fragment>
   );
 }
 
-Header.propTypes = {
-  sections: PropTypes.array,
-  title: PropTypes.string,
-};
+export default Header;

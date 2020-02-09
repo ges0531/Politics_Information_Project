@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, call } from 'redux-saga/effects';
 import createRequestSaga, {
   createRequestActionTypes
 } from '../lib/createRequestSaga';
@@ -16,6 +16,10 @@ const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] = createRequestActionTypes(
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   'auth/LOGIN'
 );
+
+const LOGOUT = 'auth/LOGOUT';
+
+export const logout = createAction(LOGOUT);
 
 export const changeField = createAction(
   CHANGE_FIELD,
@@ -35,12 +39,22 @@ export const login = createAction(LOGIN, ({ uMail, password }) => ({
   password
 }));
 
+function* logoutSaga() {
+  try {
+    yield call(authAPI.logout); // logout API 호출
+    localStorage.removeItem('nick'); // localStorage 에서 user 제거
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 // saga 생성
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(LOGOUT, logoutSaga);
 }
 
 const initialState = {
@@ -89,10 +103,17 @@ const auth = handleActions(
       auth
     }),
     // 로그인 실패
-    [LOGIN_FAILURE]: (state, { payload: error }) => ({
+    [LOGIN_FAILURE]: (state, { payload: auth }) => ({
       ...state,
-      authError: error,
-    })
+      // authError: error,
+      authError: null,
+      isLoginSuccess: true,
+      auth
+    }),
+    [LOGOUT]: state => ({
+      ...state,
+      isLoginSuccess: false
+    }),
   },
   initialState
 );
