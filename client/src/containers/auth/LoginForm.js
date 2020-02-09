@@ -3,17 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { changeField, initializeForm, login } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
-import { check } from '../../modules/user';
+// import { check } from '../../modules/user';
 
 const LoginForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { form, auth, authError, isLoginSuccess } = useSelector(({ auth }) => ({
+  const { form, auth, authError, isLoginSuccess, nick } = useSelector(({ auth }) => ({
     form: auth.login,
     auth: auth.auth,
     authError: auth.authError,
-    isLoginSuccess: auth.isLoginSuccess
+    isLoginSuccess: auth.isLoginSuccess,
+    nick: auth.uName
   }));
+
+  // const nick = localStorage.getItem('nick');
   
   // 인풋 변경 이벤트 핸들러
   const onChange = e => {
@@ -40,21 +43,25 @@ const LoginForm = ({ history }) => {
     }, [dispatch]);
     
     useEffect(() => {
+      // console.log("오이이잉");
+      // console.log (auth);
+
       if (authError) {
         console.log('오류 발생');
         console.log(authError);
         setError('로그인 실패');
         return;
-      }
-      if (auth) {
+       }
+       
+      if (isLoginSuccess) {
         console.log('로그인 성공');
+        localStorage.setItem('nick', nick);
+        history.push('/')
         // dispatch(check());
       }
     }, [auth, authError, dispatch]);
     
     useEffect(() => {
-      console.log("useeffect : " + isLoginSuccess);
-      
       if (isLoginSuccess) {
         history.push('/');
       }

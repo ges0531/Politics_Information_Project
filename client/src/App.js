@@ -5,10 +5,8 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import WritePage from './pages/WritePage';
 import PostPage from './pages/PostPage';
-import { Helmet } from 'react-helmet-async';
 
 import Blog from './blog/Blog';
-import Header from './blog/Header';
 import Footer from './blog/Footer';
 
 import MemberList from './blog/Posts/MemberList';
@@ -33,8 +31,6 @@ const App = () => {
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
 
-      {/* <Route component={PostListPage} path={['/@:uMail', '/']} exact /> */}
-      {/* <Route component={RegisterPage} path="/register" /> */}
       <Route component={WritePage} path="/write" />
       <Route component={PostPage} path="/@:uMail/:postId" />
 

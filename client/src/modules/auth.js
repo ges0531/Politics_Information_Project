@@ -36,6 +36,7 @@ export const register = createAction(REGISTER, ({ uMail, password, uName, uParty
   uName,
   uParty
 }));
+
 export const login = createAction(LOGIN, ({ uMail, password }) => ({
   uMail,
   password
@@ -70,6 +71,7 @@ const initialState = {
   login: {
     uMail: '',
     password: '',
+    uName:'',
     isLoginSuccess:false
   },
   auth: null,
@@ -103,16 +105,15 @@ const auth = handleActions(
     [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
       ...state,
       authError: null,
+      uName:auth.user.uName,
       isLoginSuccess:true,
       auth
     }),
     // 로그인 실패
-    [LOGIN_FAILURE]: (state, { payload: auth }) => ({
+    [LOGIN_FAILURE]: (state, { payload: error }) => ({
       ...state,
-      // authError: error,
-      authError: null,
-      isLoginSuccess: true,
-      auth
+      authError: error,
+      isLoginSuccess: false
     }),
     [LOGOUT]: state => ({
       ...state,

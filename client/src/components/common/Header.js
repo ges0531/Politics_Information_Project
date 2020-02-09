@@ -204,7 +204,7 @@ const Spacer = styled.div`
           싸피는하나당
           </Link>
         </Typography>
-            {isLoginSuccess ? (
+            {isLoginSuccess === true ? (
               <div className="right">
                 <UserInfo>{nick} 님 안녕하세요! </UserInfo>
                 <Button variant="outlined" size="small" style={{ margin: 15 }} onClick={onLogout}>로그아웃</Button>
