@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -43,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     width: 'auto',
   },
   link: {
+    textDecoration: 'none',
     color: '#77837D'
   }
 }));
@@ -147,7 +147,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           className={classes.toolbarTitle}
       >
 
-      <Link to="/">
+      <Link to="/" style={{ textDecoration: 'none' }}>
         {'싸피는하나당'}
       </Link>
       
@@ -163,12 +163,12 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
             </div>
             :
             <div>
-              <Link to="/SignIn">
+              <Link to="/SignIn" style={{ textDecoration: 'none' }}>
                 <Button variant="outlined" size="small" style={{ margin: 15 }}>
                   로그인
                 </Button>
               </Link>
-              <Link to="/SignUp">
+              <Link to="/SignUp" style={{ textDecoration: 'none' }}>
                 <Button variant="outlined" size="small">
                   회원가입
                 </Button>

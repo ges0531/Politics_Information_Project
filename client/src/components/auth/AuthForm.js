@@ -99,13 +99,15 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
               fullWidth
               label="비밀번호"
 
-              autoComplete="new-password"
+              autoComplete="current-password"
               name="password"
               type="password"
               onChange={onChange}
               value={form.password}
             />
-            {type === 'register' && (
+            {
+            type === 'register' ?
+            <div>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -119,7 +121,34 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
                 onChange={onChange}
                 value={form.passwordConfirm}
               />
-            )}
+              <TextField 
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="닉네임"
+              autoFocus
+
+              autoComplete="uName"
+              name="uName"
+              onChange={onChange}
+              value={form.uName}
+              />
+              <TextField 
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              label="(선택) 관심있는 정당"
+              autoFocus
+
+              autoComplete="uParty"
+              name="uParty"
+              onChange={onChange}
+              value={form.uParty}
+              />
+            </div>
+            : <div/>
+            }
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <Button
               fullWidth
