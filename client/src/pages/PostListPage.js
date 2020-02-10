@@ -6,7 +6,6 @@ import PaginationContainer from '../containers/posts/PaginationContainer';
 const PostListPage = () => {
   return (
     <>
-      <HeaderContainer />
       <PostListContainer />
       <PaginationContainer />
     </>

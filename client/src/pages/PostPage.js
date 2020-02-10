@@ -5,7 +5,6 @@ import PostViewerContainer from '../containers/post/PostViewerContainer';
 const PostPage = () => {
   return (
     <>
-      <HeaderContainer />
       <PostViewerContainer />
     </>
   );
