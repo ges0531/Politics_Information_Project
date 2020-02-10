@@ -29,7 +29,7 @@ const post = handleActions(
   {
     [READ_POST_SUCCESS]: (state, { payload: post }) => ({
       ...state,
-      post,
+      post:post.post.post,
     }),
     [READ_POST_FAILURE]: (state, { payload: error }) => ({
       ...state,
