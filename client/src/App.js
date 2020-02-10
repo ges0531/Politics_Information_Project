@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-// import PostListPage from './pages/PostListPage';
+import PostListPage from './pages/PostListPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import WritePage from './pages/WritePage';
@@ -33,6 +33,7 @@ const App = () => {
 
       <Route component={WritePage} path="/write" />
       <Route component={PostPage} path="/@:uMail/:postId" />
+      <Route component={PostListPage} path="/PostListPage" />
 
       <Route exact path="/MemberList" component={MemberList} />
       <Route exact path="/MemberDetail" component={MemberDetail} />

@@ -8,18 +8,19 @@ import { listPosts } from '../../modules/posts';
 const PostListContainer = ({ location }) => {
   const dispatch = useDispatch();
   const { posts, error, loading, user } = useSelector(
-    ({ posts, loading, user }) => ({
+    ({ posts, loading, auth }) => ({
       posts: posts.posts,
       error: posts.error,
       loading: loading['posts/LIST_POSTS'],
-      user: user.user,
+      user: auth,
     }),
   );
   useEffect(() => {
-    const { tag, uMail, page } = qs.parse(location.search, {
-      ignoreQueryPrefix: true,
-    });
-    dispatch(listPosts({ tag, uMail, page }));
+    // const { tag, uMail, page } = qs.parse(location.search, {
+    //   ignoreQueryPrefix: true,
+    // });
+    // dispatch(listPosts({ tag, uMail, page }));
+    dispatch(listPosts());
   }, [dispatch, location.search]);
 
   return (

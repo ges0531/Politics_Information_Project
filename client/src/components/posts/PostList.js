@@ -42,18 +42,20 @@ const PostItemBlock = styled.div`
 `;
 
 const PostItem = ({ post }) => {
-  const { publishedDate, user, tags, title, body, _id } = post;
+  const { writeDate, uName, uMail, tags, title, content, bodId } = post;
   return (
     <PostItemBlock>
       <h2>
-        <Link to={`/@${user.uMail}/${_id}`}>{title}</Link>
+        {/* <Link to={`/@${uName}/${bodId}`}>{title}</Link> */}
+        <Link to={`/@${bodId}`}>{title}</Link>
       </h2>
       <SubInfo
-        uMail={user.uMail}
-        publishedDate={new Date(publishedDate)}
+        uMail={uMail}
+        uName={uName}
+        writeDate={new Date(writeDate)}
       />
       <Tags tags={tags} />
-      <p>{body}</p>
+      <p>{content}</p>
     </PostItemBlock>
   );
 };
@@ -77,7 +79,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
       {!loading && posts && (
         <div>
           {posts.map(post => (
-            <PostItem post={post} key={post._id} />
+            <PostItem post={post} key={post.bodId} />
           ))}
         </div>
       )}
