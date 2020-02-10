@@ -14,7 +14,7 @@ const LOGOUT = 'user/LOGOUT';
 
 export const tempSetUser = createAction(TEMP_SET_USER, user => user);
 export const check = createAction(CHECK);
-export const logout = createAction(LOGOUT);
+// export const logout = createAction(LOGOUT);
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
 
@@ -64,7 +64,8 @@ export default handleActions(
     }),
     [LOGOUT]: state => ({
       ...state,
-      user: null
+      // user: null
+      // isLoginSuccess: false
     }),
   },
   initialState,

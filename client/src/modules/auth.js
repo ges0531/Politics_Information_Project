@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, call } from 'redux-saga/effects';
 import createRequestSaga, {
   createRequestActionTypes
 } from '../lib/createRequestSaga';
@@ -17,6 +17,10 @@ const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   'auth/LOGIN'
 );
 
+const LOGOUT = 'auth/LOGOUT';
+
+export const logout = createAction(LOGOUT);
+
 export const changeField = createAction(
   CHANGE_FIELD,
   ({ form, key, value }) => ({
@@ -26,14 +30,26 @@ export const changeField = createAction(
   })
 );
 export const initializeForm = createAction(INITIALIZE_FORM, form => form); // register / login
-export const register = createAction(REGISTER, ({ uMail, password }) => ({
+export const register = createAction(REGISTER, ({ uMail, password, uName, uParty }) => ({
   uMail,
-  password
+  password,
+  uName,
+  uParty
 }));
+
 export const login = createAction(LOGIN, ({ uMail, password }) => ({
   uMail,
   password
 }));
+
+function* logoutSaga() {
+  try {
+    yield call(authAPI.logout); // logout API 호출
+    localStorage.removeItem('nick'); // localStorage 에서 user 제거
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 // saga 생성
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
@@ -41,17 +57,21 @@ const loginSaga = createRequestSaga(LOGIN, authAPI.login);
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(LOGOUT, logoutSaga);
 }
 
 const initialState = {
   register: {
     uMail: '',
     password: '',
-    passwordConfirm: ''
+    passwordConfirm: '',
+    uName: '',
+    uParty: ''
   },
   login: {
     uMail: '',
     password: '',
+    uName:'',
     isLoginSuccess:false
   },
   auth: null,
@@ -85,6 +105,7 @@ const auth = handleActions(
     [LOGIN_SUCCESS]: (state, { payload: auth }) => ({
       ...state,
       authError: null,
+      uName:auth.user.uName,
       isLoginSuccess:true,
       auth
     }),
@@ -92,7 +113,13 @@ const auth = handleActions(
     [LOGIN_FAILURE]: (state, { payload: error }) => ({
       ...state,
       authError: error,
-    })
+      isLoginSuccess: false
+    }),
+    [LOGOUT]: state => ({
+      ...state,
+      isLoginSuccess: false,
+      auth:null
+    }),
   },
   initialState
 );

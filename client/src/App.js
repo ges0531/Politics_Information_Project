@@ -5,10 +5,8 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import WritePage from './pages/WritePage';
 import PostPage from './pages/PostPage';
-import { Helmet } from 'react-helmet-async';
 
 import Blog from './blog/Blog';
-import Header from './blog/Header';
 import Footer from './blog/Footer';
 
 import MemberList from './blog/Posts/MemberList';
@@ -28,18 +26,11 @@ import HeaderContainer from './containers/common/HeaderContainer';
 const App = () => {
   return (
     <>
-      <Helmet>
-        <title>싸피는하나당</title>
-      </Helmet>
       <HeaderContainer />
-      {/* <Header title="싸피는하나당" /> */}
       <Route exact path="/" component={Blog} />
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
 
-      {/* <Route component={PostListPage} path={['/@:uMail', '/']} exact /> */}
-      {/* <Route component={LoginPage} path="/login" /> */}
-      {/* <Route component={RegisterPage} path="/register" /> */}
       <Route component={WritePage} path="/write" />
       <Route component={PostPage} path="/@:uMail/:postId" />
 
