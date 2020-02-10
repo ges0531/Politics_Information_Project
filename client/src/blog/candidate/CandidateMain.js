@@ -35,7 +35,7 @@ const ButtonExampleGroupEqualWidth = () => {
     <div className="d-flex flex-column">
       <div>서울시</div>
       <ButtonGroup size="lg">
-        <Button href="/#/CandidateCard" variant="secondary">
+        <Button href="/CandidateCard" variant="secondary">
           강남구
         </Button>
         <Button variant="secondary">서초구</Button>
