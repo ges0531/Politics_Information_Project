@@ -47,7 +47,7 @@ const App = () => {
       <Route exact path="/CandidateCardDetail" component={CandidateCardDetail} />
       <Route exact path="/Test" component={Test} />
 
-      <Route exact path="TeamPage" component={TeamPage} />
+      <Route exact path="/TeamPage" component={TeamPage} />
       <Footer />
     </>
   );

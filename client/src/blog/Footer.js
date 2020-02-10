@@ -15,7 +15,7 @@ function Copyright() {
     </Typography>
     <Typography variant="body2" color="textSecondary" align="center">
       {'2020.02.21 Copyright © '}
-      <Link color="inherit" href="#/TeamPage">
+      <Link color="inherit" href="/TeamPage">
         싸피는 하나당
       </Link>
     </Typography>
