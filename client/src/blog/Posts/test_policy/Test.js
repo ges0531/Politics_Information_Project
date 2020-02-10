@@ -284,7 +284,7 @@ function Test() {
           {questions[qn].question_2}
           </p>
           <button
-            className="button"
+            className="button_test"
             onClick={() => {
               next_question(0);
             }}
@@ -294,7 +294,7 @@ function Test() {
           </button>{" "}
           <br />
           <button
-            className="button"
+            className="button_test"
             onClick={() => {
               next_question(3.3);
             }}
@@ -304,7 +304,7 @@ function Test() {
           </button>{" "}
           <br />
           <button
-            className="button"
+            className="button_test"
             onClick={() => {
               next_question(6.7);
             }}
@@ -314,7 +314,7 @@ function Test() {
           </button>{" "}
           <br />
           <button
-            className="button"
+            className="button_test"
             onClick={() => {
               next_question(10);
             }}
@@ -324,7 +324,7 @@ function Test() {
           </button>{" "}
           <br />
           <button
-            className="button"
+            className="button_test"
             onClick={() => {
               next_question(0);
             }}
@@ -369,7 +369,7 @@ function Test() {
           </div>
         ) : (
           <button
-          className="button"
+          className="button_test"
           onClick={() => {
             setResult(!result_flag)
             next_question(0);

@@ -11,7 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 
-import { Button } from 'semantic-ui-react';
+import Button from '../common/Button';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -151,7 +151,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             }
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <Button
-              fullWidth
+              cyan fullWidth
               className={classes.submit}
               variant="contained"
               style={{ marginTop: '1rem', fontSize: '1rem' }}
