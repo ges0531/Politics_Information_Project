@@ -26,6 +26,8 @@ const PostContent = styled.div`
 `;
 
 const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
+  console.log('postViewer')
+  console.log(post)
   // 에러 발생 시
   if (error) {
     if (error.response && error.response.status === 404) {
@@ -52,7 +54,7 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
         <SubInfo
           uMail={uMail}
           uName={uName} // 추가
-          publishedDate={writeDate}
+          // publishedDate={writeDate}
           hasMarginTop
         />
         {/* <Tags tags={tags} /> */}

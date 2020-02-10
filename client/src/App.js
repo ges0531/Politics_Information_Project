@@ -32,7 +32,8 @@ const App = () => {
       <Route exact path="/SignUp" component={RegisterPage} />
 
       <Route component={WritePage} path="/write" />
-      <Route component={PostPage} path="/@:uMail/:postId" />
+      {/* <Route component={PostPage} path="/@:uMail/:postId" /> */}
+      <Route component={PostPage} path="/:bodId" />
       <Route component={PostListPage} path="/PostListPage" />
 
       <Route exact path="/MemberList" component={MemberList} />

@@ -46,15 +46,15 @@ const PostItem = ({ post }) => {
   return (
     <PostItemBlock>
       <h2>
-        {/* <Link to={`/@${uName}/${bodId}`}>{title}</Link> */}
-        <Link to={`/@${bodId}`}>{title}</Link>
+        {/* <Link to={`/@${username}/${bodId}`}>{title}</Link> */}
+        <Link to={`/${bodId}`}>{title}</Link>
       </h2>
       <SubInfo
         uMail={uMail}
         uName={uName}
-        writeDate={new Date(writeDate)}
+        // writeDate={new Date(writeDate)}
       />
-      <Tags tags={tags} />
+      {/* <Tags tags={tags} /> */}
       <p>{content}</p>
     </PostItemBlock>
   );
