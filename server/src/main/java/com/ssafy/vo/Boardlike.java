@@ -48,6 +48,4 @@ public class Boardlike {
 		return "BodLike [bodLikeId=" + bodLikeId + ", bodId=" + bodId + ", uMail=" + uMail + "]";
 	}
 	
-	
-	
 }

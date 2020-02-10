@@ -16,8 +16,10 @@ public class Board {
 	private String writeDate;
 	private String modifyDate;
 	private int likeCount;
+	private String uName;
+	
 	public Board(int bodId, String uMail, String title, String content, String writeDate, String modifyDate,
-			int likeCount) {
+			int likeCount, String uName) {
 		super();
 		this.bodId = bodId;
 		this.uMail = uMail;
@@ -26,6 +28,7 @@ public class Board {
 		this.writeDate = writeDate;
 		this.modifyDate = modifyDate;
 		this.likeCount = likeCount;
+		this.uName = uName;
 	}
 	public Board() {
 		super();
@@ -72,13 +75,18 @@ public class Board {
 	public void setLikeCount(int likeCount) {
 		this.likeCount = likeCount;
 	}
+	public String getuName() {
+		return uName;
+	}
+	public void setuName(String uName) {
+		this.uName = uName;
+	}
 	@Override
 	public String toString() {
 		return "Board [bodId=" + bodId + ", uMail=" + uMail + ", title=" + title + ", content=" + content
-				+ ", writeDate=" + writeDate + ", modifyDate=" + modifyDate + ", likeCount=" + likeCount + "]";
+				+ ", writeDate=" + writeDate + ", modifyDate=" + modifyDate + ", likeCount=" + likeCount + ", uName="
+				+ uName + "]";
 	}
-
 	
-
 	
 }
