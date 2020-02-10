@@ -127,7 +127,6 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
               required
               fullWidth
               label="닉네임"
-              autoFocus
 
               autoComplete="uName"
               name="uName"
@@ -139,7 +138,6 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
               margin="normal"
               fullWidth
               label="(선택) 관심있는 정당"
-              autoFocus
 
               autoComplete="uParty"
               name="uParty"

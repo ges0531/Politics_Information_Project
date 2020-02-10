@@ -48,8 +48,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Header = ({ isLoginSuccess, nick, onLogout }) => {
-// export default function Header(isLoginSuccess, nick, onLogout) {
-  console.log(isLoginSuccess);
+  // export default function Header(isLoginSuccess, nick, onLogout) {
   const classes = useStyles();
   // const { title } = props;
   const [state, setState] = React.useState({
@@ -75,25 +74,25 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
         <ListItem button key={'마이페이지'}>
           <ListItemIcon>
             <UserIcon />
-            <ListItemText primary={'마이페이지'} style={{marginTop:0, marginLeft:15}} />
+            <ListItemText primary={'마이페이지'} style={{ marginTop: 0, marginLeft: 15 }} />
           </ListItemIcon>
         </ListItem>
         <ListItem button key={'자유게시판'}>
           <ListItemIcon>
             <BoardIcon />
-            <Link to='/PostPage' className={classes.link}>
-            <ListItemText primary={'자유게시판'} style={{marginTop:0, marginLeft:15}} />
+            <Link to='/PostListPage' className={classes.link}>
+              <ListItemText primary={'자유게시판'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
       </List>
       <Divider />
       <List>
-      <ListItem button key={'우리동네 후보자 살펴보기'}>
+        <ListItem button key={'우리동네 후보자 살펴보기'}>
           <ListItemIcon>
             <FaceIcon />
             <Link to='/CandidateMain' className={classes.link}>
-            <ListItemText primary={'우리동네 후보자 살펴보기'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'우리동네 후보자 살펴보기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -101,7 +100,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           <ListItemIcon>
             <SearchIcon />
             <Link to='/MemberList' className={classes.link}>
-            <ListItemText primary={'국회의원 찾기'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'국회의원 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -109,7 +108,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           <ListItemIcon>
             <GroupIcon />
             <Link to='/CardGame' className={classes.link}>
-            <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -117,7 +116,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           <ListItemIcon>
             <CheckIcon />
             <Link to='/Test' className={classes.link}>
-            <ListItemText primary={'나의 정치성향 테스트'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'나의 정치성향 테스트'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -129,33 +128,32 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
 
-      <div>
-        <Button onClick={toggleDrawer('left', true)}><MenuIcon/></Button>
-        <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
-          {sideList('left')}
-        </Drawer>
-      </div>
+        <div>
+          <Button onClick={toggleDrawer('left', true)}><MenuIcon /></Button>
+          <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+            {sideList('left')}
+          </Drawer>
+        </div>
 
-      <Button variant="outlined" size="small" style={{ margin: 15 }}>
-        실시간 채팅 참여하기
+        <Button variant="outlined" size="small" style={{ margin: 15 }}>
+          실시간 채팅 참여하기
       </Button>
 
-      <Typography
+        <Typography
           component="h2"
           variant="h5"
           color="inherit"
           align="center"
           noWrap
           className={classes.toolbarTitle}
-      >
+        >
 
-      <Link to="/" style={{ textDecoration: 'none' }}>
-        {'싸피는하나당'}
-      </Link>
-      
-      </Typography>
-        {          
-          // (((!isLoginSuccess) && nick) || (isLoginSuccess === true)) ?
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            {'싸피는하나당'}
+          </Link>
+
+        </Typography>
+        {
           nick ?
             <div>
               {nick} 님 안녕하세요 !
