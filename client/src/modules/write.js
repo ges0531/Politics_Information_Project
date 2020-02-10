@@ -29,9 +29,11 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 //   body,
 //   tags,
 // }));
-export const writePost = createAction(WRITE_POST, ({ title, content }) => ({
+export const writePost = createAction(WRITE_POST, ({ title, content, uMail, uName }) => ({
   title,
-  content
+  content,
+  uMail,
+  uName
 }));
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, post => post);
 // export const updatePost = createAction(

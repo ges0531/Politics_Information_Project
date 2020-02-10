@@ -4,8 +4,8 @@ import client from './client';
 // export const writePost = ({ title, body, tags }) =>
 //   client.post('/bod', { title:title, content:body, tags });
 
-export const writePost = ({ title, body, uMail, uName }) =>
-  client.post('/bod', { title:title, content:body, uMail:uMail, uName:uName });
+export const writePost = ({ title, content, uMail, uName }) =>
+  client.post('/bod', { title:title, content:content, uMail:uMail, uName:uName }).then(res=>console.log(res));
 
 export const readPost = id => client.get(`/bod/${id}`);
 
@@ -20,11 +20,12 @@ export const readPost = id => client.get(`/bod/${id}`);
 
 export const listPosts = () => client.get('/bod');
 
-export const updatePost = ({ id, title, body, tags }) =>
+// export const updatePost = ({ id, title, body, tags }) =>
+export const updatePost = ({ id, title, content }) =>
   client.patch(`/bod/${id}`, {
     title:title,
-    content:body,
-    tags,
+    content:content,
+    // tags,
   });
 
 export const removePost = id => client.delete(`/bod/${id}`);

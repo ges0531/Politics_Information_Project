@@ -31,10 +31,10 @@ const App = () => {
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
 
-      <Route component={WritePage} path="/write" />
+      <Route exact path="/write" component={WritePage} />
       {/* <Route component={PostPage} path="/@:uMail/:postId" /> */}
-      <Route component={PostPage} path="/:bodId" />
-      <Route component={PostListPage} path="/PostListPage" />
+      <Route exact path="/:bodId" component={PostPage}/>
+      <Route exact path="/PostListPage" component={PostListPage} />
 
       <Route exact path="/MemberList" component={MemberList} />
       <Route exact path="/MemberDetail" component={MemberDetail} />

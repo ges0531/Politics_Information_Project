@@ -6,28 +6,35 @@ import { writePost, updatePost } from '../../modules/write';
 
 const WriteActionButtonsContainer = ({ history }) => {
   const dispatch = useDispatch();
-  const { title, body, tags, post, postError, originalPostId } = useSelector(
-    ({ write }) => ({
+  const { title, content, tags, post, postError, originalPostId, uMail, uName } = useSelector(
+    ({ write, auth }) => ({
       title: write.title,
-      body: write.body,
+      content: write.content,
       tags: write.tags,
       post: write.post,
       postError: write.postError,
       originalPostId: write.originalPostId,
+      uMail: auth.uMail,
+      uName: auth.uName
     }),
   );
 
   // 포스트 등록
   const onPublish = () => {
+    console.log('originalPostId')
+    console.log(originalPostId)
     if (originalPostId) {
-      dispatch(updatePost({ title, body, tags, id: originalPostId }));
+      // dispatch(updatePost({ title, content, tags, id: originalPostId }));
+      dispatch(updatePost({ title, content, id: originalPostId }));
       return;
     }
     dispatch(
       writePost({
         title,
-        body,
-        tags,
+        content,
+        uMail,
+        uName
+        // tags,
       }),
     );
   };
@@ -40,8 +47,9 @@ const WriteActionButtonsContainer = ({ history }) => {
   // 성공 혹은 실패시 할 작업
   useEffect(() => {
     if (post) {
-      const { _id, user } = post;
-      history.push(`/@${user.uMail}/${_id}`);
+      const { bodId } = post.bodId;
+      // history.push(`/${bodId}`);
+      history.push('/PostListPage')
     }
     if (postError) {
       console.log(postError);

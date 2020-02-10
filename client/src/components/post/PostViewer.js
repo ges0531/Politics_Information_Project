@@ -26,14 +26,12 @@ const PostContent = styled.div`
 `;
 
 const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
-  console.log('postViewer')
-  console.log(post)
   // 에러 발생 시
   if (error) {
     if (error.response && error.response.status === 404) {
       return <PostViewerBlock>존재하지 않는 포스트입니다.</PostViewerBlock>;
     }
-    return <PostViewerBlock>오류 발생!</PostViewerBlock>;
+    return <PostViewerBlock></PostViewerBlock>;
   }
 
   // 로딩중이거나, 아직 포스트 데이터가 없을 시
