@@ -34,8 +34,9 @@ public class BoardController {
 	JwtService jwtService;
 
 	@PostMapping
-	public void post(Board bod) {
-		bodService.insertBod(bod);
+	public  ResponseEntity<Board> post(Board bod) {
+		
+		return new ResponseEntity<Board>(bodService.save(bod),HttpStatus.OK);
 	}
 
 	@GetMapping

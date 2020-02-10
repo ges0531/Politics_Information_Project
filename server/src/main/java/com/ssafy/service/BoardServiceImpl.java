@@ -86,8 +86,11 @@ public class BoardServiceImpl implements BoardService {
 		return map;
 	}
 
-
-	
+	@Override
+	public Board save(Board bod) {
+		// TODO Auto-generated method stub
+		return bodRepository.save(bod);
+	}
 
 	
 }
