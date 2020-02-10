@@ -12,8 +12,8 @@ const [
 ] = createRequestActionTypes('posts/LIST_POSTS');
 
 export const listPosts = createAction(
-  LIST_POSTS,
-  ({ tag, uMail, page }) => ({ tag, uMail, page }),
+  LIST_POSTS
+  // ({ tag, uMail, page }) => ({ tag, uMail, page }),
 );
 
 const listPostsSaga = createRequestSaga(LIST_POSTS, postsAPI.listPosts);
@@ -32,7 +32,7 @@ const posts = handleActions(
     [LIST_POSTS_SUCCESS]: (state, { payload: posts, meta: response }) => ({
       ...state,
       posts,
-      lastPage: parseInt(response.headers['last-page'], 10), // 문자열을 숫자로 변환
+      // lastPage: parseInt(response.headers['last-page'], 10), // 문자열을 숫자로 변환
     }),
     [LIST_POSTS_FAILURE]: (state, { payload: error }) => ({
       ...state,

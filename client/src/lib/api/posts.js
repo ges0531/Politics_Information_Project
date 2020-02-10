@@ -1,25 +1,30 @@
 import qs from 'qs';
 import client from './client';
 
-export const writePost = ({ title, body, tags }) =>
-  client.post('/api/posts', { title, body, tags });
+// export const writePost = ({ title, body, tags }) =>
+//   client.post('/bod', { title:title, content:body, tags });
 
-export const readPost = id => client.get(`/api/posts/${id}`);
+export const writePost = ({ title, body, uMail, uName }) =>
+  client.post('/bod', { title:title, content:body, uMail:uMail, uName:uName });
 
-export const listPosts = ({ page, uMail, tag }) => {
-  const queryString = qs.stringify({
-    page,
-    uMail,
-    tag,
-  });
-  return client.get(`/api/posts?${queryString}`);
-};
+export const readPost = id => client.get(`/bod/${id}`);
+
+// export const listPosts = ({ page, uName, tag }) => {
+//   const queryString = qs.stringify({
+//     page,
+//     uName,
+//     tag,
+//   });
+//   return client.get(`/bod?${queryString}`);
+// };
+
+export const listPosts = () => client.get('/bod');
 
 export const updatePost = ({ id, title, body, tags }) =>
-  client.patch(`/api/posts/${id}`, {
-    title,
-    body,
+  client.patch(`/bod/${id}`, {
+    title:title,
+    content:body,
     tags,
   });
 
-export const removePost = id => client.delete(`/api/posts/${id}`);
+export const removePost = id => client.delete(`/bod/${id}`);
