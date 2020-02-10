@@ -5,16 +5,17 @@ import AuthForm from '../../components/auth/AuthForm';
 import { check } from '../../modules/user';
 import { withRouter } from 'react-router-dom';
 
+const nick = localStorage.getItem('nick');
+
 const RegisterForm = ({ history }) => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const { form, auth, authError, user, nick } = useSelector(({ auth, user, nick }) => ({
+  const { form, auth, authError } = useSelector(({ auth }) => ({
     form: auth.register,
     auth: auth.auth,
-    authError: auth.authError,
-    user: user.user,
-    nick: nick.nick
+    authError: auth.authError
   }));
+
   // 인풋 변경 이벤트 핸들러
   const onChange = e => {
     const { value, name } = e.target;
@@ -30,9 +31,9 @@ const RegisterForm = ({ history }) => {
   // 폼 등록 이벤트 핸들러
   const onSubmit = e => {
     e.preventDefault();
-    const { uMail, password, passwordConfirm } = form;
+    const { uMail, password, passwordConfirm, uName, uParty } = form;
     // 하나라도 비어있다면
-    if ([uMail, password, passwordConfirm].includes('')) {
+    if ([uMail, password, passwordConfirm, uName].includes('')) {
       setError('빈 칸을 모두 입력하세요.');
       return;
     }
@@ -45,7 +46,7 @@ const RegisterForm = ({ history }) => {
       );
       return;
     }
-    dispatch(register({ uMail, password }));
+    dispatch(register({ uMail, password, uName, uParty }));
   };
 
   // 컴포넌트가 처음 렌더링 될 때 form 을 초기화함
@@ -69,21 +70,22 @@ const RegisterForm = ({ history }) => {
     if (auth) {
       console.log('회원가입 성공');
       console.log(auth);
-      dispatch(check());
+      history.push('/SignIn');
+      // dispatch(check());
     }
   }, [auth, authError, dispatch]);
 
   // nick 값이 잘 설정되었는지 확인
-  useEffect(() => {
-    if (nick) {
-      history.push('/'); // 홈 화면으로 이동
-      try {
-        localStorage.setItem('nick', JSON.stringify(nick));
-      } catch (e) {
-        console.log('localStorage is not working');
-      }
-    }
-  }, [history, nick]);
+  // useEffect(() => {
+  //   if (nick) {
+  //     history.push('/'); // 홈 화면으로 이동
+  //     try {
+  //       localStorage.setItem('nick', JSON.stringify(nick));
+  //     } catch (e) {
+  //       console.log('localStorage is not working');
+  //     }
+  //   }
+  // }, [history, nick]);
 
   return (
     <AuthForm
