@@ -17,6 +17,7 @@
     "axios": "^0.19.2",
     "babel-loader": "^8.0.6",
     "create-react-class": "^15.6.3",
+    "immer": "^5.3.3",
     "markdown-to-jsx": "^6.10.3",
     "mdbreact": "^4.25.0",
     "p-sleep": "^1.1.0",

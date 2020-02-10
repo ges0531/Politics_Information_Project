@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cardgame.css";
-import Reactcard from "./react_card/react_card";
+import Reactcard from "./react_card";
 import Grid from "@material-ui/core/Grid";
+import CircularDeterminate from "./CircularDeterminate";
 
 const db = [
   {
@@ -52,77 +53,95 @@ const db = [
   }
 ];
 
-var name_array = [];
-var id_array = [];
-var buttonText = "결과확인";
-var flag_array = new Array();
-
-for (var i = 0; i < db.length; i++) {
-  flag_array[i] = 0;
-}
 function Cardgame() {
-  const characters = db;
+  var flag_array = new Array();
+  var name_array = [];
+  var id_array = [];
+  for (var i = 0; i < db.length; i++) {
+    flag_array[i] = 0;
+  }
+  // const characters = db;
   const [lastDirection, setLastDirection] = useState();
   const [flag, flagCount] = useState(db.length);
   const [boolean_flag, booleanChange] = useState(false);
   const [button_flag, buttonTextChange] = useState(false);
 
+  const [data, dataSet] = useState(false);
+  var useData;
+  async function fetchMyAPI() {
+    let response = await fetch("http://52.79.219.137:8000/cardgame/");
+    response = await response.json();
+    dataSet(response);
+  }
+
+  useEffect(() => {
+    fetchMyAPI();
+  }, []);
+  // fetchMyAPI();
+  if (data) {
+    useData = data;
+  } else {
+    return (
+      <div style={{textAlign:"center", verticalAlign:'middle'}}>
+        <CircularDeterminate />
+      </div>
+    );
+  }
+  console.log(useData);
   const textChange = () => {
     if (button_flag) {
       buttonTextChange(!button_flag);
-      buttonText = "결과확인";
-      flagCount(db.length);
-      name_array = [];
-      id_array = [];
+      flagCount(useData.promises.length);
     } else {
+      for (var i = 0; i < useData.promises.length; i++) {
+        flag_array[i] = 0;
+      }
       buttonTextChange(!button_flag);
-      buttonText = "재시작";
-    }
-  };
-
-  const reStart = () => {
-    for (var i = 0; i < db.length; i++) {
-      flag_array[i] = 0;
     }
   };
 
   const forEach = my_array => {
-    for (var i = 0; i < characters.length; i++) {
+    for (var i = 0; i < useData.promises.length; i++) {
       for (var j = 0; j < my_array.length; j++) {
-        if (characters[i].name === my_array[j]) {
+        if (useData.promises[i].pId === my_array[j]) {
           flag_array[i] = flag_array[i] + 1;
         }
       }
     }
-    return characters[flag_array.indexOf(Math.max.apply(null, flag_array))].url;
+    return useData.politicians[
+      flag_array.indexOf(Math.max.apply(null, flag_array))
+    ];
   };
 
-  const swiped = (direction, nameToDelete) => {
+  const swiped = (direction, politicianId) => {
     if (direction === "좋아합니다") {
       var flag_id = 0;
-      for (var k = 0; k < characters.length; k++) {
-        if (characters[k].name === nameToDelete) {
-          if (!id_array.includes(characters[k].id)) {
-            flag_id = characters[k].id;
+      for (var k = 0; k < useData.promises.length; k++) {
+        if (useData.promises[k].pId === politicianId) {
+          if (!id_array.includes(useData.promises[k].prId)) {
+            flag_id = useData.promises[k].prId;
           }
         }
       }
+
       if (!id_array.includes(flag_id)) {
-        name_array.push(nameToDelete);
+        name_array.push(politicianId);
         id_array.push(flag_id);
       }
     }
-    console.log("removing: " + nameToDelete);
+    console.log("removing: " + politicianId);
     setLastDirection(direction);
     console.log(name_array);
   };
 
-  const outOfFrame = name => {
-    if (name === characters[0].name) {
+  const outOfFrame = promiseId => {
+    if (promiseId === useData.promises[0].prId) {
       flagCount(0);
     }
-    console.log(name + " left the screen!");
+    console.log(promiseId + " left the screen!");
   };
+
+  const Congressman = forEach(name_array);
 
   return (
     <Grid container direction="column" justify="center" alignItems="center">
@@ -134,29 +153,50 @@ function Cardgame() {
         href="https://fonts.googleapis.com/css?family=Alatsi&display=swap"
         rel="stylesheet"
       />
-      <h1>공약</h1>
+
       {boolean_flag ? (
-        <div>
+        <div style={{ textAlign: "center" }}>
           <h2>이 사람과 잘 맞습니다</h2>
-          <img src={forEach(name_array)}></img>
+          <img src={Congressman.pImg} style={{ width: "300px" }}></img>
+          <hr></hr>
+          <h3>이름: {Congressman.pName}</h3>
+          <hr></hr>
+          <h3>정당: {Congressman.pParty}</h3>
+          <hr></hr>
+          <h3>선거구: {Congressman.pConstituency}</h3>
+          <hr></hr>
+          <h3>당선횟수: {Congressman.pRepeat}</h3>
+          <hr></hr>
+          <h3>소속 위원회: {Congressman.pCommittee}</h3>
+          <hr></hr>
+          <h3>학력: {Congressman.pEducation}</h3>
+          <hr></hr>
+          <h3>주요 경력: {Congressman.pCareer}</h3>
+          <hr></hr>
+          <h3>연락처: {Congressman.pContact}</h3>
+          <hr></hr>
+          <h3>Email: {Congressman.pMail}</h3>
         </div>
       ) : (
-        <div className="cardContainer">
-          {characters.map(character => (
-            <Reactcard
-              className="swipe"
-              key={character.commit}
-              onSwipe={dir => swiped(dir, character.name)}
-              onCardLeftScreen={() => outOfFrame(character.name)}
-            >
-              <div
-                // style={{ backgroundImage: "url(" + character.url + ")" }}
-                className="card"
+        <div>
+          <h1>공약</h1>
+          <div className="cardContainer">
+            {useData.promises.map(promise => (
+              <Reactcard
+                className="swipe"
+                key={promise.prId}
+                onSwipe={dir => swiped(dir, promise.pId)}
+                onCardLeftScreen={() => outOfFrame(promise.prId)}
               >
-                <h2>{character.commit}</h2>
-              </div>
-            </Reactcard>
-          ))}
+                <div
+                  // style={{ backgroundImage: "url(" + character.url + ")" }}
+                  className="card"
+                >
+                  <h2>{promise.title}</h2>
+                </div>
+              </Reactcard>
+            ))}
+          </div>
         </div>
       )}
 
@@ -167,24 +207,23 @@ function Cardgame() {
       )}
       {flag ? (
         <div>
-          <h3>:)</h3>
+          <h3>::</h3>
         </div>
       ) : (
         <div>
           <button
             onClick={() => {
-              reStart();
               booleanChange(!boolean_flag);
               textChange();
+              fetchMyAPI();
             }}
           >
-            {buttonText}
+            {button_flag ? "재시작" : "결과확인"}
           </button>
         </div>
       )}
     </Grid>
   );
 }
-console.log(name_array);
 
 export default Cardgame;

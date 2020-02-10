@@ -4,20 +4,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class BoardLike {
+public class Boardlike {
 
 	@Id
 	private int bodLikeId;
 	private int bodId;
 	private String uMail;
-	public BoardLike(int bodLikeId, int bodId, String uMail) {
+	public Boardlike(int bodLikeId, int bodId, String uMail) {
 		super();
 		this.bodLikeId = bodLikeId;
 		this.bodId = bodId;
 		this.uMail = uMail;
 	}
-	public BoardLike() {
+	public Boardlike() {
 		super();
+	}
+	
+	public Boardlike(int bodId, String uMail) {
+		super();
+		this.bodId = bodId;
+		this.uMail = uMail;
 	}
 	public int getBodLikeId() {
 		return bodLikeId;
@@ -41,7 +47,5 @@ public class BoardLike {
 	public String toString() {
 		return "BodLike [bodLikeId=" + bodLikeId + ", bodId=" + bodId + ", uMail=" + uMail + "]";
 	}
-	
-	
 	
 }

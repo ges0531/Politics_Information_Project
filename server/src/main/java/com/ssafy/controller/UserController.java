@@ -93,10 +93,11 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/signIn")
-	public ResponseEntity<Map<String, Object>> signIn(@RequestBody User user, HttpServletResponse res) {
+	public ResponseEntity<Map<String, Object>> signIn(@RequestBody HashMap<String, String> map, HttpServletResponse res) {
 		Map<String, Object> resultMap = new HashMap<>();
 		HttpStatus status = null;
 		try {
+			User user = new User(map.get("uMail"), map.get("uPass"), "", "");
 			User reqUser = userService.checkPass(user);
 			
 			String token;

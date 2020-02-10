@@ -1,5 +1,6 @@
 package com.ssafy.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,5 @@ public class PromiseController {
 		return new ResponseEntity<List<Promise>>(promiseService.findByPoliticianId(pId), HttpStatus.OK) ; 
 
 	}
-	
+
 }

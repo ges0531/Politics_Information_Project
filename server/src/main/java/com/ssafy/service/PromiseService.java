@@ -8,4 +8,5 @@ public interface PromiseService {
 
 	
 	List<Promise> findByPoliticianId(int pId);
+	List<Promise> findByPoliticianIdRandom(int pId);
 }
