@@ -26,6 +26,7 @@
     "react-axios": "^2.0.3",
     "react-dom": "^16.12.0",
     "react-grid-system": "^6.0.7",
+    "react-helmet-async": "^1.0.4",
     "react-infinite-scroller": "^1.2.4",
     "react-markdown": "^4.3.1",
     "react-pdf": "^4.1.0",
@@ -34,10 +35,10 @@
     "react-scripts": "3.3.0",
     "react-social-login": "^3.4.6",
     "redux": "^4.0.5",
-    "redux-action": "^1.2.2",
     "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
+    "redux-saga": "^1.1.3",
     "redux-thunk": "^2.3.0",
     "row": "0.0.1",
     "semantic-ui-css": "^2.4.1",
@@ -71,5 +72,6 @@
     "lodash": "^4.17.15",
     "react-faker": "^0.1.2",
     "redux-devtools": "^3.5.0"
-  }
+  },
+  "proxy": "http://52.79.219.137:8000/"
 }
