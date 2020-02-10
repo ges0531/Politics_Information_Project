@@ -49,7 +49,6 @@ const useStyles = makeStyles(theme => ({
 
 const Header = ({ isLoginSuccess, nick, onLogout }) => {
   // export default function Header(isLoginSuccess, nick, onLogout) {
-  console.log(isLoginSuccess);
   const classes = useStyles();
   // const { title } = props;
   const [state, setState] = React.useState({
@@ -155,7 +154,6 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
 
         </Typography>
         {
-          // (((!isLoginSuccess) && nick) || (isLoginSuccess === true)) ?
           nick ?
             <div>
               {nick} 님 안녕하세요 !

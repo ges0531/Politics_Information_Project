@@ -24,7 +24,7 @@ export function* postsSaga() {
 const initialState = {
   posts: null,
   error: null,
-  lastPage: 1,
+  // lastPage: 1,
 };
 
 const posts = handleActions(

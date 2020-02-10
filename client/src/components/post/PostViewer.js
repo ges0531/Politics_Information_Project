@@ -39,7 +39,8 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
     return null;
   }
 
-  const { title, content, uMail, uName, writeDate, tags } = post;
+  const { title, content, uMail, uName, writeDate } = post;
+  // const { title, content, uMail, uName, writeDate, tags } = post;
   return (
     <PostViewerBlock>
       <Helmet>
@@ -54,7 +55,7 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
           publishedDate={writeDate}
           hasMarginTop
         />
-        <Tags tags={tags} />
+        {/* <Tags tags={tags} /> */}
       </PostHead>
       {actionButtons}
       <PostContent dangerouslySetInnerHTML={{ __html: content }} />

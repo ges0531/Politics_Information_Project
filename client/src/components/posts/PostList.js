@@ -42,13 +42,15 @@ const PostItemBlock = styled.div`
 `;
 
 const PostItem = ({ post }) => {
-  const { writeDate, uName, tags, title, content, bodId } = post;
+  const { writeDate, uName, uMail, tags, title, content, bodId } = post;
   return (
     <PostItemBlock>
       <h2>
-        <Link to={`/@${uName}/${bodId}`}>{title}</Link>
+        {/* <Link to={`/@${uName}/${bodId}`}>{title}</Link> */}
+        <Link to={`/@${bodId}`}>{title}</Link>
       </h2>
       <SubInfo
+        uMail={uMail}
         uName={uName}
         writeDate={new Date(writeDate)}
       />

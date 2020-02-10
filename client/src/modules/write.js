@@ -24,19 +24,31 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
   key,
   value,
 }));
-export const writePost = createAction(WRITE_POST, ({ title, body, tags }) => ({
+// export const writePost = createAction(WRITE_POST, ({ title, content, tags }) => ({
+//   title,
+//   body,
+//   tags,
+// }));
+export const writePost = createAction(WRITE_POST, ({ title, content }) => ({
   title,
-  body,
-  tags,
+  content
 }));
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, post => post);
+// export const updatePost = createAction(
+//   UPDATE_POST,
+//   ({ bodId, title, content, tags }) => ({
+//     id,
+//     title,
+//     body,
+//     tags,
+//   }),
+// );
 export const updatePost = createAction(
   UPDATE_POST,
-  ({ id, title, body, tags }) => ({
-    id,
+  ({ bodId, title, content }) => ({
+    bodId,
     title,
-    body,
-    tags,
+    content,
   }),
 );
 
@@ -51,11 +63,11 @@ export function* writeSaga() {
 
 const initialState = {
   title: '',
-  body: '',
-  tags: [],
+  content: '',
+  // tags: [],
   post: null,
   postError: null,
-  originalPostId: null,
+  originalbodId: null,
 };
 
 const write = handleActions(
@@ -84,9 +96,9 @@ const write = handleActions(
     [SET_ORIGINAL_POST]: (state, { payload: post }) => ({
       ...state,
       title: post.title,
-      body: post.body,
-      tags: post.tags,
-      originalPostId: post._id,
+      content: post.content,
+      // tags: post.tags,
+      originalPostId: post.bodId,
     }),
     [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({
       ...state,
