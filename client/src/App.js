@@ -23,6 +23,8 @@ import Test from './blog/Posts/test_policy/Test';
 import TeamPage from './blog/TeamPage'
 import HeaderContainer from './containers/common/HeaderContainer';
 
+// import Login from './Login';
+
 const App = () => {
   return (
     <>
@@ -48,6 +50,8 @@ const App = () => {
       <Route exact path="/Test" component={Test} />
 
       <Route exact path="/TeamPage" component={TeamPage} />
+
+      {/* <Route exact path="/Login" component={Login} /> */}
       <Footer />
     </>
   );

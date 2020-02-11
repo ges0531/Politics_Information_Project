@@ -13,6 +13,9 @@ import TextField from '@material-ui/core/TextField';
 
 import Button from '../common/Button';
 
+import kakao_btn from '../../images/kakao_btn.png';
+import KakaoLogin from '../../Login';
+
 const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -66,6 +69,7 @@ const ErrorMessage = styled.div`
 const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const classes = useStyles();
   const text = textMap[type];
+
   return (
     <React.Fragment>
       <Container component="main" maxWidth="xs">
@@ -156,6 +160,10 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             >
               {text}
             </Button>
+            <a href={"https://kauth.kakao.com/oauth/authorize?client_id=dc342e3fecee26b6e0568c4b04fb1caa&redirect_uri=http://70.12.247.60:8000/kakaologin&response_type=code"}>
+              <img src={kakao_btn} />
+            </a>
+            {/* <KakaoLogin /> */}
           </form>
           <Footer>
             {type === 'login' ? (
