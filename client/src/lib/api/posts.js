@@ -7,7 +7,7 @@ import client from './client';
 export const writePost = ({ title, content, uMail, uName }) =>
   client.post('/bod', { title:title, content:content, uMail:uMail, uName:uName }).then(res=>console.log(res));
 
-export const readPost = bodId => client.get(`/bod/${bodId}`);
+// export const readPost = bodId => client.get(`/bod/${bodId}`);
 
 // export const listPosts = ({ page, uName, tag }) => {
 //   const queryString = qs.stringify({
@@ -21,11 +21,11 @@ export const readPost = bodId => client.get(`/bod/${bodId}`);
 export const listPosts = () => client.get('/bod');
 
 // export const updatePost = ({ id, title, body, tags }) =>
-export const updatePost = ({ bodId, title, content }) =>
-  client.patch(`/bod/${bodId}`, {
-    title:title,
-    content:content,
-    // tags,
-  });
+// export const updatePost = ({ bodId, title, content }) =>
+//   client.patch(`/bod/${bodId}`, {
+//     title:title,
+//     content:content,
+//     // tags,
+//   });
 
-export const removePost = bodId => client.delete(`/bod/${bodId}`);
+// export const removePost = bodId => client.delete(`/bod/${bodId}`);

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import PostListPage from './pages/PostListPage';
+// import PostListPage from './pages/PostListPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import WritePage from './pages/WritePage';
-import PostPage from './pages/PostPage';
+// import PostPage from './pages/PostPage';
 
 import Blog from './blog/Blog';
 import Footer from './blog/Footer';
@@ -24,6 +24,7 @@ import TeamPage from './blog/TeamPage'
 import HeaderContainer from './containers/common/HeaderContainer';
 
 // import Login from './Login';
+import KakaoTest from './KakaoTest';
 
 const App = () => {
   return (
@@ -33,10 +34,10 @@ const App = () => {
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
 
-      <Route exact path="/write" component={WritePage} />
+      {/* <Route exact path="/write" component={WritePage} /> */}
       {/* <Route component={PostPage} path="/@:uMail/:postId" /> */}
-      <Route exact path="/:bodId" component={PostPage}/>
-      <Route exact path="/PostListPage" component={PostListPage} />
+      {/* <Route exact path="/:bodId" component={PostPage}/> */}
+      {/* <Route exact path="/PostListPage" component={PostListPage} /> */}
 
       <Route exact path="/MemberList" component={MemberList} />
       <Route exact path="/MemberDetail" component={MemberDetail} />
@@ -50,6 +51,7 @@ const App = () => {
       <Route exact path="/Test" component={Test} />
 
       <Route exact path="/TeamPage" component={TeamPage} />
+      <Route exact path="/KakaoTest" component={KakaoTest}/>
 
       {/* <Route exact path="/Login" component={Login} /> */}
       <Footer />

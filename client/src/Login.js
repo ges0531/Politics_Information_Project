@@ -39,7 +39,7 @@ class KakaoLogin extends Component {
     render() {
         return (
             <div>
-                <a id="kakao-login-btn" href={"https://kauth.kakao.com/oauth/authorize?client_id=dc342e3fecee26b6e0568c4b04fb1caa&redirect_uri=http://70.12.247.60:8000/kakaologin&response_type=code"}/>
+                <a id="kakao-login-btn" href={"https://kauth.kakao.com/oauth/authorize?client_id=dc342e3fecee26b6e0568c4b04fb1caa&redirect_uri=http://70.12.246.50:3000/KakaoTest&response_type=code"}/>
             </div>
         );
     }

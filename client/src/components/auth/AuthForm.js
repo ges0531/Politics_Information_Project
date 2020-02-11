@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import palette from '../../lib/styles/palette';
@@ -14,7 +14,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '../common/Button';
 
 import kakao_btn from '../../images/kakao_btn.png';
-import KakaoLogin from '../../Login';
+// import KakaoLogin from '../../Login';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -66,9 +66,29 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
+
 const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const classes = useStyles();
   const text = textMap[type];
+
+  console.log(window.location.href);
+  const code = window.location.href.split('code=')[1];
+  console.log(window.location.href.split('code=')[1]);
+  console.log(code);
+
+  if (code) {
+    fetch("http://70.12.247.60:8000/kakaologin?code=" + code)
+      .then(res => console.log(res));
+    // .then(json => {
+    // console.log(json);
+    // if (json === false) {
+    //   alert("사용가능한 아이디입니다.");
+    //   setAuthcheck(true);
+    // } else {
+    //   alert("이미 존재하는 아이디입니다.");
+    // }
+    // });
+  }
 
   return (
     <React.Fragment>
@@ -86,7 +106,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             <TextField
               variant="outlined"
               margin="normal"
-              required
+              // required
               fullWidth
               label="이메일 주소"
               autoFocus
@@ -99,7 +119,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             <TextField
               variant="outlined"
               margin="normal"
-              required
+              // required
               fullWidth
               label="비밀번호"
 
@@ -110,46 +130,46 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
               value={form.password}
             />
             {
-            type === 'register' ?
-            <div>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                label="비밀번호 확인"
+              type === 'register' ?
+                <div>
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    label="비밀번호 확인"
 
-                autoComplete="new-password"
-                name="passwordConfirm"
-                type="password"
-                onChange={onChange}
-                value={form.passwordConfirm}
-              />
-              <TextField 
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              label="닉네임"
+                    autoComplete="new-password"
+                    name="passwordConfirm"
+                    type="password"
+                    onChange={onChange}
+                    value={form.passwordConfirm}
+                  />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    label="닉네임"
 
-              autoComplete="uName"
-              name="uName"
-              onChange={onChange}
-              value={form.uName}
-              />
-              <TextField 
-              variant="outlined"
-              margin="normal"
-              fullWidth
-              label="(선택) 관심있는 정당"
+                    autoComplete="uName"
+                    name="uName"
+                    onChange={onChange}
+                    value={form.uName}
+                  />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    label="(선택) 관심있는 정당"
 
-              autoComplete="uParty"
-              name="uParty"
-              onChange={onChange}
-              value={form.uParty}
-              />
-            </div>
-            : <div/>
+                    autoComplete="uParty"
+                    name="uParty"
+                    onChange={onChange}
+                    value={form.uParty}
+                  />
+                </div>
+                : <div />
             }
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <Button
@@ -160,8 +180,8 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             >
               {text}
             </Button>
-            <a href={"https://kauth.kakao.com/oauth/authorize?client_id=dc342e3fecee26b6e0568c4b04fb1caa&redirect_uri=http://70.12.247.60:8000/kakaologin&response_type=code"}>
-              <img src={kakao_btn} />
+            <a href={"https://kauth.kakao.com/oauth/authorize?client_id=dc342e3fecee26b6e0568c4b04fb1caa&redirect_uri=http://70.12.246.50:3000/KakaoTest&response_type=code"}>
+              <img src={kakao_btn}/>
             </a>
             {/* <KakaoLogin /> */}
           </form>
