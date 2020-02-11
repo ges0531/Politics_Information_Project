@@ -42,8 +42,7 @@ const useStyles = makeStyles(theme => ({
 export default function MainFeaturedPost(props) {
   const classes = useStyles();
   const { post } = props;
-  const br = `\n`;
-
+  
   return (
     <Paper className={classes.mainFeaturedPost} style={{ backgroundImage: `url(${post.image})` }}>
       {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}

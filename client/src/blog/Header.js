@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -13,8 +12,6 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 import UserIcon from '@material-ui/icons/AccountCircle';
 import BoardIcon from '@material-ui/icons/BorderColor';
@@ -45,13 +42,15 @@ const useStyles = makeStyles(theme => ({
     width: 'auto',
   },
   link: {
+    textDecoration: 'none',
     color: '#77837D'
   }
 }));
 
-export default function Header(props) {
+const Header = ({ isLoginSuccess, nick, onLogout }) => {
+  // export default function Header(isLoginSuccess, nick, onLogout) {
   const classes = useStyles();
-  const { title } = props;
+  // const { title } = props;
   const [state, setState] = React.useState({
     left: false,
   });
@@ -75,23 +74,25 @@ export default function Header(props) {
         <ListItem button key={'마이페이지'}>
           <ListItemIcon>
             <UserIcon />
-            <ListItemText primary={'마이페이지'} style={{marginTop:0, marginLeft:15}} />
+            <ListItemText primary={'마이페이지'} style={{ marginTop: 0, marginLeft: 15 }} />
           </ListItemIcon>
         </ListItem>
         <ListItem button key={'자유게시판'}>
           <ListItemIcon>
             <BoardIcon />
-            <ListItemText primary={'자유게시판'} style={{marginTop:0, marginLeft:15}} />
+            <Link to='/PostListPage' className={classes.link}>
+              <ListItemText primary={'자유게시판'} style={{ marginTop: 0, marginLeft: 15 }} />
+            </Link>
           </ListItemIcon>
         </ListItem>
       </List>
       <Divider />
       <List>
-      <ListItem button key={'우리동네 후보자 살펴보기'}>
+        <ListItem button key={'우리동네 후보자 살펴보기'}>
           <ListItemIcon>
             <FaceIcon />
             <Link to='/CandidateMain' className={classes.link}>
-            <ListItemText primary={'우리동네 후보자 살펴보기'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'우리동네 후보자 살펴보기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -99,7 +100,7 @@ export default function Header(props) {
           <ListItemIcon>
             <SearchIcon />
             <Link to='/MemberList' className={classes.link}>
-            <ListItemText primary={'국회의원 찾기'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'국회의원 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -107,7 +108,7 @@ export default function Header(props) {
           <ListItemIcon>
             <GroupIcon />
             <Link to='/CardGame' className={classes.link}>
-            <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -115,7 +116,7 @@ export default function Header(props) {
           <ListItemIcon>
             <CheckIcon />
             <Link to='/Test' className={classes.link}>
-            <ListItemText primary={'나의 정치성향 테스트'} style={{marginTop:0, marginLeft:15}} />
+              <ListItemText primary={'나의 정치성향 테스트'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
           </ListItemIcon>
         </ListItem>
@@ -123,26 +124,21 @@ export default function Header(props) {
     </div>
   );
 
-  const [email, setEmail] = useState(window.sessionStorage.getItem("email"));
-  const logout = (evt) => {
-    evt.preventDefault();
-    alert(`로그아웃 되었습니다`);
-    window.sessionStorage.removeItem("email");
-    setEmail(null);
-  }
-
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-      <div>
-      <Button onClick={toggleDrawer('left', true)}><MenuIcon/></Button>
-      <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
-        {sideList('left')}
-      </Drawer>
-    </div>
-          <Button variant="outlined" size="small" style={{ margin: 15 }}>
-            실시간 채팅 참여하기
-          </Button>
+
+        <div>
+          <Button onClick={toggleDrawer('left', true)}><MenuIcon /></Button>
+          <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
+            {sideList('left')}
+          </Drawer>
+        </div>
+
+        <Button variant="outlined" size="small" style={{ margin: 15 }}>
+          실시간 채팅 참여하기
+      </Button>
+
         <Typography
           component="h2"
           variant="h5"
@@ -151,34 +147,37 @@ export default function Header(props) {
           noWrap
           className={classes.toolbarTitle}
         >
-          <Link to="/">
-          {title}
+
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            {'싸피는하나당'}
           </Link>
+
         </Typography>
         {
-          email === null ?
+          nick ?
             <div>
-              <Link to="/SignIn">
+              {nick} 님 안녕하세요 !
+            <Button variant="outlined" size="small" onClick={onLogout} style={{ margin: 15 }}>
+                로그아웃
+            </Button>
+            </div>
+            :
+            <div>
+              <Link to="/SignIn" style={{ textDecoration: 'none' }}>
                 <Button variant="outlined" size="small" style={{ margin: 15 }}>
                   로그인
                 </Button>
               </Link>
-              <Link to="/SignUp">
+              <Link to="/SignUp" style={{ textDecoration: 'none' }}>
                 <Button variant="outlined" size="small">
                   회원가입
-        </Button>
+                </Button>
               </Link>
             </div>
-            : <div>{window.sessionStorage.getItem("email")} 님 안녕하세요 !
-            <Button variant="outlined" size="small" onClick={logout} style={{ margin: 15 }}>
-                로그아웃
-            </Button></div>}
+        }
       </Toolbar>
     </React.Fragment>
   );
 }
 
-Header.propTypes = {
-  sections: PropTypes.array,
-  title: PropTypes.string,
-};
+export default Header;

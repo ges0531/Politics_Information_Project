@@ -46,12 +46,12 @@ export default function Blog() {
       <CssBaseline />
       <Container maxWidth="lg">
         <main>
-          <Link to="/CandidateMain">
+          <Link to="/CandidateMain" style={{ textDecoration: 'none' }}>
           <MainFeaturedPost post={mainFeaturedPost} />
           </Link>
           <Grid>
             {featuredPosts.map(post => (
-              <Link to={post.link}>
+              <Link to={post.link} style={{ textDecoration: 'none' }}>
               <FeaturedPost key={post.title} post={post}/>
               </Link>
             ))}

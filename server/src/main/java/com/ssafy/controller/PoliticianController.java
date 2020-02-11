@@ -1,6 +1,10 @@
 package com.ssafy.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.service.PoliticianService;
+import com.ssafy.tool.TokenInfoManage;
 import com.ssafy.vo.Politician;
 
 @RestController
@@ -19,11 +24,24 @@ public class PoliticianController {
 	// 정치인 검색 //정치인상세 //
 	@Autowired
 	private PoliticianService politicianService;
-
+	
+	@Autowired
+	TokenInfoManage jwtManage;
+	
 	@GetMapping
-	public ResponseEntity<List<Politician>> getAllPolitician() {
-
-		return new ResponseEntity<List<Politician>>(politicianService.findAll(), HttpStatus.OK);
+	public ResponseEntity<Map<String, Object>> getAllPolitician(HttpServletRequest req) {
+		Map<String, Object> resMap = new HashMap<String, Object>();
+	
+		
+		String str = req.getHeader("jwt-auth-token");
+		if(str!=null) {
+			resMap.put("uMail", (String)jwtManage.getUserMail(str));
+		}
+		resMap.put("list",politicianService.findAll());
+		
+		
+		
+		return new ResponseEntity<Map<String, Object>>(resMap,HttpStatus.OK);
 
 	}
 
@@ -36,10 +54,23 @@ public class PoliticianController {
 	}
 
 	@GetMapping(value = "/{pid}")
-	public ResponseEntity<Politician> detailPolitician(@PathVariable("pid") int pId) {
+	public ResponseEntity<Map<String, Object>> detailPolitician(@PathVariable("pid") int pId,HttpServletRequest req) {
+		
+		String token = req.getHeader("jwt-auth-token");
+		Map<String, Object> resMap = new HashMap();
 
-		return new ResponseEntity<Politician>(politicianService.findById(pId), HttpStatus.OK);
+		
+		if (token != null && token.length() > 0) {
+			
+			resMap.put("post", politicianService.detailPolitician(pId, (String)jwtManage.getUserMail(token)));
+		} else {
+			resMap.put("post", politicianService.detailPolitician(pId, "nonuser"));
+		}
+		return new ResponseEntity<Map<String, Object>>(resMap, HttpStatus.OK);
 
 	}
+	
+	
+	//좋아요 구현 
 
 }
