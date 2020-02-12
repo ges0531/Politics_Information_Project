@@ -66,6 +66,8 @@ export function* writeSaga() {
 const initialState = {
   title: '',
   content: '',
+  uMail: '',
+  uName: '',
   // tags: [],
   post: null,
   postError: null,
@@ -99,8 +101,10 @@ const write = handleActions(
       ...state,
       title: post.title,
       content: post.content,
+      uMail:post.uMail,
+      uName:post.uName,
       // tags: post.tags,
-      originalPostId: post.bodId,
+      originalbodId: post.bodId,
     }),
     [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({
       ...state,

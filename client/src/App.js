@@ -1,40 +1,49 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import PostListPage from './pages/PostListPage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import WritePage from './pages/WritePage';
-import PostPage from './pages/PostPage';
 
-import Blog from './blog/Blog';
-import Footer from './blog/Footer';
+// import PostListPage from './pages/board/PostListPage';
+// import PostPage from './pages/board/PostPage';
+// import WritePage from './pages/board/WritePage';
 
-import MemberList from './blog/Posts/MemberList';
-import MemberDetail from './blog/Posts/MemberDetail';
-import CardGame from './blog/Posts/react_card/CardGame';
+import LoginPage from './pages/sign/LoginPage';
+import RegisterPage from './pages/sign/RegisterPage';
 
-import CandidateMain from './blog/candidate/CandidateMain';
-import CandidateDetail from './blog/candidate/CandidateDetail';
-import CandidateDetail2 from './blog/candidate/CandidateDetail2';
+import MainPage from './pages/main/MainPage';
 
-import CandidateCard from './blog/candidate/CandidateCard';
-import CandidateCardDetail from './blog/candidate/CandidateCardDetail';
-import Test from './blog/Posts/test_policy/Test';
-import TeamPage from './blog/TeamPage'
 import HeaderContainer from './containers/common/HeaderContainer';
+import Footer from './components/common/Footer';
+
+import MemberList from './pages/member/MemberList';
+import MemberDetail from './pages/member/MemberDetail';
+
+import CardGame from './pages/cardgame/CardGame';
+
+import CandidateMain from './pages/candidate/CandidateMain';
+import CandidateCard from './pages/candidate/CandidateCard';
+import CandidateCardDetail from './pages/candidate/CandidateCardDetail';
+
+import CandidateDetail from './pages/candidate/CandidateDetail';
+import CandidateDetail2 from './pages/candidate/CandidateDetail2';
+
+import Test from './pages/policytest/Test';
+
+import TeamPage from './pages/team/TeamPage'
+
+// import Login from './Login';
+import KakaoTest from './KakaoTest';
 
 const App = () => {
   return (
     <>
       <HeaderContainer />
-      <Route exact path="/" component={Blog} />
+      <Route exact path="/" component={MainPage} />
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
 
-      <Route exact path="/write" component={WritePage} />
+      {/* <Route exact path="/write" component={WritePage} /> */}
       {/* <Route component={PostPage} path="/@:uMail/:postId" /> */}
-      <Route exact path="/:bodId" component={PostPage}/>
-      <Route exact path="/PostListPage" component={PostListPage} />
+      {/* <Route exact path="/:bodId" component={PostPage}/> */}
+      {/* <Route exact path="/PostListPage" component={PostListPage} /> */}
 
       <Route exact path="/MemberList" component={MemberList} />
       <Route exact path="/MemberDetail" component={MemberDetail} />
@@ -48,6 +57,9 @@ const App = () => {
       <Route exact path="/Test" component={Test} />
 
       <Route exact path="/TeamPage" component={TeamPage} />
+      <Route exact path="/KakaoTest" component={KakaoTest}/>
+
+      {/* <Route exact path="/Login" component={Login} /> */}
       <Footer />
     </>
   );

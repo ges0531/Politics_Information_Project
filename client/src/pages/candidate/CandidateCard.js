@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
-import { Container, Divider, Grid, Header } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
+import { Card, Image } from 'semantic-ui-react'
+import { Container, Divider, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 import 이종구 from './image/이종구1.png';
