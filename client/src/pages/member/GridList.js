@@ -55,7 +55,7 @@ const Item = ({ item }) => (
         {item.pParty}
       </Typography>
       <Typography>
-      {candidateData.pCareer}
+      {/* {candidateData.pCareer} */}
                     </Typography>
     </CardContent>
     <CardActions>
