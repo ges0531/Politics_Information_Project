@@ -17,7 +17,7 @@ const CardExampleImageCard = () => (
       <Grid.Row>
 
         <Grid.Column width={4}>
-          <Link to="/CandidateCardDetail">
+          <Link to="/CandidateDetail">
             <Card style={{height:'420px'}}>
               <Image src={이종구} wrapped ui={false} />
               <Card.Content>
