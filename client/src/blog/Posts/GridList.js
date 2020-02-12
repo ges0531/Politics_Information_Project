@@ -37,29 +37,29 @@ const classes = makeStyles(theme => ({
   },
 }));
 
-const Item = ({ num }) => (
+const Item = ({ candidateData }) => (
   <Card className={classes.card}>
     <Link to="/MemberDetail">
       <CardMedia
         className={classes.cardMedia}
-        image="https://pbs.twimg.com/profile_images/798463233774350336/KlHqUNgL_400x400.jpg"
+        image={candidateData.pImg}
         style={{ height: '300px' }}
       />
     </Link>
     <CardContent className={classes.cardContent}>
       <Typography gutterBottom variant="h5" component="h2">
-        문 재 인
+      {candidateData.pName}
                     </Typography>
       <Typography color="textSecondary">
-        싸하당
+      {candidateData.pParty}
                     </Typography>
       <Typography>
-        국정운영과 의정활동 36년<br />김싸피는 경제의 맥을 확실히 알고 있습니다
+      {candidateData.pCareer}
                     </Typography>
     </CardContent>
     <CardActions>
       <Button size="small" color="primary">
-        강남구 갑
+        {candidateData.pConstituency}
                     </Button>
       <Button size="small" color="primary">
         공약이행률 54.00%
@@ -76,10 +76,11 @@ class GridList extends React.Component {
 
     for (let i = 0; i < num; ++i) {
       items.push(
-        <Item groupKey={groupKey} num={1 + start + i} key={start + i} />
+        <Item groupKey={groupKey} num={1 + start + i} key={start + i} candidateData={this.props.candidateData[start + i]} />
       );
     }
     this.start = start + num;
+    console.log(items)
     return items;
   }
   onAppend = ({ groupKey, startLoading }) => {

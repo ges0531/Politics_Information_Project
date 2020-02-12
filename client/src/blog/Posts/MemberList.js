@@ -1,5 +1,5 @@
 // 국회의원 리스트 페이지
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import AppBar from '@material-ui/core/AppBar';
 // import Button from '@material-ui/core/Button';
 // import Card from '@material-ui/core/Card';
@@ -51,7 +51,26 @@ const useStyles = makeStyles(theme => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Album() {
+  var candidateData
   const classes = useStyles();
+  const [candidate, setCandidate] = useState(false);
+  async function fetchMyAPI() {
+    let response = await fetch("http://52.79.219.137:8000/politician/");
+    response = await response.json();
+    setCandidate(response);
+  }
+
+  useEffect(() => {
+    fetchMyAPI();
+  }, []);
+  if (candidate.list) {
+    candidateData = candidate.list
+    console.log(candidate.list);
+  } else {
+    return(<div>1</div>)
+    
+  }
+  
 
   return (
     <React.Fragment>
@@ -109,7 +128,7 @@ export default function Album() {
                 </Card>
               </Grid>
             ))} */}
-            <GridList />
+            <GridList candidateData={candidateData} />
         </Container>
       </main>
     </React.Fragment>
