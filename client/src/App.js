@@ -20,7 +20,6 @@ import CardGame from './pages/cardgame/CardGame';
 
 import CandidateMain from './pages/candidate/CandidateMain';
 import CandidateCard from './pages/candidate/CandidateCard';
-import CandidateCardDetail from './pages/candidate/CandidateCardDetail';
 
 import CandidateDetail from './pages/candidate/CandidateDetail';
 import CandidateDetail2 from './pages/candidate/CandidateDetail2';
@@ -53,7 +52,7 @@ const App = () => {
       <Route exact path="/CandidateDetail" component={CandidateDetail} />
       <Route exact path="/CandidateDetail2" component={CandidateDetail2} />
       <Route exact path="/CandidateCard" component={CandidateCard} />
-      <Route exact path="/CandidateCardDetail" component={CandidateCardDetail} />
+      
       <Route exact path="/Test" component={Test} />
 
       <Route exact path="/TeamPage" component={TeamPage} />
