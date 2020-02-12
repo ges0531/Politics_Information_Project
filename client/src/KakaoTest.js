@@ -12,7 +12,7 @@ const test = ({obj}) => {
     
     return(
         <div>
-            짜증나...
+            ㅠㅠ
         </div>
     )
 

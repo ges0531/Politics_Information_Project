@@ -14,7 +14,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '../common/Button';
 
 import kakao_btn from '../../images/kakao_btn.png';
-// import KakaoLogin from '../../Login';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -70,25 +69,6 @@ const ErrorMessage = styled.div`
 const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
   const classes = useStyles();
   const text = textMap[type];
-
-  console.log(window.location.href);
-  const code = window.location.href.split('code=')[1];
-  console.log(window.location.href.split('code=')[1]);
-  console.log(code);
-
-  if (code) {
-    fetch("http://70.12.247.60:8000/kakaologin?code=" + code)
-      .then(res => console.log(res));
-    // .then(json => {
-    // console.log(json);
-    // if (json === false) {
-    //   alert("사용가능한 아이디입니다.");
-    //   setAuthcheck(true);
-    // } else {
-    //   alert("이미 존재하는 아이디입니다.");
-    // }
-    // });
-  }
 
   return (
     <React.Fragment>
