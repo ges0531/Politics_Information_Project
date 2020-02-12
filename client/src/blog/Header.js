@@ -48,9 +48,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Header = ({ isLoginSuccess, nick, onLogout }) => {
-  // export default function Header(isLoginSuccess, nick, onLogout) {
   const classes = useStyles();
-  // const { title } = props;
   const [state, setState] = React.useState({
     left: false,
   });
