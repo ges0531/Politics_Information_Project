@@ -44,7 +44,6 @@ class TeamPage extends Component {
       <div>
         <Container text style={{ marginTop: "7em" }}>
           <Header as="h1">팀 소개 페이지</Header>
-          <p>우리팀은 어쩌구</p>
           <ReactMarkdown
             source={markdown}
             skipHtml={false}
