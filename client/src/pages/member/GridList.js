@@ -55,7 +55,7 @@ const Item = ({ item }) => (
         {item.pParty}
       </Typography>
       <Typography>
-        국정운영과 의정활동 36년<br />김싸피는 경제의 맥을 확실히 알고 있습니다
+      {candidateData.pCareer}
                     </Typography>
     </CardContent>
     <CardActions>

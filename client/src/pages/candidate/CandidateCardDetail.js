@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Document, Page } from "react-pdf/dist/entry.webpack";
-import pdfFile from "./test.pdf";
+import pdfFile from "./pdf/test.pdf";
 
 class CandidateCardDetail extends Component {
   state = {
