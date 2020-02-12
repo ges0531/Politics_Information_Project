@@ -2,8 +2,8 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost.js';
+import MainFeaturedPost from './MainFirst';
+import FeaturedPost from './MainMenu';
 import { Link } from 'react-router-dom';
 
 const mainFeaturedPost = {

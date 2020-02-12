@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 // import { Link } from 'react-router-dom';
-import Search from './Search';
+import Search from './MemberSearch';
 import GridList from './GridList';
 
 const useStyles = makeStyles(theme => ({

@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import Comments from './Comments';
+import Comments from './MemberComment';
 import moon from './image/moon.png';
 
 const useStyles = makeStyles(theme => ({
