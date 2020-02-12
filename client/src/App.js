@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-// import PostListPage from './pages/board/PostListPage';
-// import PostPage from './pages/board/PostPage';
-// import WritePage from './pages/board/WritePage';
+import PostListPage from './pages/board/PostListPage';
+import PostPage from './pages/board/PostPage';
+import WritePage from './pages/board/WritePage';
 
 import LoginPage from './pages/sign/LoginPage';
 import RegisterPage from './pages/sign/RegisterPage';
@@ -40,10 +40,10 @@ const App = () => {
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
 
-      {/* <Route exact path="/write" component={WritePage} /> */}
-      {/* <Route component={PostPage} path="/@:uMail/:postId" /> */}
-      {/* <Route exact path="/:bodId" component={PostPage}/> */}
-      {/* <Route exact path="/PostListPage" component={PostListPage} /> */}
+      <Route exact path="/write" component={WritePage} />
+      <Route component={PostPage} path="/@:uMail/:postId" />
+      <Route exact path="/:bodId" component={PostPage}/>
+      <Route exact path="/PostListPage" component={PostListPage} />
 
       <Route exact path="/MemberList" component={MemberList} />
       <Route exact path="/MemberDetail" component={MemberDetail} />
