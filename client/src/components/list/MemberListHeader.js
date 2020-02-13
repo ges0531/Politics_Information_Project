@@ -48,7 +48,7 @@ const MemberListHeader = () => {
                     목록을 쭈욱 내려보셔도 됩니다.
                 </Typography>
                 <div className={classes.heroButtons}>
-                    <Grid container spacing={2} justify="center">
+                    <Grid container spacing={1} justify="center">
                         <SearchContainer />
                     </Grid>
                 </div>
