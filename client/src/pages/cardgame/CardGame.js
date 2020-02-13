@@ -70,6 +70,7 @@ function Cardgame() {
   var useData;
   async function fetchMyAPI() {
     let response = await fetch("http://52.79.219.137:8000/cardgame/");
+    console.log(response, 1111)
     response = await response.json();
     dataSet(response);
   }
