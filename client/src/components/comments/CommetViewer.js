@@ -45,7 +45,7 @@ class App extends Component {
   addComment(comment) {
     this.setState({
       loading: false,
-      comments: [comment, ...this.state.comments]
+      comments: [...this.state.comments, comment]
     });
   }
 

@@ -17,7 +17,7 @@ export default function CommentList(props) {
 
       {props.comments.map((comment, index) => (
         <Comment key={index} comment={comment} />
-      ))}
+      )).reverse()}
     </div>
   );
 }
