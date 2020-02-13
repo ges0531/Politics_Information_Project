@@ -46,6 +46,7 @@ function* logoutSaga() {
   try {
     yield call(authAPI.logout); // logout API 호출
     localStorage.removeItem('nick'); // localStorage 에서 user 제거
+    localStorage.removeItem('mail');
   } catch (e) {
     console.log(e);
   }
@@ -106,6 +107,7 @@ const auth = handleActions(
       ...state,
       authError: null,
       uName:auth.user.uName,
+      uMail:auth.user.uMail,
       isLoginSuccess:true,
       auth
     }),

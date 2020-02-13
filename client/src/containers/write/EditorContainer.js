@@ -5,11 +5,11 @@ import { changeField, initialize } from '../../modules/write';
 
 const EditorContainer = () => {
   const dispatch = useDispatch();
-  const { title, content, uMail, uName } = useSelector(({ write }) => ({
+  const { title, content, uMail, uName } = useSelector(({ write, auth }) => ({
     title: write.title,
     content: write.content,
-    uMail: write.uMail,
-    uName: write.uName
+    uMail: auth.uMail,
+    uName: auth.uName
   }));
   const onChangeField = useCallback(payload => dispatch(changeField(payload)), [
     dispatch,

@@ -1,21 +1,21 @@
 import React from 'react'
+import axios from 'axios'
 
-const test = ({obj}) => {
+const test = () => {
     // console.log(window.location.href.split('code=')[1]);
 
-    // const code = window.location.href.split('code=')[1];
+    const code = window.location.href.split('code=')[1];
 
-    // fetch("http://70.12.247.60:8000/kakaologin?code=" + code)
-    //   .then(res => console.log(res));
+    axios.get(`http://70.12.247.60:8000/kakaologin?code=${code}`)
+      .then(res => console.log(res));
     
-    console.log(obj);
+    // console.log(obj);
     
     return(
         <div>
             ㅠㅠ
         </div>
     )
-
 }
 
 export default test;

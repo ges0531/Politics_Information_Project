@@ -32,7 +32,7 @@ const QuillWrapper = styled.div`
   }
 `;
 
-const Editor = ({ title, content, onChangeField }) => {
+const Editor = ({ onChangeField, title, content, uMail, uName }) => {
   const quillElement = useRef(null); // Quill을 적용할 DivElement를 설정
   const quillInstance = useRef(null); // Quill 인스턴스를 설정
 
@@ -80,6 +80,7 @@ const Editor = ({ title, content, onChangeField }) => {
         onChange={onChangeTitle}
         value={title}
       />
+      
       <QuillWrapper>
         <div ref={quillElement} />
       </QuillWrapper>

@@ -31,6 +31,8 @@ import TeamPage from './pages/team/TeamPage'
 // import Login from './Login';
 import KakaoTest from './KakaoTest';
 
+import CommentList from './components/comments/CommentList';
+
 const App = () => {
   return (
     <>
@@ -57,6 +59,8 @@ const App = () => {
 
       <Route exact path="/TeamPage" component={TeamPage} />
       <Route exact path="/KakaoTest" component={KakaoTest}/>
+
+      <Route exact path="/CommentList" component={CommentList}/>
 
       {/* <Route exact path="/Login" component={Login} /> */}
       <Footer />
