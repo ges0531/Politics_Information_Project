@@ -4,8 +4,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
 
-import axios from 'axios';
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +54,7 @@ class App extends Component {
       <div className="App container bg-light shadow">
         <div className="row">
           <div className="col-4  pt-3 border-right">
-            <h6>Say something about {this.props.pname}</h6>
+            <h6><b>{this.props.pname}</b>에 대해서 이야기해주세요</h6>
             <CommentForm addComment={this.addComment} pId={this.props.pId}/>
           </div>
           <div className="col-8  pt-3 bg-white">
