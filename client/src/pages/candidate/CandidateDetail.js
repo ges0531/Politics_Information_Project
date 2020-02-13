@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Document, Page } from "react-pdf/dist/entry.webpack";
 import pdfFile from "./pdf/Candidate_1.pdf";
 import CommentViewer from '../../components/comments/CommetViewer'
-import CandidateComment from './CandidateComment';
 
 class CandidateCardDetail extends Component {
   state = {
