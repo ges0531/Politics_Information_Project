@@ -100,7 +100,7 @@ export default function Album() {
         <Container>
           <div>
             <div className={classes2.margin}>
-              <CommentViewer cname="문재인"/>
+              <CommentViewer pname="문재인" pId="1"/>
             </div>
           </div>
         </Container>
