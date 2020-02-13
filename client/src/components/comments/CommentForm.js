@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Link from "@material-ui/core/Link";
 
 // 댓글 입력하는 창
 export default class CommentForm extends Component {
@@ -10,9 +11,9 @@ export default class CommentForm extends Component {
       error: "",
 
       comment: {
-        pId:parseInt(props.pId),
-        uName:localStorage.getItem('nick'),
-        uMail:localStorage.getItem('mail'),
+        pId: parseInt(props.pId),
+        uName: localStorage.getItem("nick"),
+        uMail: localStorage.getItem("mail"),
         pCommentContent: ""
       }
     };
@@ -56,17 +57,18 @@ export default class CommentForm extends Component {
     let { comment } = this.state;
     console.log(comment);
 
-    axios ({
-      method:"post",
-      url:"http://70.12.247.60:8000/pcomment",
+    axios({
+      method: "post",
+      url: "http://70.12.247.60:8000/pcomment",
       params: {
-        pId:comment.pId,
-        uMail:comment.uMail,
-        uName:comment.uName,
-        pCommentContent:comment.pCommentContent
+        pId: comment.pId,
+        uMail: comment.uMail,
+        uName: comment.uName,
+        pCommentContent: comment.pCommentContent
       }
-    }).then(res => {
-        console.log(res)
+    })
+      .then(res => {
+        console.log(res);
         if (res.error) {
           this.setState({ loading: false, error: res.error });
           console.log(res.error);
@@ -89,9 +91,6 @@ export default class CommentForm extends Component {
         });
         console.log(err);
       });
-
-
-
 
     // fetch(`http://70.12.247.60:8000/pcomment`, {
     //   method: 'POST',
@@ -128,7 +127,10 @@ export default class CommentForm extends Component {
    * Simple validation
    */
   isFormValid() {
-    return this.state.comment.uName !== "" && this.state.comment.pCommentContent !== "";
+    return (
+      this.state.comment.uName !== "" &&
+      this.state.comment.pCommentContent !== ""
+    );
   }
 
   renderError() {
@@ -140,36 +142,73 @@ export default class CommentForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form method="post" onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <input
-              // onChange={this.handleFieldChange}
-              value={localStorage.getItem('nick')}
-              className="form-control"
-              name="uName"
-              type="text"
-              disabled
-            />
-          </div>
+        {localStorage.getItem("nick") ? (
+          <form method="post" onSubmit={this.onSubmit}>
+            <div className="form-group">
+              <input
+                // onChange={this.handleFieldChange}
+                value={localStorage.getItem("nick")}
+                className="form-control"
+                name="uName"
+                type="text"
+                disabled
+              />
+            </div>
 
-          <div className="form-group">
-            <textarea
-              onChange={this.handleFieldChange}
-              value={this.state.comment.pCommentContent}
-              className="form-control"
-              placeholder="내용을 작성해주세요."
-              name="pCommentContent"
-              rows="5"
-            />
-          </div>
-          {this.renderError()}
+            <div className="form-group">
+              <textarea
+                onChange={this.handleFieldChange}
+                value={this.state.comment.pCommentContent}
+                className="form-control"
+                placeholder="내용을 작성해주세요."
+                name="pCommentContent"
+                rows="5"
+              />
+            </div>
+            {this.renderError()}
 
-          <div className="form-group">
-            <button disabled={this.state.loading} className="btn btn-primary">
-              댓글남기기 &#10148;
-            </button>
+            <div className="form-group">
+              <button disabled={this.state.loading} className="btn btn-primary">
+                댓글남기기 &#10148;
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div>
+            <div className="form-group">
+              <input
+                // onChange={this.handleFieldChange}
+                value={localStorage.getItem("nick")}
+                className="form-control"
+                name="uName"
+                type="text"
+                disabled
+              />
+            </div>
+
+            <div className="form-group">
+              <textarea
+                onChange={this.handleFieldChange}
+                value={this.state.comment.pCommentContent}
+                className="form-control"
+                placeholder="로그인을 해 주세요."
+                name="pCommentContent"
+                rows="5"
+                disabled
+              />
+            </div>
+            <Link href="/SignIn">
+              <div className="form-group">
+                <button
+                  disabled={this.state.loading}
+                  className="btn btn-primary"
+                >
+                  로그인 &#10148;
+                </button>
+              </div>
+            </Link>
           </div>
-        </form>
+        )}
       </React.Fragment>
     );
   }
