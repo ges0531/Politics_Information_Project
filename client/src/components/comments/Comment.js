@@ -1,5 +1,6 @@
 import React from "react";
 
+// 댓글 하나를 전달받아 댓글 하나를 보여주는 창
 export default function Comment(props) {
   const { uName, pCommentContent, writeDate } = props.comment;
 

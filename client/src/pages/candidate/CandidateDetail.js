@@ -27,7 +27,7 @@ class CandidateCardDetail extends Component {
         <p>
           {/* Page {pageNumber} of {pages} */}
         </p>
-        <CommentViewer cname="문재인"/>
+        <CommentViewer pname="문재인" pId="1"/>
       </div>
     );
   }

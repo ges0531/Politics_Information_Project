@@ -20,7 +20,7 @@ const featuredPosts = [
       '우리 지역의 국회의원을 찾아보세요!',
     image: 'http://www.urbanbrush.net/web/wp-content/uploads/edd/2018/06/web-20180620025328990421.png',
     imageText: 'Image Text',
-    link: '/MemberList',
+    link: '/PoliticianPage',
   },
   {
     title: '나와 잘맞는 정치인 찾기',

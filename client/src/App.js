@@ -34,6 +34,8 @@ import CandidateDetail11 from './pages/candidate/CandidateDetail11';
 import CandidateDetail12 from './pages/candidate/CandidateDetail12';
 import CandidateDetail13 from './pages/candidate/CandidateDetail13';
 
+import PoliticianPage from './pages/list/PoliticianPage';
+
 import Test from './pages/policytest/Test';
 
 import TeamPage from './pages/team/TeamPage'
@@ -56,7 +58,7 @@ const App = () => {
       <Route exact path="/:bodId" component={PostPage}/>
       <Route exact path="/PostListPage" component={PostListPage} />
 
-      <Route exact path="/MemberList" component={MemberList} />
+      <Route exact path="/PoliticianPage" component={PoliticianPage} />
       <Route exact path="/MemberDetail" component={MemberDetail} />
       <Route exact path="/CardGame" component={CardGame} />
 
