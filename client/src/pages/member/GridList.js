@@ -80,7 +80,7 @@ class GridList extends React.Component {
       );
     }
     this.start = start + num;
-    console.log(items)
+    // console.log(items)
     return items;
   }
   onAppend = ({ groupKey, startLoading }) => {
