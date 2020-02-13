@@ -59,7 +59,7 @@ export default function Album() {
   }, []);
   if (candidate.list) {
     candidateData = candidate.list
-    console.log(candidate.list);
+    // console.log(candidate.list);
   } else {
     return(<div>1</div>)
     

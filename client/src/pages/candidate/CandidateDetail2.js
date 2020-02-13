@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Document, Page } from "react-pdf/dist/entry.webpack";
 import pdfFile from "./pdf/Candidate_2.pdf";
+import CommentViewer from '../../components/comments/CommetViewer'
 
 class CandidateCardDetail extends Component {
   state = {
@@ -23,8 +24,9 @@ class CandidateCardDetail extends Component {
           ))}
         </Document>
         <p>
-          Page {pageNumber} of {pages}
+          {/* Page {pageNumber} of {pages} */}
         </p>
+        <CommentViewer cname="홍준표"/>
       </div>
     );
   }
