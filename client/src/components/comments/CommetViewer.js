@@ -4,12 +4,16 @@ import "bootstrap/dist/css/bootstrap.css";
 import CommentList from "./CommentList";
 import CommentForm from "./CommentForm";
 
+import axios from 'axios';
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      comments: [],
+      pId: parseInt(props.pId), // 전달받은 pId
+      pname: props.pname, // 전달받은 pname
+      comments: [], // 댓글 목록
       loading: false
     };
 
@@ -19,19 +23,21 @@ class App extends Component {
   componentDidMount() {
     // loading
     this.setState({ loading: true });
-
-    // get all the comments
-    fetch("http://70.12.247.60:8000/pcomment/1")
+    
+    let { pId } = this.state;
+    // get all the comments  
+    fetch(`http://70.12.247.60:8000/pcomment/${pId}`)
       .then(res => res.json())
       .then(res => {
         this.setState({
-          comments: res,
+          comments: res, // 불러온 댓글 배열을 저장
           loading: false
         });
       })
       .catch(err => {
         this.setState({ loading: false });
       });
+
   }
 
   /**
@@ -46,28 +52,12 @@ class App extends Component {
   }
 
   render() {
-    const loadingSpin = this.state.loading ? "App-logo Spin" : "App-logo";
     return (
       <div className="App container bg-light shadow">
-        <header className="App-header">
-          <h1 className="App-title">
-            React Comments
-            <span className="px-2" role="img" aria-label="Chat">
-              💬
-            </span>
-          </h1>
-          <p>
-            Checkout the tutorial on{" "}
-            <a className="text-light" href="https://qcode.in">
-              QCode.in
-            </a>
-          </p>
-        </header>
-
         <div className="row">
           <div className="col-4  pt-3 border-right">
-            <h6>Say something about React</h6>
-            <CommentForm addComment={this.addComment} />
+            <h6>Say something about {this.props.pname}</h6>
+            <CommentForm addComment={this.addComment} pId={this.props.pId}/>
           </div>
           <div className="col-8  pt-3 bg-white">
             <CommentList
