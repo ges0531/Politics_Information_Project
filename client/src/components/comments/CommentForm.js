@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Axios from "axios";
 
 export default class CommentForm extends Component {
   constructor(props) {
@@ -9,11 +8,8 @@ export default class CommentForm extends Component {
       error: "",
 
       comment: {
-        pCommentContent: "",
-        pId:"1",
-        uMail: localStorage.getItem('mail'),
-        uName: localStorage.getItem('nick'),
-        writeDate:"20200212"
+        name: "",
+        message: ""
       }
     };
 
@@ -54,22 +50,23 @@ export default class CommentForm extends Component {
 
     // persist the comments on server
     let { comment } = this.state;
-    console.log(comment);
-    Axios.post(`http://70.12.247.60:8000/pcomment`, {comment})
-    .then(res=>console.log(res))
+    fetch("http://localhost:7777", {
+      method: "post",
+      body: JSON.stringify(comment)
+    })
       .then(res => res.json())
       .then(res => {
         if (res.error) {
           this.setState({ loading: false, error: res.error });
         } else {
           // add time return from api and push comment to parent state
-          // comment.writeDate = res.writeDate;
+          comment.time = res.time;
           this.props.addComment(comment);
 
           // clear the message box
           this.setState({
             loading: false,
-            comment: { ...comment, pCommentContent: ""}
+            comment: { ...comment, message: "" }
           });
         }
       })
@@ -85,7 +82,7 @@ export default class CommentForm extends Component {
    * Simple validation
    */
   isFormValid() {
-    return this.state.comment.uName !== "" && this.state.comment.pCommentContent !== "";
+    return this.state.comment.name !== "" && this.state.comment.message !== "";
   }
 
   renderError() {
@@ -101,9 +98,10 @@ export default class CommentForm extends Component {
           <div className="form-group">
             <input
               onChange={this.handleFieldChange}
-              value={this.state.comment.uName}
+              value={this.state.comment.name}
               className="form-control"
-              name="uName"
+              placeholder="😎 Your Name"
+              name="name"
               type="text"
             />
           </div>
@@ -111,10 +109,10 @@ export default class CommentForm extends Component {
           <div className="form-group">
             <textarea
               onChange={this.handleFieldChange}
-              value={this.state.comment.pCommentContent}
+              value={this.state.comment.message}
               className="form-control"
               placeholder="🤬 Your Comment"
-              name="pCommentContent"
+              name="message"
               rows="5"
             />
           </div>
