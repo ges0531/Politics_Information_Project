@@ -6,10 +6,11 @@ import { listPolitians } from '../../modules/list';
 
 const MemberListContainer = ({ location }) => {
   const dispatch = useDispatch();
-  const { politicians, error, loading } = useSelector(
+  const { politicians, error, loading, keyword } = useSelector(
     ({ list, loading }) => ({
       politicians: list.politicians,
       error: list.error,
+      keyword: list.keyword,
       loading: loading['list/LIST_POLITICIANS'],
     }),
   );
@@ -18,14 +19,12 @@ const MemberListContainer = ({ location }) => {
   }, [dispatch, location.search]);
 
   return (
-    <div>
-      <div> {console.log(politicians)} </div>
     <MemberList
       loading={loading}
       error={error}
       politicians={politicians}
+      keyword={keyword}
     />
-    </div>
   );
 };
 

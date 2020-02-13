@@ -1,10 +1,10 @@
 import React from 'react';
-import MemberListContainer from '../../containers/list/MemberListContainer';
+import MemberListHeader from '../../components/list/MemberListHeader';
 
 const PoliticianPage = () => {
   return (
     <>
-      <MemberListContainer />
+      <MemberListHeader />
     </>
   );
 };

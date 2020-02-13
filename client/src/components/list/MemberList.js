@@ -7,9 +7,11 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+// import { GridLayout } from "@egjs/react-infinitegrid";
 const classes = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -65,56 +67,97 @@ const MemberListBlock = styled.div`
 
 const PoliticianCard = ({ politician }) => {
   const { pName, pImg, pParty, pId, pConstituency } = politician;
+  const classes = makeStyles(() => ({
+    card: {
+      width: '200px',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    cardMedia: {
+      paddingTop: '56.25%', // 16:9
+    },
+    cardContent: {
+      flexGrow: 1,
+    },
+  }));
+
   return (
     <Card className={classes.card} id={pId}>
-    <Link to="/MemberDetail">
-      <CardMedia
-        className={classes.cardMedia}
-        image={pImg}
-        style={{ height: '300px' }}
-      />
-    </Link>
-    <CardContent className={classes.cardContent}>
-      <Typography gutterBottom variant="h5" component="h2">
-        {pName}
-      </Typography>
-      <Typography color="textSecondary">
-        {pParty}
-      </Typography>
-      <Typography>
-        국정운영과 의정활동 36년<br />김싸피는 경제의 맥을 확실히 알고 있습니다
+      <Link to="/MemberDetail">
+        <CardMedia
+          className={classes.cardMedia}
+          image={pImg}
+          style={{ height: '300px' }}
+        />
+      </Link>
+      <CardContent className={classes.cardContent}>
+        <Typography gutterBottom variant="h5" component="h2">
+          {pName}
+        </Typography>
+        <Typography color="textSecondary">
+          {pParty}
+        </Typography>
+        <Typography>
+          국정운영과 의정활동 36년<br />김싸피는 경제의 맥을 확실히 알고 있습니다
                     </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small" color="primary">
-        {pConstituency}
-      </Button>
-      <Button size="small" color="primary">
-        공약이행률 54.00%
+      </CardContent>
+      <CardActions>
+        <Button size="small" color="primary">
+          {pConstituency}
+        </Button>
+        <Button size="small" color="primary">
+          공약이행률 54.00%
                     </Button>
-    </CardActions>
-  </Card>
+      </CardActions>
+    </Card>
   );
 };
 
-const MemberList = ({ politicians, loading, error }) => {
+const MemberList = ({ politicians, loading, error, keyword }) => {
   // 에러 발생 시
+  const classes = makeStyles(theme => ({
+    icon: {
+      marginRight: theme.spacing(2),
+    },
+    cardGrid: {
+      paddingTop: theme.spacing(8),
+      paddingBottom: theme.spacing(8),
+    },
+  }));
 
   if (error) {
     return <MemberListBlock>에러가 발생했습니다.</MemberListBlock>;
   }
 
+  if (keyword != "") {
+    politicians = politicians.filter( politician => politician.pName.indexOf(keyword) >= 0);
+    return (
+      <Container className={classes.cardGrid}>
+      <MemberListBlock>
+        {!loading && politicians && (
+          <div>
+            {politicians.map(politician => (
+              <PoliticianCard politician={politician} key={politician.pId} />
+            ))}
+          </div>
+        )}
+      </MemberListBlock>
+    </Container>
+    )
+  }
+
   return (
-    <MemberListBlock>
-      <div>테스트</div>
-      {!loading && politicians && (
-        <div>
-          {politicians.map(politician => (
-            <PoliticianCard politician={politician} key={politician.pId} />
-          ))}
-        </div>
-      )}
-    </MemberListBlock>
+    <Container className={classes.cardGrid}>
+      <MemberListBlock>
+        {!loading && politicians && (
+          <div>
+            {politicians.map(politician => (
+              <PoliticianCard politician={politician} key={politician.pId} />
+            ))}
+          </div>
+        )}
+      </MemberListBlock>
+    </Container>
   );
 };
 
