@@ -9,7 +9,7 @@ export default function Comment(props) {
         className="mr-3 bg-light rounded"
         width="48"
         height="48"
-        src={`https://api.adorable.io/avatars/48/${name.toLowerCase()}@adorable.io.png`}
+        src={`https://api.adorable.io/avatars/48/${name}@adorable.io.png`}
         alt={name}
       />
 
