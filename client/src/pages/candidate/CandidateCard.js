@@ -26,7 +26,7 @@ const CardExampleImageCard = () => (
       <Grid.Row>
         <Grid.Column width={4}>
           <Link to="/CandidateDetail">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_1} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>문재인</Card.Header>
@@ -38,7 +38,7 @@ const CardExampleImageCard = () => (
 
         <Grid.Column width={4}>
           <Link to="/CandidateDetail2">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_2} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>홍준표</Card.Header>
@@ -50,7 +50,7 @@ const CardExampleImageCard = () => (
 
         <Grid.Column width={4}>
           <Link to="/CandidateDetail3">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_3} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>안철수</Card.Header>
@@ -61,7 +61,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
         <Grid.Column width={4}>
           <Link to="/CandidateDetail4">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_4} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>유승민</Card.Header>
@@ -78,7 +78,7 @@ const CardExampleImageCard = () => (
       <Grid.Row>
         <Grid.Column width={4}>
           <Link to="/CandidateDetail5">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_5} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>심상정</Card.Header>
@@ -90,7 +90,7 @@ const CardExampleImageCard = () => (
 
         <Grid.Column width={4}>
           <Link to="/CandidateDetail6">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_6} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>조원진</Card.Header>
@@ -102,7 +102,7 @@ const CardExampleImageCard = () => (
 
         <Grid.Column width={4}>
           <Link to="/CandidateDetail7">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_7} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>오영국</Card.Header>
@@ -113,7 +113,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
         <Grid.Column width={4}>
           <Link to="/CandidateDetail8">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_8} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>장성민</Card.Header>
@@ -131,7 +131,7 @@ const CardExampleImageCard = () => (
       <Grid.Row>
         <Grid.Column width={4}>
           <Link to="/CandidateDetail9">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_9} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>이재오</Card.Header>
@@ -143,7 +143,7 @@ const CardExampleImageCard = () => (
 
         <Grid.Column width={4}>
           <Link to="/CandidateDetail10">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_10} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>김선동</Card.Header>
@@ -155,7 +155,7 @@ const CardExampleImageCard = () => (
 
         <Grid.Column width={4}>
           <Link to="/CandidateDetail11">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_11} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>이경희</Card.Header>
@@ -166,7 +166,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
         <Grid.Column width={4}>
           <Link to="/CandidateDetail12">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_12} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>윤홍식</Card.Header>
@@ -184,7 +184,7 @@ const CardExampleImageCard = () => (
       <Grid.Row>
         <Grid.Column width={4}>
           <Link to="/CandidateDetail13">
-            <Card style={{ height: "430px" }}>
+            <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_13} wrapped ui={false} />
               <Card.Content>
                 <Card.Header>김민찬</Card.Header>
@@ -194,10 +194,10 @@ const CardExampleImageCard = () => (
           </Link>
         </Grid.Column>
 
-        <Grid.Column width={4}></Grid.Column>
+        {/* <Grid.Column width={4}></Grid.Column>
 
         <Grid.Column width={4}></Grid.Column>
-        <Grid.Column width={4}></Grid.Column>
+        <Grid.Column width={4}></Grid.Column> */}
       </Grid.Row>
     </Grid>
   </Container>
