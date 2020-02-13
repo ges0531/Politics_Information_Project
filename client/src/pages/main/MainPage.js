@@ -46,7 +46,7 @@ export default function Blog() {
       <CssBaseline />
       <Container maxWidth="lg">
         <main>
-          <Link to="/CandidateMain" style={{ textDecoration: 'none' }}>
+          <Link to="/CandidateCard" style={{ textDecoration: 'none' }}>
           <MainFeaturedPost post={mainFeaturedPost} />
           </Link>
           <Grid>

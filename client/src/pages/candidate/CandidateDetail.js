@@ -1,23 +1,33 @@
-import React from 'react'
-import { Divider, Image } from 'semantic-ui-react'
-import 이종구1 from './image/이종구1.png'
-import 이종구2 from './image/이종구2.png'
-import 이종구3 from './image/이종구3.png'
-import 이종구4 from './image/이종구4.png'
-import 이종구5 from './image/이종구5.png'
-import 이종구6 from './image/이종구6.png'
-import 이종구7 from './image/이종구7.png'
+import React, { Component } from "react";
+import { Document, Page } from "react-pdf/dist/entry.webpack";
+import pdfFile from "./pdf/Candidate_1.pdf";
 
-const ImageExampleSize = () => (
-  <div>
-    <Image src={이종구1} size='massive' centered/>
-    <Image src={이종구2} size='massive' centered/>
-    <Image src={이종구3} size='massive' centered/>
-    <Image src={이종구4} size='massive' centered/>
-    <Image src={이종구5} size='massive' centered/>
-    <Image src={이종구6} size='massive' centered/>
-    <Image src={이종구7} size='massive' centered/>
-  </div>
-)
+class CandidateCardDetail extends Component {
+  state = {
+    numPages: null,
+    pageNumber: 1,
+    pages: []
+  };
 
-export default ImageExampleSize
+  onDocumentLoadSuccess = ({ numPages }) => {
+    this.setState({ numPages });
+  };
+
+  render() {
+    const { pageNumber, numPages, pages } = this.state;
+    return (
+      <div>
+        <Document file={pdfFile} onLoadSuccess={this.onDocumentLoadSuccess}>
+          {Array.from(new Array(numPages), (el, index) => (
+            <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+          ))}
+        </Document>
+        <p>
+          Page {pageNumber} of {pages}
+        </p>
+      </div>
+    );
+  }
+}
+
+export default CandidateCardDetail;
