@@ -133,10 +133,6 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           </Drawer>
         </div>
 
-        <Button variant="outlined" size="small" style={{ margin: 15 }}>
-          실시간 채팅 참여하기
-      </Button>
-
         <Typography
           component="h2"
           variant="h5"
@@ -146,7 +142,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           className={classes.toolbarTitle}
         >
 
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none', marginLeft: '100px' }}>
             {'싸피는하나당'}
           </Link>
 
@@ -155,19 +151,19 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           nick ?
             <div>
               {nick} 님 안녕하세요 !
-            <Button variant="outlined" size="small" onClick={onLogout} style={{ margin: 15 }}>
+            <Button variant="outlined" size="medium" onClick={onLogout} style={{ margin: 15 }}>
                 로그아웃
             </Button>
             </div>
             :
             <div>
               <Link to="/SignIn" style={{ textDecoration: 'none' }}>
-                <Button variant="outlined" size="small" style={{ margin: 15 }}>
+                <Button variant="outlined" size="medium" style={{ margin: 15 }}>
                   로그인
                 </Button>
               </Link>
               <Link to="/SignUp" style={{ textDecoration: 'none' }}>
-                <Button variant="outlined" size="small">
+                <Button variant="outlined" size="medium">
                   회원가입
                 </Button>
               </Link>

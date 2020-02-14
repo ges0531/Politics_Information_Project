@@ -1,6 +1,5 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -83,8 +82,8 @@ const MemberDetail = ({ politician, error, loading }) => {
                                     <Typography variant="h6" align="center" color="textSecondary" paragraph>
                                         {politician.pParty}
                                     </Typography>
-                                    <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                                        {politician.pConstituency}
+                                    <Typography fontWeight="fontWeightBold" variant="h5" align="center" color="textSecondary" paragraph>
+                                        <b>{politician.pConstituency}</b>
                                     </Typography>
                                     <Typography variant="h6" align="center" color="textSecondary" paragraph>
                                         {politician.pRepeat}
