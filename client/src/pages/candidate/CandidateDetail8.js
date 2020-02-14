@@ -1,7 +1,7 @@
 // import React, { Component } from "react";
 import { Document, Page } from "react-pdf/dist/entry.webpack";
 import pdfFile from "./pdf/Candidate_8.pdf";
-import CommentViewer from "../../components/comments/CommetViewer";
+import CommentViewer from '../../components/comments/CommentViewer'
 
 import _ from "lodash";
 import React, { Component, createRef } from "react";

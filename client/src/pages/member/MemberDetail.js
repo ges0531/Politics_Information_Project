@@ -10,7 +10,7 @@ import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
 
 
-import CommentViewer from '../../components/comments/CommetViewer'
+import CommentViewer from '../../components/comments/CommentViewer'
 
 const useStyles = makeStyles(theme => ({
   icon: {
