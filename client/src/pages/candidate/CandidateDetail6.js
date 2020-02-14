@@ -34,9 +34,9 @@ export default class StickyExampleAdjacentContext extends Component {
         <Segment>
         <Grid>
         <Grid.Row>
-          <Grid.Column width={3}>
+          <Grid.Column width={2}>
           </Grid.Column>
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
               <Document file={pdfFile} onLoadSuccess={this.onDocumentLoadSuccess}>
                 {Array.from(new Array(numPages), (el, index) => (
                   <Page key={`page_${index + 1}`} pageNumber={index + 1} />
