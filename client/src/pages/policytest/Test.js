@@ -350,7 +350,7 @@ function Test() {
       ) : (
         <div>
         {result_flag ? (
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", marginTop:"100px" }}>
             <div>
               <h3>제 점수는요?</h3>
               <p style ={{fontSize: '24px'}}>
@@ -374,7 +374,7 @@ function Test() {
             setResult(!result_flag)
             next_question(0);
           }}
-          style={{ backgroundColor: "#b71c1c" }}
+          style={{ backgroundColor: "#b71c1c", marginTop: "100px" }}
         >
           결과보기
         </button>
