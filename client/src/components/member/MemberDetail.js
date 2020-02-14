@@ -70,37 +70,55 @@ const MemberDetail = ({ politician, error, loading }) => {
                         <div className={classes.heroContent}>
                             <Grid container>
                                 <Grid item xs={2}>
-
                                 </Grid>
 
                                 <Grid item xs={4}>
                                     <img src={politician.pImg} width="500" height="500" />
                                 </Grid>
 
-                                <Grid item xs={3}>
+                                <Grid item xs={4}>
                                     <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                                         {politician.pName}
                                     </Typography>
-
+                                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                                        {politician.pParty}
+                                    </Typography>
                                     <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                                        나라를 나라답게 든든한 대통령
-              </Typography>
+                                        {politician.pConstituency}
+                                    </Typography>
+                                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                                        {politician.pRepeat}
+                                    </Typography>
+                                    <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                                        {politician.pCommittee}
+                                    </Typography>
+                                    <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                                        {politician.pEducation}
+                                    </Typography>
+                                    <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                                        {politician.pCareer}
+                                    </Typography>
+                                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                                        {politician.pContact}
+                                    </Typography>
+                                    <Typography variant="h5" align="center" color="textSecondary" paragraph>
+                                        {politician.pMail}
+                                    </Typography>
 
                                     <div className={classes.heroButtons}>
                                         <Grid container spacing={2} justify="center">
                                             <Grid item>
-                                                <Button variant="contained" color="primary">
-                                                    ♥ 좋아요 59
-                  </Button>
+                                                <a style={{ display: "table-cell" }} target="_blank" href={`https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${politician.pName}`}>
+                                                    <img src={'https://steemitimages.com/DQmcM9KbSbvbNwrZk2cAQ5QLvZd8f6uyQL8JMtSH9tXgMqV/naver.png'} width='150px' />
+                                                </a>
                                             </Grid>
                                             <Grid item>
-                                                <Button variant="outlined" color="primary">
-                                                    관심있는 정치인 추가
-                  </Button>
+                                                <a style={{ display: "table-cell" }} target="_blank" href={`https://www.youtube.com/results?search_query=${politician.pName}`}>
+                                                    <img src={'https://k-napolov.com/uploads/img/page/410_1567758223.png'} width='150px' />
+                                                </a>
                                             </Grid>
                                         </Grid>
                                     </div>
-                                    {/* <img src={moon} width="400" height="400" /> */}
                                 </Grid>
                             </Grid>
                         </div>
