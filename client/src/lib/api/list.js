@@ -7,3 +7,6 @@ export const listPoliticians = () =>
 // 검색
 export const serch = ({ category , input }) =>
   client.get(`/politicains/${category}/${input}`);
+
+
+export const getMemberDetail = (pId) => client.get(`/politician/${pId}`);
