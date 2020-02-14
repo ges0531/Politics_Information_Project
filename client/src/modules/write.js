@@ -36,15 +36,7 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
     uName
   }));
   export const setOriginalPost = createAction(SET_ORIGINAL_POST, post => post);
-  // export const updatePost = createAction(
-    //   UPDATE_POST,
-    //   ({ bodId, title, content, tags }) => ({
-      //     id,
-      //     title,
-      //     body,
-      //     tags,
-      //   }),
-      // );
+
       export const updatePost = createAction(
         UPDATE_POST,
         ({ bodId, title, content }) => ({
