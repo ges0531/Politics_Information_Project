@@ -72,7 +72,7 @@ const PoliticianCard = ({ politician }) => {
   return (
     <Grid item xs={4}>
       <Card className={classes.card} id={pId}>
-        <Link to="/MemberDetail">
+        <Link to={"/PoliticianPage"+`/${pId}`}>
           <CardMedia
             className={classes.cardMedia}
             image={pImg}
