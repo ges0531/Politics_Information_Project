@@ -3,6 +3,8 @@ import "./Cardgame.css";
 import Reactcard from "./react_card";
 import Grid from "@material-ui/core/Grid";
 import CircularDeterminate from "./CircularDeterminate";
+import PoliticianCard from "./PoliticianCard";
+import { Link } from 'react-router-dom';
 
 const db = [
   {
@@ -70,7 +72,7 @@ function Cardgame() {
   var useData;
   async function fetchMyAPI() {
     let response = await fetch("http://52.79.219.137:8000/cardgame/");
-    console.log(response, 1111)
+    console.log(response, 1111);
     response = await response.json();
     dataSet(response);
   }
@@ -83,7 +85,7 @@ function Cardgame() {
     useData = data;
   } else {
     return (
-      <div style={{textAlign:"center", verticalAlign:'middle'}}>
+      <div style={{ textAlign: "center", verticalAlign: "middle" }}>
         <CircularDeterminate />
       </div>
     );
@@ -156,31 +158,35 @@ function Cardgame() {
       />
 
       {boolean_flag ? (
-        <div style={{ textAlign: "center" }}>
-          <h2>이 사람과 잘 맞습니다</h2>
-          <img src={Congressman.pImg} style={{ width: "300px" }}></img>
-          <hr></hr>
-          <h3>이름: {Congressman.pName}</h3>
-          <hr></hr>
-          <h3>정당: {Congressman.pParty}</h3>
-          <hr></hr>
-          <h3>선거구: {Congressman.pConstituency}</h3>
-          <hr></hr>
-          <h3>당선횟수: {Congressman.pRepeat}</h3>
-          <hr></hr>
-          <h3>소속 위원회: {Congressman.pCommittee}</h3>
-          <hr></hr>
-          <h3>학력: {Congressman.pEducation}</h3>
-          <hr></hr>
-          <h3>주요 경력: {Congressman.pCareer}</h3>
-          <hr></hr>
-          <h3>연락처: {Congressman.pContact}</h3>
-          <hr></hr>
-          <h3>Email: {Congressman.pMail}</h3>
+        <div>
+          <PoliticianCard Congressman={Congressman} />
         </div>
       ) : (
+        // <div style={{ textAlign: "center" }}>
+        //   <h2>이 사람과 잘 맞습니다</h2>
+        //   <img src={Congressman.pImg} style={{ width: "300px" }}></img>
+        //   <hr></hr>
+        //   <h3>이름: {Congressman.pName}</h3>
+        //   <hr></hr>
+        //   <h3>정당: {Congressman.pParty}</h3>
+        //   <hr></hr>
+        //   <h3>선거구: {Congressman.pConstituency}</h3>
+        //   <hr></hr>
+        //   <h3>당선횟수: {Congressman.pRepeat}</h3>
+        //   <hr></hr>
+        //   <h3>소속 위원회: {Congressman.pCommittee}</h3>
+        //   <hr></hr>
+        //   <h3>학력: {Congressman.pEducation}</h3>
+        //   <hr></hr>
+        //   <h3>주요 경력: {Congressman.pCareer}</h3>
+        //   <hr></hr>
+        //   <h3>연락처: {Congressman.pContact}</h3>
+        //   <hr></hr>
+        //   <h3>Email: {Congressman.pMail}</h3>
+        // </div>
         <div>
           <h1>공약</h1>
+          <div className='likeHate'> 👈 싫어요 : 좋아요 👉 </div>
           <div className="cardContainer">
             {useData.promises.map(promise => (
               <Reactcard
@@ -193,7 +199,7 @@ function Cardgame() {
                   // style={{ backgroundImage: "url(" + character.url + ")" }}
                   className="card"
                 >
-                  <h2>{promise.title}</h2>
+                  <div className="cardTitle">{promise.title}</div>
                 </div>
               </Reactcard>
             ))}
@@ -202,25 +208,46 @@ function Cardgame() {
       )}
 
       {lastDirection && flag ? (
-        <h2 className="infoText">이 공약을 {lastDirection}</h2>
+        <h2 className="infoText">{lastDirection}</h2>
       ) : (
         <h2 className="infoText"> </h2>
       )}
       {flag ? (
         <div>
-          <h3>::</h3>
+          <h2> </h2>
         </div>
       ) : (
         <div>
-          <button
-            onClick={() => {
-              booleanChange(!boolean_flag);
-              textChange();
-              fetchMyAPI();
-            }}
-          >
-            {button_flag ? "재시작" : "결과확인"}
-          </button>
+          {button_flag ? (
+            <div>
+              <button
+                className="cardButton"
+                onClick={() => {
+                  booleanChange(!boolean_flag);
+                  textChange();
+                  fetchMyAPI();
+                  setLastDirection();
+                }}
+              >
+                <span>재시작</span>
+              </button>
+              <Link to="/CandidateDetail">
+                <button className="cardButton">더 알아보기</button>
+              </Link>
+            </div>
+          ) : (
+            <button
+              className="cardButton"
+              onClick={() => {
+                booleanChange(!boolean_flag);
+                textChange();
+                fetchMyAPI();
+                setLastDirection();
+              }}
+            >
+              <span>결과확인</span>
+            </button>
+          )}
         </div>
       )}
     </Grid>
