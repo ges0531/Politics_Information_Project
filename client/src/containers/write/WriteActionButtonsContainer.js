@@ -50,9 +50,7 @@ const WriteActionButtonsContainer = ({ history }) => {
   // 성공 혹은 실패시 할 작업
   useEffect(() => {
     if (post) {
-      const { bodId } = post.bodId;
-      // history.push(`/${bodId}`);
-      history.push('/PostListPage')
+      console.log(post);
     }
     if (postError) {
       console.log(postError);

@@ -7,8 +7,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Link } from 'react-router-dom';
 
-import moon from './image/moon.png';
 
 import CommentViewer from '../../components/comments/CommetViewer'
 
@@ -62,9 +62,7 @@ export default function Album() {
       <main>
         <div className={classes.heroContent}>
           <Grid container>
-              <Grid item xs={2}>
-
-              </Grid>
+              <Grid item xs={2}/>
 
               <Grid item xs={4}>
               <img src="https://post-phinf.pstatic.net/MjAxNzA1MTFfMTkz/MDAxNDk0NDY1NDQ5NjA2.ofW5NphqGP2x7rL-vzFtg6rZv9ECDfFVzEimSN10N6Eg.tT_rULoEz8DtkE9LGUzwKCWSOakObQUg5ytntyQucgIg.PNG/%EB%AC%B4%EC%A0%9C-1.png?type=w1200" width="500" height="500"/>
@@ -72,28 +70,27 @@ export default function Album() {
 
               <Grid item xs={3}>
               <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                문 재 인
+                김 무 성
               </Typography>
 
               <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                나라를 나라답게 든든한 대통령
+                첫번째 국회의원~~
               </Typography>
 
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">
                   <Grid item>
-                    <Button variant="contained" color="primary">
-                      ♥ 좋아요 59
-                  </Button>
+                    <a style={{display: "table-cell"}} target="_blank" href={"https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=김무성"}>
+                    <img src={'https://steemitimages.com/DQmcM9KbSbvbNwrZk2cAQ5QLvZd8f6uyQL8JMtSH9tXgMqV/naver.png'} width='150px'/>
+                    </a>
                   </Grid>
                   <Grid item>
-                    <Button variant="outlined" color="primary">
-                      관심있는 정치인 추가
-                  </Button>
+                  <a style={{display: "table-cell"}} target="_blank" href={"https://www.youtube.com/results?search_query=김무성"}>
+                  <img src={'https://k-napolov.com/uploads/img/page/410_1567758223.png'} width='150px'/>
+                  </a>
                   </Grid>
                 </Grid>
               </div>
-              <img src={moon} width="400" height="400"/>
               </Grid>
         </Grid>
         </div>

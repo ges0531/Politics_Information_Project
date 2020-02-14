@@ -61,8 +61,7 @@ export default function Album() {
     candidateData = candidate.list
     // console.log(candidate.list);
   } else {
-    return(<div>1</div>)
-    
+    return(<div>LOADING...</div>)
   }
   
 
