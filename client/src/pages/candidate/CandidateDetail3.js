@@ -31,7 +31,6 @@ export default class StickyExampleAdjacentContext extends Component {
     const { numPages } = this.state;
     return (
       <Ref innerRef={this.contextRef}>
-        <Segment>
         <Grid>
         <Grid.Row>
           <Grid.Column width={2}>
@@ -52,7 +51,6 @@ export default class StickyExampleAdjacentContext extends Component {
         </Grid.Column>
         </Grid.Row>
       </Grid>
-      </Segment>
     </Ref>
     )
   }
