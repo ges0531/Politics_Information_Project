@@ -178,7 +178,7 @@ export default class CommentForm extends Component {
             <div className="form-group">
               <input
                 // onChange={this.handleFieldChange}
-                value={localStorage.getItem("nick")}
+                placeholder="로그인을 해 주세요."
                 className="form-control"
                 name="uName"
                 type="text"
@@ -191,22 +191,11 @@ export default class CommentForm extends Component {
                 onChange={this.handleFieldChange}
                 value={this.state.comment.pCommentContent}
                 className="form-control"
-                placeholder="로그인을 해 주세요."
                 name="pCommentContent"
                 rows="5"
                 disabled
               />
             </div>
-            <Link href="/SignIn">
-              <div className="form-group">
-                <button
-                  disabled={this.state.loading}
-                  className="btn btn-primary"
-                >
-                  로그인 &#10148;
-                </button>
-              </div>
-            </Link>
           </div>
         )}
       </React.Fragment>
