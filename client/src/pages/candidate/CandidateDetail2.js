@@ -23,10 +23,7 @@ class CandidateCardDetail extends Component {
             <Page key={`page_${index + 1}`} pageNumber={index + 1} />
           ))}
         </Document>
-        <p>
-          {/* Page {pageNumber} of {pages} */}
-        </p>
-        <CommentViewer cname="홍준표"/>
+        <CommentViewer pname="홍준표" pId="308"/>
       </div>
     );
   }

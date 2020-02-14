@@ -15,7 +15,7 @@ class CandidateCardDetail extends Component {
   };
 
   render() {
-    const { pageNumber, numPages, pages } = this.state;
+    const { numPages } = this.state;
     return (
       <div>
         <Document file={pdfFile} onLoadSuccess={this.onDocumentLoadSuccess}>
@@ -23,10 +23,7 @@ class CandidateCardDetail extends Component {
             <Page key={`page_${index + 1}`} pageNumber={index + 1} />
           ))}
         </Document>
-        <p>
-          {/* Page {pageNumber} of {pages} */}
-        </p>
-        <CommentViewer pname="문재인" pId="1"/>
+        <CommentViewer pname="문재인" pId="313"/>
       </div>
     );
   }

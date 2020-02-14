@@ -54,7 +54,6 @@ const App = () => {
       <Route exact path="/SignUp" component={RegisterPage} />
 
       <Route exact path="/write" component={WritePage} />
-      <Route component={PostPage} path="/@:uMail/:postId" />
       <Route exact path="/:bodId" component={PostPage}/>
       <Route exact path="/PostListPage" component={PostListPage} />
 

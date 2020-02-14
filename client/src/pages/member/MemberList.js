@@ -89,39 +89,6 @@ export default function Album() {
           </Container>
         </div>
         <Container className={classes.cardGrid}>
-          {/* End hero unit */}
-            {/* {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <Link to="/MemberDetail">
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image="https://source.unsplash.com/random"
-                      title="Image title"
-                    />
-                  </Link>
-                    <CardContent className={classes.cardContent}>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        문 재 인
-                    </Typography>
-                    <Typography color="textSecondary">
-                        싸하당
-                    </Typography>
-                      <Typography>
-                        국정운영과 의정활동 36년<br/>김싸피는 경제의 맥을 확실히 알고 있습니다
-                    </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" color="primary">
-                        강남구 갑
-                    </Button>
-                      <Button size="small" color="primary">
-                        공약이행률 54.00%
-                    </Button>
-                    </CardActions>
-                </Card>
-              </Grid>
-            ))} */}
             <GridList candidateData={candidateData} />
         </Container>
       </main>
