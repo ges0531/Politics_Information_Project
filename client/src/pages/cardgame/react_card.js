@@ -65,7 +65,7 @@ const getSwipeDirection = (speed) => {
   // } else {
   //   return (speed.y > 0) ? 'up' : 'down'
   // }
-  return (speed.x > 0) ? '좋아합니다' : '싫어합니다'
+  return (speed.x > 0) ? '좋아요👍' : '싫어요👎'
 }
 
 
