@@ -35,6 +35,7 @@ import CandidateDetail12 from './pages/candidate/CandidateDetail12';
 import CandidateDetail13 from './pages/candidate/CandidateDetail13';
 
 import PoliticianPage from './pages/list/PoliticianPage';
+import PoliticianDetailPage from './pages/list/PoliticianDetailPage';
 
 import Test from './pages/policytest/Test';
 
@@ -54,11 +55,11 @@ const App = () => {
       <Route exact path="/SignUp" component={RegisterPage} />
 
       <Route exact path="/write" component={WritePage} />
-      <Route component={PostPage} path="/@:uMail/:postId" />
       <Route exact path="/:bodId" component={PostPage}/>
       <Route exact path="/PostListPage" component={PostListPage} />
 
       <Route exact path="/PoliticianPage" component={PoliticianPage} />
+      <Route exact path="/PoliticianPage/:pId" component={PoliticianDetailPage} />
       <Route exact path="/MemberDetail" component={MemberDetail} />
       <Route exact path="/CardGame" component={CardGame} />
 
