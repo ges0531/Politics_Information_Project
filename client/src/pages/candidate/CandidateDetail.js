@@ -18,12 +18,16 @@ class CandidateCardDetail extends Component {
     const { numPages } = this.state;
     return (
       <div>
+        <div className="col-8  pt-3 border-right">
         <Document file={pdfFile} onLoadSuccess={this.onDocumentLoadSuccess}>
           {Array.from(new Array(numPages), (el, index) => (
             <Page key={`page_${index + 1}`} pageNumber={index + 1} />
           ))}
         </Document>
+        </div>
+        <div className="col-4  pt-3 bg-white">
         <CommentViewer pname="문재인" pId="313"/>
+        </div>
       </div>
     );
   }
