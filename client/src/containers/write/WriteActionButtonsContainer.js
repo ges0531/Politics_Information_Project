@@ -6,18 +6,21 @@ import { writePost, updatePost } from '../../modules/write';
 
 const WriteActionButtonsContainer = ({ history }) => {
   const dispatch = useDispatch();
-  const { title, content, tags, post, postError, originalPostId, uMail, uName } = useSelector(
-    ({ write, auth }) => ({
+  const { title, content, tags, post, postError, originalPostId } = useSelector(
+    ({ write }) => ({
       title: write.title,
       content: write.content,
       tags: write.tags,
       post: write.post,
       postError: write.postError,
       originalPostId: write.originalPostId,
-      uMail: auth.uMail,
-      uName: auth.uName
+      // uMail: auth.uMail,
+      // uName: auth.uName
     }),
   );
+  
+  const uMail = localStorage.getItem('mail');
+  const uName = localStorage.getItem('nick');
 
   // 포스트 등록
   const onPublish = () => {

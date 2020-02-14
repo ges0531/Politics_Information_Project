@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../common/Button';
+import { Link } from 'react-router-dom';
 
 const WriteActionButtonsBlock = styled.div`
   margin-top: 1rem;
@@ -22,7 +23,9 @@ const WriteActionButtons = ({ onCancel, onPublish, isEdit }) => {
   return (
     <WriteActionButtonsBlock>
       <StyledButton cyan onClick={onPublish}>
-        포스트 {isEdit ? '수정' : '등록'}
+        <Link to='/PostListPage'>
+        <div>포스트 {isEdit ? '수정' : '등록'}</div>
+        </Link>
       </StyledButton>
       <StyledButton onClick={onCancel}>취소</StyledButton>
     </WriteActionButtonsBlock>
