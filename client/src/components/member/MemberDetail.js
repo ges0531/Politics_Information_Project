@@ -80,7 +80,7 @@ const MemberDetail = ({ politician, error, loading }) => {
                                 <Grid item xs={3}>
                                     <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                                         {politician.pName}
-              </Typography>
+                                    </Typography>
 
                                     <Typography variant="h5" align="center" color="textSecondary" paragraph>
                                         나라를 나라답게 든든한 대통령
@@ -107,7 +107,7 @@ const MemberDetail = ({ politician, error, loading }) => {
                         <Container>
                             <div>
                                 <div className={classes2.margin}>
-                                    <CommentViewer cname="문재인" />
+                                    <CommentViewer pname={politician.pName} pId={politician.pId} />
                                 </div>
                             </div>
                         </Container>
