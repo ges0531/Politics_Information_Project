@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Container from '@material-ui/core/Container';
@@ -70,36 +68,26 @@ const PoliticianCard = ({ politician }) => {
   const { pName, pImg, pParty, pId, pConstituency } = politician;
 
   return (
-    <Grid item xs={4}>
       <Card className={classes.card} id={pId}>
         <Link to={"/PoliticianPage"+`/${pId}`}>
           <CardMedia
             className={classes.cardMedia}
             image={pImg}
-            style={{ height: '300px' }}
+            style={{ width:'300px', height: '300px' }}
           />
         </Link>
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
             {pName}
           </Typography>
-          <Typography color="textSecondary">
+          <Typography component="h4" color="textSecondary">
             {pParty}
           </Typography>
-          <Typography>
-            국정운영과 의정활동 36년<br />김싸피는 경제의 맥을 확실히 알고 있습니다
-                    </Typography>
+          <Typography component="h4">
+          {pConstituency}
+          </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small" color="primary">
-            {pConstituency}
-          </Button>
-          <Button size="small" color="primary">
-            공약이행률 54.00%
-                    </Button>
-        </CardActions>
       </Card>
-    </Grid>
   );
 };
 
@@ -115,13 +103,17 @@ const MemberList = ({ politicians, loading, error, keyword }) => {
   }
 
   return (
-    <Container className={classes.cardGrid} justify="center">
+    <Container className={classes.cardGrid}>
       <MemberListBlock>
         {!loading && politicians && (
-          <div>
+          <div style={{marginTop:'65px'}}>
+            <Grid container spacing={2}>
             {politicians.map(politician => (
+              <Grid item xs={3}>
               <PoliticianCard politician={politician} key={politician.pId} />
+              </Grid>
             ))}
+            </Grid>
           </div>
         )}
       </MemberListBlock>
