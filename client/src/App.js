@@ -13,9 +13,6 @@ import MainPage from './pages/main/MainPage';
 import HeaderContainer from './containers/common/HeaderContainer';
 import Footer from './components/common/Footer';
 
-import MemberList from './pages/member/MemberList';
-import MemberDetail from './pages/member/MemberDetail';
-
 import CardGame from './pages/cardgame/CardGame';
 
 import CandidateCard from './pages/candidate/CandidateCard';
@@ -60,7 +57,6 @@ const App = () => {
 
       <Route exact path="/PoliticianPage" component={PoliticianPage} />
       <Route exact path="/PoliticianPage/:pId" component={PoliticianDetailPage} />
-      <Route exact path="/MemberDetail" component={MemberDetail} />
       <Route exact path="/CardGame" component={CardGame} />
 
       <Route exact path="/CandidateDetail" component={CandidateDetail} />
