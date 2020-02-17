@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import moon from './image/moon.png';
 import CommentViewer from '../comments/CommentViewer2'
+
+import BillList from './BillList';
+import PromiseList from './PromiseList';
 
 const useStyles = makeStyles(theme => ({
     icon: {
@@ -54,8 +56,6 @@ const MemberDetail = ({ politician, error, loading }) => {
     if (error) {
         return <>에러가 발생했습니다.</>;
     }
-
-    console.log(politician);
 
     // 에러 발생 시
     return (
@@ -121,6 +121,20 @@ const MemberDetail = ({ politician, error, loading }) => {
                                 </Grid>
                             </Grid>
                         </div>
+
+                        <Container>
+                                <div className={classes2.margin}>
+                                    <Grid container>
+                                        <Grid item xs={4}>
+                                            <BillList pName={politician.pName} />
+                                        </Grid>
+                                        <Grid item xs={4} style={{marginLeft:'200px'}}>
+                                            <PromiseList pId={politician.pId} />
+                                        </Grid>
+                                    </Grid>
+                                </div>
+                        </Container>
+                        
                         <Container>
                             <div>
                                 <div className={classes2.margin}>
