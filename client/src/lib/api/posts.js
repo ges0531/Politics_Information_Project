@@ -1,25 +1,38 @@
 import qs from 'qs';
 import client from './client';
+import axios from 'axios';
 
-export const writePost = ({ title, body, tags }) =>
-  client.post('/api/posts', { title, body, tags });
+export const writePost = ({ title, content, uMail, uName }) => 
+axios ({
+  method:"post",
+  url:"http://70.12.247.60:8000/bod",
+  params: {
+    title:title,
+    content:content,
+    uMail:uMail,
+    uName:uName
+  }
+});
 
-export const readPost = id => client.get(`/api/posts/${id}`);
+export const readPost = bodId => axios.get(`http://52.79.219.137:8000/bod/${bodId}`);
 
-export const listPosts = ({ page, uMail, tag }) => {
-  const queryString = qs.stringify({
-    page,
-    uMail,
-    tag,
+// export const listPosts = ({ page, uName, tag }) => {
+//   const queryString = qs.stringify({
+//     page,
+//     uName,
+//     tag,
+//   });
+//   return client.get(`/bod?${queryString}`);
+// };
+
+export const listPosts = () => client.get('/bod');
+
+// export const updatePost = ({ id, title, body, tags }) =>
+export const updatePost = ({ bodId, title, content }) =>
+  client.patch(`/bod/${bodId}`, {
+    title:title,
+    content:content,
+    // tags,
   });
-  return client.get(`/api/posts?${queryString}`);
-};
 
-export const updatePost = ({ id, title, body, tags }) =>
-  client.patch(`/api/posts/${id}`, {
-    title,
-    body,
-    tags,
-  });
-
-export const removePost = id => client.delete(`/api/posts/${id}`);
+export const removePost = bodId => client.delete(`/bod/${bodId}`);

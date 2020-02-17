@@ -31,7 +31,7 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
     if (error.response && error.response.status === 404) {
       return <PostViewerBlock>존재하지 않는 포스트입니다.</PostViewerBlock>;
     }
-    return <PostViewerBlock>오류 발생!</PostViewerBlock>;
+    return <PostViewerBlock></PostViewerBlock>;
   }
 
   // 로딩중이거나, 아직 포스트 데이터가 없을 시
@@ -39,24 +39,26 @@ const PostViewer = ({ post, error, loading, actionButtons, ownPost }) => {
     return null;
   }
 
-  const { title, body, user, publishedDate, tags } = post;
+  const { title, content, uMail, uName, writeDate } = post;
+  // const { title, content, uMail, uName, writeDate, tags } = post;
   return (
     <PostViewerBlock>
       <Helmet>
-        <title>{title} - REACTERS</title>
+        <title>{title}</title>
       </Helmet>
 
       <PostHead>
         <h1>{title}</h1>
         <SubInfo
-          uMail={user.uMail}
-          publishedDate={publishedDate}
+          uMail={uMail}
+          uName={uName} // 추가
+          // publishedDate={writeDate}
           hasMarginTop
         />
-        <Tags tags={tags} />
+        {/* <Tags tags={tags} /> */}
       </PostHead>
       {actionButtons}
-      <PostContent dangerouslySetInnerHTML={{ __html: body }} />
+      <PostContent dangerouslySetInnerHTML={{ __html: content }} />
     </PostViewerBlock>
   );
 };

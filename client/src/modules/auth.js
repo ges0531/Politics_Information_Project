@@ -46,6 +46,7 @@ function* logoutSaga() {
   try {
     yield call(authAPI.logout); // logout API 호출
     localStorage.removeItem('nick'); // localStorage 에서 user 제거
+    localStorage.removeItem('mail');
   } catch (e) {
     console.log(e);
   }
@@ -82,7 +83,6 @@ const auth = handleActions(
   {
     [CHANGE_FIELD]: (state, { payload: { form, key, value } }) =>
       produce(state, draft => {
-        
         draft[form][key] = value; // 예: state.register.uMail을 바꾼다
       }),
     [INITIALIZE_FORM]: (state, { payload: form }) => ({
@@ -106,6 +106,7 @@ const auth = handleActions(
       ...state,
       authError: null,
       uName:auth.user.uName,
+      uMail:auth.user.uMail,
       isLoginSuccess:true,
       auth
     }),

@@ -12,7 +12,7 @@ const [
 ] = createRequestActionTypes('post/READ_POST');
 const UNLOAD_POST = 'post/UNLOAD_POST'; // 포스트 페이지에서 벗어날 때 데이터 비우기
 
-export const readPost = createAction(READ_POST, id => id);
+export const readPost = createAction(READ_POST, bodId => bodId);
 export const unloadPost = createAction(UNLOAD_POST);
 
 const readPostSaga = createRequestSaga(READ_POST, postsAPI.readPost);
@@ -29,7 +29,7 @@ const post = handleActions(
   {
     [READ_POST_SUCCESS]: (state, { payload: post }) => ({
       ...state,
-      post,
+      post:post.post.post,
     }),
     [READ_POST_FAILURE]: (state, { payload: error }) => ({
       ...state,

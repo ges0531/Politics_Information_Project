@@ -51,7 +51,7 @@ const StyledLink = styled(Link)`
   ${buttonStyle}
 `;
 
-const Button = props => {
+const iButton = props => {
   return props.to ? (
     <StyledLink {...props} cyan={props.cyan ? 1 : 0} />
   ) : (
@@ -59,4 +59,4 @@ const Button = props => {
   );
 };
 
-export default Button;
+export default iButton;
