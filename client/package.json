@@ -83,6 +83,5 @@
     "lodash": "^4.17.15",
     "react-faker": "^0.1.2",
     "redux-devtools": "^3.5.0"
-  },
-  "proxy": "http://52.79.219.137:8000/"
+  }
 }

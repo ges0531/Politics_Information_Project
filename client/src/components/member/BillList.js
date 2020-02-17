@@ -30,6 +30,7 @@ renderRow.propTypes = {
 };
 
 export default function VirtualizedList(props) {
+    var billList
     const classes = useStyles();
     const pName = props.pName;
     console.log(pName);
@@ -46,24 +47,24 @@ export default function VirtualizedList(props) {
     }, []);
 
     console.log(bills);
-    const billList = bills.map((bill, index) => (<li key={index}>{bill}</li>));
-
-    if (bills) {
-        return (
-            // <div className={classes.root}>
-            /* <FixedSizeList height={400} width={500} itemSize={46} itemCount={200}>
-                {renderRow}
-            </FixedSizeList> */
-            /* </div> */
-            <ul>
-                {billList}
-            </ul>
-        );
+    if (bills[0]) {
+        billList = bills.map((bill, index) => (<li key={index}>{bill.bName}</li>));
     } else {
         return (
             <div>
                 LOADING...
-            </div>
-        );
+        </div>
+        )
     }
+
+    return (
+        // <div className={classes.root}>
+        /* <FixedSizeList height={400} width={500} itemSize={46} itemCount={200}>
+            {renderRow}
+        </FixedSizeList> */
+        /* </div> */
+        <ul>
+            {billList}
+        </ul>
+    );
 }

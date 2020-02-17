@@ -22,7 +22,7 @@ const test = () => {
     const kId = '';
     const kakaoemail = '';
 
-    axios.get(`http://70.12.247.60:8000/kakaologin?code=${code}`)
+    axios.get(`http://52.79.219.137:80/kakaologin?code=${code}`)
       // .then(res => console.log(res));
       // .then(res=> {
       //   console.log(res);
