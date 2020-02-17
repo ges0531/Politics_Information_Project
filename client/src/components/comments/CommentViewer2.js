@@ -24,7 +24,7 @@ class App extends Component {
     
     let { pId } = this.state;
     // get all the comments  
-    fetch(`http://70.12.247.60:8000/pcomment/${pId}`)
+    fetch(`http://52.79.219.137:80/pcomment/${pId}`)
       .then(res => res.json())
       .then(res => {
         this.setState({

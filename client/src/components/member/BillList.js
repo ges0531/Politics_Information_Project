@@ -36,7 +36,7 @@ export default function VirtualizedList(props) {
     const [bills, setBills] = useState({});
 
     async function fetchMyAPI() {
-        let response = await fetch(`http://70.12.247.60:8000//bill/${pName}`);
+        let response = await fetch(`http://52.79.219.137:80/bill/${pName}`);
         response = await response.json();
         setBills(response);
     }
@@ -46,12 +46,24 @@ export default function VirtualizedList(props) {
     }, []);
 
     console.log(bills);
+    const billList = bills.map((bill, index) => (<li key={index}>{bill}</li>));
 
-    return (
-        <div className={classes.root}>
-            <FixedSizeList height={400} width={500} itemSize={46} itemCount={200}>
+    if (bills) {
+        return (
+            // <div className={classes.root}>
+            /* <FixedSizeList height={400} width={500} itemSize={46} itemCount={200}>
                 {renderRow}
-            </FixedSizeList>
-        </div>
-    );
+            </FixedSizeList> */
+            /* </div> */
+            <ul>
+                {billList}
+            </ul>
+        );
+    } else {
+        return (
+            <div>
+                LOADING...
+            </div>
+        );
+    }
 }
