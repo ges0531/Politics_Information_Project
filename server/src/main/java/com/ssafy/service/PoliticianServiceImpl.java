@@ -25,6 +25,7 @@ public class PoliticianServiceImpl implements PoliticianService {
 	@Override
 	public List<Politician> findAll() {
 		// TODO Auto-generated method stub
+		
 		return politicianRepository.findAll();
 	}
 
