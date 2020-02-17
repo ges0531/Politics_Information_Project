@@ -129,7 +129,7 @@ const MemberDetail = ({ politician, error, loading }) => {
                                             <BillList pName={politician.pName} />
                                         </Grid>
                                         <Grid item xs={4} style={{marginLeft:'200px'}}>
-                                            <PromiseList pId={politician.pId} />
+                                            <PromiseList pName={politician.pName} pId={politician.pId} />
                                         </Grid>
                                     </Grid>
                                 </div>
