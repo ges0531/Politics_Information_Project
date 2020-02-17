@@ -5,6 +5,7 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import { Scrollbars } from 'react-custom-scrollbars';
+import Box from '@material-ui/core/Box'
 
 const ExpansionPanel = withStyles({
     root: {
@@ -95,7 +96,14 @@ export default function VirtualizedList(props) {
 
     return (
         <div>
-            <Typography>{pName} 의원이 발의한 의안</Typography>
+            <Typography style={{margin : '10px'}}>
+                <Box fontWeight="fontWeightBold" fontSize={20}>
+                    {pName} 의원이 발의한 의안
+                </Box>
+                <Box>
+                    의안을 누르면 상세내용을 확인할 수 있어요!
+                </Box>
+            </Typography>
         <Scrollbars style={{ width: '140%', height: 300 }}>
             {billList}
         </Scrollbars>
