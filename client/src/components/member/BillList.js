@@ -16,7 +16,6 @@ const useStyles = makeStyles(theme => ({
 
 function renderRow(props) {
     const { index, style } = props;
-
     return (
         <ListItem button style={style} key={index}>
             <ListItemText primary={`Item ${index + 1}`} />
@@ -30,6 +29,7 @@ renderRow.propTypes = {
 };
 
 export default function VirtualizedList(props) {
+    var billList
     const classes = useStyles();
     const pName = props.pName;
     console.log(pName);
@@ -45,25 +45,15 @@ export default function VirtualizedList(props) {
         fetchMyAPI();
     }, []);
 
-    console.log(bills);
-    const billList = bills.map((bill, index) => (<li key={index}>{bill}</li>));
-
-    if (bills) {
-        return (
-            // <div className={classes.root}>
-            /* <FixedSizeList height={400} width={500} itemSize={46} itemCount={200}>
-                {renderRow}
-            </FixedSizeList> */
-            /* </div> */
-            <ul>
-                {billList}
-            </ul>
-        );
+    if (bills[0]) {
+        billList = bills.map((bill, index) => (<li key={index}>{bill.bName}</li>));
     } else {
-        return (
-            <div>
-                LOADING...
-            </div>
-        );
+        return(<div>1</div>)
     }
+
+    console.log(billList, 1111)
+
+    return(
+    <div>{billList}</div>
+    )
 }
