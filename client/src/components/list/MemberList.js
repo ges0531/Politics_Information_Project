@@ -1,42 +1,44 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import palette from '../../lib/styles/palette';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import palette from "../../lib/styles/palette";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 // import { GridLayout } from "@egjs/react-infinitegrid";
 const classes = makeStyles(theme => ({
   icon: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(8, 0, 6)
   },
   heroButtons: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(4)
   },
   cardGrid: {
     paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
+    paddingBottom: theme.spacing(8)
   },
   card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+    height: "100%",
+    display: "flex",
+    flexDirection: "column"
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: "56.25%" // 16:9
   },
   cardContent: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 }));
 
 const MemberListBlock = styled.div`
@@ -63,31 +65,32 @@ const MemberListBlock = styled.div`
   }
 `;
 
-
 const PoliticianCard = ({ politician }) => {
   const { pName, pImg, pParty, pId, pConstituency } = politician;
 
   return (
-      <Card className={classes.card} id={pId}>
-        <Link to={"/PoliticianPage"+`/${pId}`}>
+    <Card className={classes.card} id={pId}>
+      <Link to={"/PoliticianPage" + `/${pId}`}>
+        {pImg ? (
           <CardMedia
             className={classes.cardMedia}
             image={pImg}
-            style={{ width:'300px', height: '300px' }}
+            style={{ width: "300px", height: "300px" }}
           />
-        </Link>
-        <CardContent className={classes.cardContent}>
-          <Typography gutterBottom variant="h5" component="h2">
-            {pName}
-          </Typography>
-          <Typography component="h4" color="textSecondary">
-            {pParty}
-          </Typography>
-          <Typography component="h4">
-          {pConstituency}
-          </Typography>
-        </CardContent>
-      </Card>
+        ) : (
+          <CircularProgress disableShrink />
+        )}
+      </Link>
+      <CardContent className={classes.cardContent}>
+        <Typography gutterBottom variant="h5" component="h2">
+          {pName}
+        </Typography>
+        <Typography component="h4" color="textSecondary">
+          {pParty}
+        </Typography>
+        <Typography component="h4">{pConstituency}</Typography>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -99,20 +102,25 @@ const MemberList = ({ politicians, loading, error, keyword }) => {
   }
 
   if (keyword != "") {
-    politicians = politicians.filter(politician => politician.pName.indexOf(keyword) >= 0);
+    politicians = politicians.filter(
+      politician => politician.pName.indexOf(keyword) >= 0
+    );
   }
 
   return (
     <Container className={classes.cardGrid}>
       <MemberListBlock>
         {!loading && politicians && (
-          <div style={{marginTop:'65px'}}>
+          <div style={{ marginTop: "65px" }}>
             <Grid container spacing={2}>
-            {politicians.map(politician => (
-              <Grid item xs={3}>
-              <PoliticianCard politician={politician} key={politician.pId} />
-              </Grid>
-            ))}
+              {politicians.map(politician => (
+                <Grid item xs={3} key={politician.pId}>
+                  <PoliticianCard
+                    politician={politician}
+                    key={politician.pId}
+                  />
+                </Grid>
+              ))}
             </Grid>
           </div>
         )}

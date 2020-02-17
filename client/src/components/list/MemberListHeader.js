@@ -40,7 +40,7 @@ const MemberListHeader = () => {
     // 에러 발생 시
     return (
         <div className={classes.heroContent}>
-            <Container maxWidth="sm-5">
+            <Container>
                 <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                     찾고 싶은 국회의원을 검색해보세요.
                 </Typography>

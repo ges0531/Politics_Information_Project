@@ -51,7 +51,7 @@ export default function Blog() {
           </Link>
           <Grid>
             {featuredPosts.map(post => (
-              <Link to={post.link} style={{ textDecoration: 'none' }}>
+              <Link to={post.link} style={{ textDecoration: 'none' }} key={post.title}>
               <FeaturedPost key={post.title} post={post}/>
               </Link>
             ))}

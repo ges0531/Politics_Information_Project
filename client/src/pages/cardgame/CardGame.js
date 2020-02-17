@@ -2,69 +2,22 @@ import React, { useState, useEffect } from "react";
 import "./Cardgame.css";
 import Reactcard from "./react_card";
 import Grid from "@material-ui/core/Grid";
-import CircularDeterminate from "./CircularDeterminate";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import PoliticianCard from "./PoliticianCard";
 import { Link } from 'react-router-dom';
 
-const db = [
-  {
-    id: 1,
-    commit: "외식산업 진흥법 일부개정법률안",
-    name: "강석진",
-    url:
-      "http://watch.peoplepower21.org/files/attach/images/461/886/79d4e9058cb84f214310aa59364f1f85.jpg"
-  },
-  {
-    id: 2,
-    commit: "상속세 및 증여세법 일부개정법률안",
-    name: "강병원",
-    url:
-      "http://watch.peoplepower21.org/files/attach/images/461/816/f164c361398baab0fb4e05dbfb30b137.jpg"
-  },
-  {
-    id: 3,
-    commit: "공공보건의료에 관한 법 률 일부개정법률안",
-    name: "강길부",
-    url: "http://watch.peoplepower21.org/images/member/318.jpg"
-  },
-  {
-    id: 4,
-    commit: "건설기계관리법 일부개정법률안",
-    name: "권은희",
-    url: "http://watch.peoplepower21.org/images/member/864.jpg"
-  },
-  {
-    id: 5,
-    commit: "고등교육법 일부개정법률안",
-    name: "나경원",
-    url: "http://watch.peoplepower21.org/images/member/363.jpg"
-  },
-  {
-    id: 6,
-    commit: "제품안전기본법 일부개정법률안",
-    name: "권칠승",
-    url:
-      "http://watch.peoplepower21.org/files/attach/images/461/853/b8d89e4258aa9fb95f8d5a599cd5ab01.jpg"
-  },
-  {
-    id: 7,
-    commit: "전기용품 및 생활용품 안전관리법 일부개정법률안",
-    name: "권칠승",
-    url:
-      "http://watch.peoplepower21.org/files/attach/images/461/853/b8d89e4258aa9fb95f8d5a599cd5ab01.jpg"
-  }
-];
 
 function Cardgame() {
+  var politiciansPageIndex
   var flag_array = new Array();
   var name_array = [];
   var id_array = [];
-  for (var i = 0; i < db.length; i++) {
+  for (var i = 0; i < 25; i++) {
     flag_array[i] = 0;
   }
   // const characters = db;
   const [lastDirection, setLastDirection] = useState();
-  const [flag, flagCount] = useState(db.length);
+  const [flag, flagCount] = useState(25);
   const [boolean_flag, booleanChange] = useState(false);
   const [button_flag, buttonTextChange] = useState(false);
 
@@ -85,9 +38,7 @@ function Cardgame() {
     useData = data;
   } else {
     return (
-      <div style={{ textAlign: "center", verticalAlign: "middle" }}>
-        <CircularDeterminate />
-      </div>
+      <CircularProgress disableShrink />
     );
   }
   console.log(useData);
@@ -111,6 +62,7 @@ function Cardgame() {
         }
       }
     }
+    politiciansPageIndex = flag_array.indexOf(Math.max.apply(null, flag_array))
     return useData.politicians[
       flag_array.indexOf(Math.max.apply(null, flag_array))
     ];
@@ -231,7 +183,7 @@ function Cardgame() {
               >
                 <span>재시작</span>
               </button>
-              <Link to="/CandidateDetail">
+              <Link to={"/PoliticianPage"+`/${useData.politicians[politiciansPageIndex].pId}`}>
                 <button className="cardButton">더 알아보기</button>
               </Link>
             </div>

@@ -70,53 +70,41 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
     >
       <List>
         <ListItem button key={'마이페이지'}>
-          <ListItemIcon>
             <UserIcon />
             <ListItemText primary={'마이페이지'} style={{ marginTop: 0, marginLeft: 15 }} />
-          </ListItemIcon>
         </ListItem>
         <ListItem button key={'자유게시판'}>
-          <ListItemIcon>
             <BoardIcon />
             <Link to='/PostListPage' className={classes.link}>
               <ListItemText primary={'자유게시판'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
-          </ListItemIcon>
         </ListItem>
       </List>
       <Divider />
       <List>
         <ListItem button key={'우리동네 후보자 살펴보기'}>
-          <ListItemIcon>
             <FaceIcon />
             <Link to='/CandidateMain' className={classes.link}>
               <ListItemText primary={'우리동네 후보자 살펴보기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
-          </ListItemIcon>
         </ListItem>
         <ListItem button key={'국회의원 찾기'}>
-          <ListItemIcon>
             <SearchIcon />
             <Link to='/MemberList' className={classes.link}>
               <ListItemText primary={'국회의원 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
-          </ListItemIcon>
         </ListItem>
         <ListItem button key={'나와 잘맞는 정치인 찾기'}>
-          <ListItemIcon>
             <GroupIcon />
             <Link to='/CardGame' className={classes.link}>
               <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
-          </ListItemIcon>
         </ListItem>
         <ListItem button key={'나의 정치성향 테스트'}>
-          <ListItemIcon>
             <CheckIcon />
             <Link to='/Test' className={classes.link}>
               <ListItemText primary={'나의 정치성향 테스트'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
-          </ListItemIcon>
         </ListItem>
       </List>
     </div>

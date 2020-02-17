@@ -57,9 +57,7 @@ export default function MainFeaturedPost(props) {
               {post.title2}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              <Link href="/#/" color='secondary'>
               {post.description}
-              </Link>
             </Typography>
           </div>
         </Grid>
