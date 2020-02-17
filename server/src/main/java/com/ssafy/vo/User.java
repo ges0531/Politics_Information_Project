@@ -10,12 +10,14 @@ private String uMail;
 private String uPass;
 private String uName;
 private String uParty;
-public User(String uMail, String uPass, String uName, String uParty) {
+private String kId;
+public User(String uMail, String uPass, String uName, String uParty, String kId) {
 	super();
 	this.uMail = uMail;
 	this.uPass = uPass;
 	this.uName = uName;
 	this.uParty = uParty;
+	this.kId = kId;
 }
 public User() {
 	super();
@@ -44,10 +46,20 @@ public String getuParty() {
 public void setuParty(String uParty) {
 	this.uParty = uParty;
 }
+
+
+public String getkId() {
+	return kId;
+}
+public void setkId(String kId) {
+	this.kId = kId;
+}
 @Override
 public String toString() {
-	return "User [uMail=" + uMail + ", uPass=" + uPass + ", uName=" + uName + ", uParty=" + uParty + "]";
+	return "User [uMail=" + uMail + ", uPass=" + uPass + ", uName=" + uName + ", uParty=" + uParty + ", kId=" + kId
+			+ "]";
 }
+
 
 
 
