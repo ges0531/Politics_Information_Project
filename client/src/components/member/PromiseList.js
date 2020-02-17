@@ -30,6 +30,7 @@ renderRow.propTypes = {
 };
 
 export default function VirtualizedList(props) {
+    var promiseList
     const classes = useStyles();
     const pId = props.pId;
     console.log(pId);
@@ -47,11 +48,24 @@ export default function VirtualizedList(props) {
 
     console.log(promises);
 
-    return (
-        <div className={classes.root}>
-            <FixedSizeList height={400} width={500} itemSize={46} itemCount={200}>
-                {renderRow}
-            </FixedSizeList>
+    if (promises[0]) {
+        promiseList = promises.map((promise, index) => (<li key={index}>{promise.title}</li>));
+    } else {
+        return (
+            <div>
+                LOADING...
         </div>
+        )
+    }
+
+    return (
+        // <div className={classes.root}>
+        /* <FixedSizeList height={400} width={500} itemSize={46} itemCount={200}>
+            {renderRow}
+        </FixedSizeList> */
+        /* </div> */
+        <ul>
+            {promiseList}
+        </ul>
     );
 }

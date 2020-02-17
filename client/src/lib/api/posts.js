@@ -5,7 +5,7 @@ import axios from 'axios';
 export const writePost = ({ title, content, uMail, uName }) => 
 axios ({
   method:"post",
-  url:"http://70.12.247.60:8000/bod",
+  url:"http://52.79.219.137:80/bod",
   params: {
     title:title,
     content:content,
@@ -14,7 +14,7 @@ axios ({
   }
 });
 
-export const readPost = bodId => axios.get(`http://52.79.219.137:8000/bod/${bodId}`);
+export const readPost = bodId => axios.get(`http://52.79.219.137:80/bod/${bodId}`);
 
 // export const listPosts = ({ page, uName, tag }) => {
 //   const queryString = qs.stringify({
