@@ -86,7 +86,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             <TextField
               variant="outlined"
               margin="normal"
-              // required
+              required
               fullWidth
               label="이메일 주소"
               autoFocus
@@ -99,7 +99,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             <TextField
               variant="outlined"
               margin="normal"
-              // required
+              required
               fullWidth
               label="비밀번호"
 
@@ -147,6 +147,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
                     name="uParty"
                     onChange={onChange}
                     value={form.uParty}
+                    hidden
                   />
                 </div>
                 : <div />
