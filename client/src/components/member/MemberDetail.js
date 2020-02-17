@@ -184,30 +184,21 @@ const MemberDetail = ({ politician, error, loading }) => {
               </Grid>
             </div>
 
-                        <Container>
-                                <div className={classes2.margin}>
-                                    <Grid container>
-                                        <Grid item xs={4}>
-                                            <BillList pName={politician.pName} />
-                                        </Grid>
-                                        <Grid item xs={4} style={{marginLeft:'200px'}}>
-                                            <PromiseList pName={politician.pName} pId={politician.pId} />
-                                        </Grid>
-                                    </Grid>
-                                </div>
-                        </Container>
-                        
-                        <Container>
-                            <div>
-                                <div className={classes2.margin}>
-                                    <CommentViewer pname={politician.pName} pId={politician.pId} />
-                                </div>
-                            </div>
-                        </Container>
-                    </main>
-                </React.Fragment >
-            )}
-        </>
+            <Container>
+              <div className={classes2.margin}>
+                <Grid container>
+                  <Grid item xs={4}>
+                    <BillList pName={politician.pName} />
+                  </Grid>
+                  <Grid item xs={4} style={{ marginLeft: "200px" }}>
+                    <PromiseList
+                      pName={politician.pName}
+                      pId={politician.pId}
+                    />
+                  </Grid>
+                </Grid>
+              </div>
+            </Container>
 
             <Container>
               <div>

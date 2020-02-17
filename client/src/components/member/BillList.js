@@ -52,10 +52,6 @@ const ExpansionPanelDetails = withStyles(theme => ({
 
 export default function VirtualizedList(props) {
     var billList
-<<<<<<< HEAD
-    const classes = useStyles();
-=======
->>>>>>> 21fbb6fade5f27edda416e3afc5417b12f916f39
     const pName = props.pName;
     console.log(pName);
     const [bills, setBills] = useState({});
@@ -76,19 +72,6 @@ export default function VirtualizedList(props) {
         fetchMyAPI();
     }, []);
 
-<<<<<<< HEAD
-    if (bills[0]) {
-        billList = bills.map((bill, index) => (<li key={index}>{bill.bName}</li>));
-    } else {
-        return(<div>1</div>)
-    }
-
-    console.log(billList, 1111)
-
-    return(
-    <div>{billList}</div>
-    )
-=======
     console.log(bills);
     if (bills[0]) {
         billList = bills.map((bill, index) => (
@@ -126,5 +109,4 @@ export default function VirtualizedList(props) {
         </Scrollbars>
         </div>
     );
->>>>>>> 21fbb6fade5f27edda416e3afc5417b12f916f39
 }
