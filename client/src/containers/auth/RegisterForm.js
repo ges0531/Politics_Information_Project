@@ -31,12 +31,27 @@ const RegisterForm = ({ history }) => {
   // 폼 등록 이벤트 핸들러
   const onSubmit = e => {
     e.preventDefault();
+
+    const chkEmail = function (str) {
+      const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+      return regExp.test(str) ? true : false;
+    };
+
     const { uMail, password, passwordConfirm, uName, uParty } = form;
     // 하나라도 비어있다면
+    if(chkEmail(uMail) === false) {
+      setError('이메일 형식이 유효하지 않습니다.');
+      dispatch(
+        changeField({ form: 'register', key: 'uMail', value: '' }),
+      );
+      return;
+    }
+
     if ([uMail, password, passwordConfirm, uName].includes('')) {
       setError('빈 칸을 모두 입력하세요.');
       return;
     }
+
     // 비밀번호가 일치하지 않는다면
     if (password !== passwordConfirm) {
       setError('비밀번호가 일치하지 않습니다.');
@@ -46,6 +61,7 @@ const RegisterForm = ({ history }) => {
       );
       return;
     }
+
     dispatch(register({ uMail, password, uName, uParty }));
   };
 
@@ -74,18 +90,6 @@ const RegisterForm = ({ history }) => {
       // dispatch(check());
     }
   }, [auth, authError, dispatch]);
-
-  // nick 값이 잘 설정되었는지 확인
-  // useEffect(() => {
-  //   if (nick) {
-  //     history.push('/'); // 홈 화면으로 이동
-  //     try {
-  //       localStorage.setItem('nick', JSON.stringify(nick));
-  //     } catch (e) {
-  //       console.log('localStorage is not working');
-  //     }
-  //   }
-  // }, [history, nick]);
 
   return (
     <AuthForm

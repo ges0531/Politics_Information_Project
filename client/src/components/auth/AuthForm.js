@@ -10,7 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
+// import Button from '@material-ui/core/Button';
 import Button from '../common/Button';
 
 import kakao_btn from '../../images/kakao_btn.png';
@@ -155,6 +155,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             {error && <ErrorMessage>{error}</ErrorMessage>}
             <Button
               cyan fullWidth
+              color="primary"
               className={classes.submit}
               variant="contained"
               style={{ marginTop: '1rem', fontSize: '1rem' }}
