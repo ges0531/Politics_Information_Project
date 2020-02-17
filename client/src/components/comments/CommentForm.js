@@ -59,7 +59,7 @@ export default class CommentForm extends Component {
 
     axios({
       method: "post",
-      url: "http://70.12.247.60:8000/pcomment",
+      url: "http://52.79.219.137:80/pcomment",
       params: {
         pId: comment.pId,
         uMail: comment.uMail,
@@ -91,36 +91,6 @@ export default class CommentForm extends Component {
         });
         console.log(err);
       });
-
-    // fetch(`http://70.12.247.60:8000/pcomment`, {
-    //   method: 'POST',
-    //   body: JSON.stringify(comment)
-    // })
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     console.log(res)
-    //     if (res.error) {
-    //       this.setState({ loading: false, error: res.error });
-    //       console.log(res.error);
-    //     } else {
-    //       // add time return from api and push comment to parent state
-    //       comment.writeDate = res.writeDate;
-    //       this.props.addComment(comment);
-
-    //       // clear the message box
-    //       this.setState({
-    //         loading: false,
-    //         comment: { ...comment, pCommentContent: "" }
-    //       });
-    //     }
-    //   })
-    //   .catch(err => {
-    //     this.setState({
-    //       error: "지금은 댓글을 남길 수 없어요",
-    //       loading: false
-    //     });
-    //     console.log(err);
-    //   });
   }
 
   /**

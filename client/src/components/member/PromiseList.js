@@ -36,7 +36,7 @@ export default function VirtualizedList(props) {
     const [promises, setPromises] = useState({});
 
     async function fetchMyAPI() {
-        let response = await fetch(`http://70.12.247.60:8000/promise/${pId}`);
+        let response = await fetch(`http://52.79.219.137:80/promise/${pId}`);
         response = await response.json();
         setPromises(response);
     }
