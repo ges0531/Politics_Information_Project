@@ -9,6 +9,7 @@ import CommentViewer from "../comments/CommentViewer2";
 
 import BillList from "./BillList";
 import PromiseList from "./PromiseList";
+import MemberDetailForm from "./MemberDetailForm";
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -65,6 +66,7 @@ const MemberDetail = ({ politician, error, loading }) => {
           <AppBar position="relative"></AppBar>
           <main>
             <div className={classes.heroContent}>
+              <MemberDetailForm politician={politician} />
               <Grid container>
                 <Grid item xs={2}></Grid>
 
