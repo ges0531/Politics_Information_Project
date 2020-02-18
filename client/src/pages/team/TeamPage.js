@@ -42,7 +42,7 @@ class TeamPage extends Component {
     const { markdown } = this.state;
     return (
       <div>
-        <Container text style={{ marginTop: "7em" }}>
+        <Container style={{ marginTop: "7em" }}>
           <Header as="h1">팀 소개 페이지</Header>
           <ReactMarkdown
             source={markdown}
