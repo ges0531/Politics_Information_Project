@@ -86,9 +86,15 @@ public class UserController {
 
 	@PostMapping(value = "/signUp")
 
-	public ResponseEntity<User> signUp(@RequestBody User user) {
+	public ResponseEntity<Void> signUp(@RequestBody User user) {
 
-		return new ResponseEntity<User>(userService.save(user), HttpStatus.OK);
+		HttpStatus status=HttpStatus.OK;
+		try {
+			userService.save(user);
+		}catch (Exception e) {
+			status=HttpStatus.CONFLICT;
+		}
+		return new ResponseEntity<Void>(status);
 
 	}
 
