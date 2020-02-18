@@ -12,15 +12,16 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import UserIcon from '@material-ui/icons/AccountCircle';
 import FaceIcon from '@material-ui/icons/Face';
 import SearchIcon from '@material-ui/icons/FindInPage';
 import GroupIcon from '@material-ui/icons/Group';
 import CheckIcon from '@material-ui/icons/Check';
+import { typography } from '@material-ui/system';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
+    marginBottom: '50px'
   },
   toolbarTitle: {
     flex: 1,
@@ -69,7 +70,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
       <List>
         <ListItem button key={'마이페이지'}>
         <img src={`https://api.adorable.io/avatars/48/${nick}@adorable.io.png`}/>
-            <ListItemText primary={'마이페이지'} style={{ marginTop: 0, marginLeft: 15 }} />
+            <ListItemText primary={`환영합니다 ${nick}님`} style={{ marginTop: 0, marginLeft: 15 }} />
         </ListItem>
       </List>
       <Divider />
