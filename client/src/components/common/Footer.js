@@ -9,13 +9,13 @@ function Copyright() {
   return (
     <div>
     <Typography variant="body2" color="textSecondary" align="center">
-      <Link color="inherit" href="#">
-        {' GitLab'}
+      <Link color="inherit" href="https://lab.ssafy.com/webmobile1-sub3/s02p13a308">
+        {'GitLab'}
       </Link>
     </Typography>
     <Typography variant="body2" color="textSecondary" align="center">
       {'2020.02.21 Copyright © '}
-      <Link color="inherit" href="/TeamPage">
+      <Link color="inherit" href="/view/TeamPage">
         싸피는 하나당
       </Link>
     </Typography>
