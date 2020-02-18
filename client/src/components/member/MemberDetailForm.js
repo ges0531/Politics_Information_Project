@@ -23,6 +23,7 @@ function MemberDetailForm({ politician }) {
                   src={politician.pImg}
                   id="profile-image1"
                   className="img-responsive"
+                  style={{width:"100%"}}
                 />
               </div>
               <div className="col-md-8 col-xs-12 col-sm-6 col-lg-8">
