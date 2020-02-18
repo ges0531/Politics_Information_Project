@@ -6,7 +6,7 @@ import { logout } from '../../modules/auth';
 
 const HeaderContainer = () => {
   const { isLoginSuccess } = useSelector(({ auth }) => ({ isLoginSuccess: auth.isLoginSuccess }));
-  const nick = localStorage.getItem('nick');
+  const nick = sessionStorage.getItem('nick');
   const dispatch = useDispatch();
   const onLogout = () => {
     dispatch(logout());

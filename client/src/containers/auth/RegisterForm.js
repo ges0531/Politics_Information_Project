@@ -83,7 +83,7 @@ const RegisterForm = ({ history }) => {
     if (auth) {
       console.log('회원가입 성공');
       const { uName } = auth;
-      localStorage.setItem('nick', uName);
+      sessionStorage.setItem('nick', uName);
       history.push('/');
     }
   }, [auth, authError, dispatch]);
