@@ -53,7 +53,7 @@ const ExpansionPanelDetails = withStyles(theme => ({
 export default function VirtualizedList(props) {
     var billList
     const pName = props.pName;
-    console.log(pName);
+    // console.log(pName);
     const [bills, setBills] = useState({});
 
     const [expanded, setExpanded] = React.useState('panel1');
@@ -72,10 +72,10 @@ export default function VirtualizedList(props) {
         fetchMyAPI();
     }, []);
 
-    console.log(bills);
+    // console.log(bills);
     if (bills[0]) {
         billList = bills.map((bill, index) => (
-            <ExpansionPanel square expanded={expanded === index} onChange={handleChange(index)}>
+            <ExpansionPanel square expanded={expanded === index} onChange={handleChange(index)} key={index}>
                 <ExpansionPanelSummary aria-controls="indexd-content" id="indexd-header">
                     <Typography>{bill.bName}</Typography>
                 </ExpansionPanelSummary>
@@ -96,7 +96,7 @@ export default function VirtualizedList(props) {
 
     return (
         <div>
-            <Typography style={{margin : '10px'}}>
+            <Typography style={{margin : '10px'}} component={'div'} variant={'body2'}>
                 <Box fontWeight="fontWeightBold" fontSize={20}>
                     {pName} 의원이 발의한 의안
                 </Box>

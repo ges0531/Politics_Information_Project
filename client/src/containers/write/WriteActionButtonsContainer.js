@@ -24,8 +24,8 @@ const WriteActionButtonsContainer = ({ history }) => {
 
   // 포스트 등록
   const onPublish = () => {
-    console.log('originalPostId')
-    console.log(originalPostId)
+    // console.log('originalPostId')
+    // console.log(originalPostId)
     if (originalPostId) {
       // dispatch(updatePost({ title, content, tags, id: originalPostId }));
       dispatch(updatePost({ title, content, id: originalPostId }));

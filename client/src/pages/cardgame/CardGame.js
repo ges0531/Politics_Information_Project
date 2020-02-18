@@ -25,7 +25,7 @@ function Cardgame() {
   var useData;
   async function fetchMyAPI() {
     let response = await fetch("http://52.79.219.137:80/cardgame/");
-    console.log(response, 1111);
+    // console.log(response, 1111);
     response = await response.json();
     dataSet(response);
   }
@@ -41,7 +41,7 @@ function Cardgame() {
       <CircularProgress disableShrink />
     );
   }
-  console.log(useData);
+  // console.log(useData);
   const textChange = () => {
     if (button_flag) {
       buttonTextChange(!button_flag);
@@ -84,16 +84,16 @@ function Cardgame() {
         id_array.push(flag_id);
       }
     }
-    console.log("removing: " + politicianId);
+    // console.log("removing: " + politicianId);
     setLastDirection(direction);
-    console.log(name_array);
+    // console.log(name_array);
   };
 
   const outOfFrame = promiseId => {
     if (promiseId === useData.promises[0].prId) {
       flagCount(0);
     }
-    console.log(promiseId + " left the screen!");
+    // console.log(promiseId + " left the screen!");
   };
 
   const Congressman = forEach(name_array);

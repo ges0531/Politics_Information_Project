@@ -219,9 +219,9 @@ function Test() {
   // }
 
   function init_question() {
-    console.log(questions[qn].question);
+    // console.log(questions[qn].question);
     setCount(qn);
-    console.log(score);
+    // console.log(score);
     // setCount(qn);
     // document.getElementById("question-text").innerHTML = questions[qn].question;
     // document.getElementById("question-number").innerHTML =
