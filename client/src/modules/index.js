@@ -3,9 +3,6 @@ import { all } from 'redux-saga/effects';
 import auth, { authSaga } from './auth';
 import loading from './loading';
 import user, { userSaga } from './user';
-import write, { writeSaga } from './write';
-import post, { postSaga } from './post';
-import posts, { postsSaga } from './posts';
 import list, {listSaga} from './list';
 import member, {memberSaga} from './member';
 
@@ -13,15 +10,12 @@ const rootReducer = combineReducers({
   auth,
   loading,
   user,
-  write,
-  post,
-  posts,
   list,
   member
 });
 
 export function* rootSaga() {
-  yield all([authSaga(), userSaga(), writeSaga(), postSaga(), postsSaga(), listSaga(), memberSaga()]);
+  yield all([authSaga(), userSaga(), listSaga(), memberSaga()]);
 }
 
 export default rootReducer;

@@ -1,10 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import PostListPage from './pages/board/PostListPage';
-import PostPage from './pages/board/PostPage';
-import WritePage from './pages/board/WritePage';
-
 import LoginPage from './pages/sign/LoginPage';
 import RegisterPage from './pages/sign/RegisterPage';
 
@@ -38,9 +34,6 @@ import Test from './pages/policytest/Test';
 
 import TeamPage from './pages/team/TeamPage'
 
-// import Login from './Login';
-import KakaoTest from './KakaoTest';
-
 import CommentList from './components/comments/CommentList';
 
 const App = () => {
@@ -50,10 +43,6 @@ const App = () => {
       <Route exact path="/" component={MainPage} />
       <Route exact path="/SignIn" component={LoginPage} />
       <Route exact path="/SignUp" component={RegisterPage} />
-
-      <Route exact path="/write" component={WritePage} />
-      <Route exact path="/:bodId" component={PostPage}/>
-      <Route exact path="/PostListPage" component={PostListPage} />
 
       <Route exact path="/PoliticianPage" component={PoliticianPage} />
       <Route exact path="/PoliticianPage/:pId" component={PoliticianDetailPage} />
@@ -75,13 +64,8 @@ const App = () => {
       <Route exact path="/CandidateCard" component={CandidateCard} />
       
       <Route exact path="/Test" component={Test} />
-
       <Route exact path="/TeamPage" component={TeamPage} />
-      <Route exact path="/KakaoTest" component={KakaoTest}/>
-
       <Route exact path="/CommentList" component={CommentList}/>
-
-      {/* <Route exact path="/Login" component={Login} /> */}
       <Footer />
     </>
   );
