@@ -45,8 +45,8 @@ export const login = createAction(LOGIN, ({ uMail, password }) => ({
 function* logoutSaga() {
   try {
     yield call(authAPI.logout); // logout API 호출
-    localStorage.removeItem('nick'); // localStorage 에서 user 제거
-    localStorage.removeItem('mail');
+    sessionStorage.removeItem('nick'); // sessionStorage 에서 user 제거
+    sessionStorage.removeItem('mail');
   } catch (e) {
     console.log(e);
   }

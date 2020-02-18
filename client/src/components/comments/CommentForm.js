@@ -11,8 +11,8 @@ export default class CommentForm extends Component {
 
       comment: {
         pId: parseInt(props.pId),
-        uName: localStorage.getItem("nick"),
-        uMail: localStorage.getItem("mail"),
+        uName: sessionStorage.getItem("nick"),
+        uMail: sessionStorage.getItem("mail"),
         pCommentContent: ""
       }
     };
@@ -107,11 +107,11 @@ export default class CommentForm extends Component {
   render() {
     return (
       <React.Fragment>
-        {localStorage.getItem("nick") ? (
+        {sessionStorage.getItem("nick") ? (
           <form method="post" onSubmit={this.onSubmit}>
             <div className="form-group">
               <input
-                value={localStorage.getItem("nick")}
+                value={sessionStorage.getItem("nick")}
                 className="form-control"
                 name="uName"
                 type="text"

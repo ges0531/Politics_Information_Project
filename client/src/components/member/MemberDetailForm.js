@@ -3,11 +3,6 @@ import React from "react";
 function MemberDetailForm({ politician }) {
   return (
     <div>
-      <link
-        href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
-        rel="stylesheet"
-        id="bootstrap-css"
-      />
       {/*---- Include the above in your HEAD tag --------*/}
       <div className="container">
         <div className="row">

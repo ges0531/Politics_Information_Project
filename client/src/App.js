@@ -39,33 +39,35 @@ import CommentList from './components/comments/CommentList';
 const App = () => {
   return (
     <>
+    
       <HeaderContainer />
       <Route exact path="/" component={MainPage} />
-      <Route exact path="/SignIn" component={LoginPage} />
-      <Route exact path="/SignUp" component={RegisterPage} />
+      <Route exact path="/view/" component={MainPage} />
+      <Route exact path="/view/SignIn" component={LoginPage} />
+      <Route exact path="/view/SignUp" component={RegisterPage} />
 
-      <Route exact path="/PoliticianPage" component={PoliticianPage} />
-      <Route exact path="/PoliticianPage/:pId" component={PoliticianDetailPage} />
-      <Route exact path="/CardGame" component={CardGame} />
+      <Route exact path="/view/PoliticianPage" component={PoliticianPage} />
+      <Route exact path="/view/PoliticianPage/:pId" component={PoliticianDetailPage} />
+      <Route exact path="/view/CardGame" component={CardGame} />
 
-      <Route exact path="/CandidateDetail" component={CandidateDetail} />
-      <Route exact path="/CandidateDetail2" component={CandidateDetail2} />
-      <Route exact path="/CandidateDetail3" component={CandidateDetail3} />
-      <Route exact path="/CandidateDetail4" component={CandidateDetail4} />
-      <Route exact path="/CandidateDetail5" component={CandidateDetail5} />
-      <Route exact path="/CandidateDetail6" component={CandidateDetail6} />
-      <Route exact path="/CandidateDetail7" component={CandidateDetail7} />
-      <Route exact path="/CandidateDetail8" component={CandidateDetail8} />
-      <Route exact path="/CandidateDetail9" component={CandidateDetail9} />
-      <Route exact path="/CandidateDetail10" component={CandidateDetail10} />
-      <Route exact path="/CandidateDetail11" component={CandidateDetail11} />
-      <Route exact path="/CandidateDetail12" component={CandidateDetail12} />
-      <Route exact path="/CandidateDetail13" component={CandidateDetail13} />
-      <Route exact path="/CandidateCard" component={CandidateCard} />
+      <Route exact path="/view/CandidateDetail" component={CandidateDetail} />
+      <Route exact path="/view/CandidateDetail2" component={CandidateDetail2} />
+      <Route exact path="/view/CandidateDetail3" component={CandidateDetail3} />
+      <Route exact path="/view/CandidateDetail4" component={CandidateDetail4} />
+      <Route exact path="/view/CandidateDetail5" component={CandidateDetail5} />
+      <Route exact path="/view/CandidateDetail6" component={CandidateDetail6} />
+      <Route exact path="/view/CandidateDetail7" component={CandidateDetail7} />
+      <Route exact path="/view/CandidateDetail8" component={CandidateDetail8} />
+      <Route exact path="/view/CandidateDetail9" component={CandidateDetail9} />
+      <Route exact path="/view/CandidateDetail10" component={CandidateDetail10} />
+      <Route exact path="/view/CandidateDetail11" component={CandidateDetail11} />
+      <Route exact path="/view/CandidateDetail12" component={CandidateDetail12} />
+      <Route exact path="/view/CandidateDetail13" component={CandidateDetail13} />
+      <Route exact path="/view/CandidateCard" component={CandidateCard} />
       
-      <Route exact path="/Test" component={Test} />
-      <Route exact path="/TeamPage" component={TeamPage} />
-      <Route exact path="/CommentList" component={CommentList}/>
+      <Route exact path="/view/Test" component={Test} />
+      <Route exact path="/view/TeamPage" component={TeamPage} />
+      <Route exact path="/view/CommentList" component={CommentList}/>
       <Footer />
     </>
   );

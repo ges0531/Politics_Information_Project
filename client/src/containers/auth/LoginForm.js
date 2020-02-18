@@ -50,8 +50,8 @@ const LoginForm = ({ history }) => {
        
       if (isLoginSuccess) {
         console.log('로그인 성공');
-        localStorage.setItem('nick', nick);
-        localStorage.setItem('mail', mail);
+        sessionStorage.setItem('nick', nick);
+        sessionStorage.setItem('mail', mail);
         history.push('/')
       }
     }, [auth, authError, dispatch]);

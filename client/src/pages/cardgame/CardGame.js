@@ -183,7 +183,7 @@ function Cardgame() {
               >
                 <span>재시작</span>
               </button>
-              <Link to={"/PoliticianPage"+`/${useData.politicians[politiciansPageIndex].pId}`}>
+              <Link to={"/view/PoliticianPage"+`/${useData.politicians[politiciansPageIndex].pId}`}>
                 <button className="cardButton">더 알아보기</button>
               </Link>
             </div>

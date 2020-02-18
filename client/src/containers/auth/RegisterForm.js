@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeField, initializeForm, register } from '../../modules/auth';
+import { changeField, initializeForm, register, login } from '../../modules/auth';
 import AuthForm from '../../components/auth/AuthForm';
 import { withRouter } from 'react-router-dom';
 
@@ -82,8 +82,9 @@ const RegisterForm = ({ history }) => {
 
     if (auth) {
       console.log('회원가입 성공');
-      console.log(auth);
-      history.push('/SignIn');
+      const { uName } = auth;
+      sessionStorage.setItem('nick', uName);
+      history.push('/');
     }
   }, [auth, authError, dispatch]);
 

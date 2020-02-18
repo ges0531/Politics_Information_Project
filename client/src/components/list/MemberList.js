@@ -72,7 +72,7 @@ const PoliticianCard = ({ politician }) => {
       {pImg ? (
     <Card className={classes.card} id={pId}>
         <div>
-          <Link to={"/PoliticianPage" + `/${pId}`}>
+          <Link to={"/view/PoliticianPage" + `/${pId}`}>
             <CardMedia
               className={classes.cardMedia}
               image={pImg}
