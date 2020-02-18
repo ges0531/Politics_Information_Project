@@ -55,4 +55,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# build
+build
+
+
 # End of https://www.gitignore.io/api/react,windows,visualstudiocode

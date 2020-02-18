@@ -78,7 +78,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           <List>
             <ListItem button key={'마이페이지'}>
               <InputIcon/>
-              <Link to='/SignIn'>
+              <Link to='/view/SignIn'>
               <ListItemText primary={`로그인 하러가기`} style={{ marginTop: 0, marginLeft: 15 }} />
               </Link>
             </ListItem>
@@ -87,25 +87,25 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
       <List>
         <ListItem button key={'우리동네 후보자 살펴보기'}>
           <FaceIcon />
-          <Link to='/CandidateCard' className={classes.link}>
+          <Link to='/view/CandidateCard' className={classes.link}>
             <ListItemText primary={'우리동네 후보자 살펴보기'} style={{ marginTop: 0, marginLeft: 15 }} />
           </Link>
         </ListItem>
         <ListItem button key={'국회의원 찾기'}>
           <SearchIcon />
-          <Link to='/PoliticianPage' className={classes.link}>
+          <Link to='/view/PoliticianPage' className={classes.link}>
             <ListItemText primary={'국회의원 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
           </Link>
         </ListItem>
         <ListItem button key={'나와 잘맞는 정치인 찾기'}>
           <GroupIcon />
-          <Link to='/CardGame' className={classes.link}>
+          <Link to='/view/CardGame' className={classes.link}>
             <ListItemText primary={'나와 잘맞는 정치인 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
           </Link>
         </ListItem>
         <ListItem button key={'나의 정치성향 테스트'}>
           <CheckIcon />
-          <Link to='/Test' className={classes.link}>
+          <Link to='/view/Test' className={classes.link}>
             <ListItemText primary={'나의 정치성향 테스트'} style={{ marginTop: 0, marginLeft: 15 }} />
           </Link>
         </ListItem>
@@ -133,7 +133,7 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           className={classes.toolbarTitle}
         >
 
-          <Link to="/" style={{ textDecoration: 'none', marginLeft: '100px' }}>
+          <Link to="/view/" style={{ textDecoration: 'none', marginLeft: '100px' }}>
             {'싸피는하나당'}
           </Link>
 
@@ -148,12 +148,12 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
             </div>
             :
             <div>
-              <Link to="/SignIn" style={{ textDecoration: 'none' }}>
+              <Link to="/view/SignIn" style={{ textDecoration: 'none' }}>
                 <Button variant="outlined" size="medium" style={{ margin: 15 }}>
                   로그인
                 </Button>
               </Link>
-              <Link to="/SignUp" style={{ textDecoration: 'none' }}>
+              <Link to="/view/SignUp" style={{ textDecoration: 'none' }}>
                 <Button variant="outlined" size="medium">
                   회원가입
                 </Button>

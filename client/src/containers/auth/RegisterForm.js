@@ -83,7 +83,7 @@ const RegisterForm = ({ history }) => {
     if (auth) {
       console.log('회원가입 성공');
       console.log(auth);
-      history.push('/SignIn');
+      history.push('/view/SignIn');
     }
   }, [auth, authError, dispatch]);
 

@@ -162,9 +162,9 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
           </form>
           <Footer>
             {type === 'login' ? (
-              <Link to="/SignUp">회원가입</Link>
+              <Link to="/view/SignUp">회원가입</Link>
             ) : (
-                <Link to="/SignIn">로그인</Link>
+                <Link to="/view/SignIn">로그인</Link>
               )}
           </Footer>
         </div>

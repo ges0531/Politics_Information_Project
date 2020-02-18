@@ -25,7 +25,7 @@ const CardExampleImageCard = () => (
     <Grid divided>
       <Grid.Row>
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail">
+          <Link to="/view/CandidateDetail">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_1} wrapped ui={false} />
               <Card.Content>
@@ -37,7 +37,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
 
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail2">
+          <Link to="/view/CandidateDetail2">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_2} wrapped ui={false} />
               <Card.Content>
@@ -49,7 +49,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
 
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail3">
+          <Link to="/view/CandidateDetail3">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_3} wrapped ui={false} />
               <Card.Content>
@@ -60,7 +60,7 @@ const CardExampleImageCard = () => (
           </Link>
         </Grid.Column>
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail4">
+          <Link to="/view/CandidateDetail4">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_4} wrapped ui={false} />
               <Card.Content>
@@ -77,7 +77,7 @@ const CardExampleImageCard = () => (
     <Grid divided>
       <Grid.Row>
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail5">
+          <Link to="/view/CandidateDetail5">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_5} wrapped ui={false} />
               <Card.Content>
@@ -89,7 +89,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
 
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail6">
+          <Link to="/view/CandidateDetail6">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_6} wrapped ui={false} />
               <Card.Content>
@@ -101,7 +101,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
 
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail7">
+          <Link to="/view/CandidateDetail7">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_7} wrapped ui={false} />
               <Card.Content>
@@ -112,7 +112,7 @@ const CardExampleImageCard = () => (
           </Link>
         </Grid.Column>
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail8">
+          <Link to="/view/CandidateDetail8">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_8} wrapped ui={false} />
               <Card.Content>
@@ -130,7 +130,7 @@ const CardExampleImageCard = () => (
     <Grid divided>
       <Grid.Row>
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail9">
+          <Link to="/view/CandidateDetail9">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_9} wrapped ui={false} />
               <Card.Content>
@@ -142,7 +142,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
 
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail10">
+          <Link to="/view/CandidateDetail10">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_10} wrapped ui={false} />
               <Card.Content>
@@ -154,7 +154,7 @@ const CardExampleImageCard = () => (
         </Grid.Column>
 
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail11">
+          <Link to="/view/CandidateDetail11">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_11} wrapped ui={false} />
               <Card.Content>
@@ -165,7 +165,7 @@ const CardExampleImageCard = () => (
           </Link>
         </Grid.Column>
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail12">
+          <Link to="/view/CandidateDetail12">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_12} wrapped ui={false} />
               <Card.Content>
@@ -183,7 +183,7 @@ const CardExampleImageCard = () => (
     <Grid divided>
       <Grid.Row>
         <Grid.Column width={4}>
-          <Link to="/CandidateDetail13">
+          <Link to="/view/CandidateDetail13">
             <Card style={{ height: "100%" }}>
               <Image src={Candidate_main_13} wrapped ui={false} />
               <Card.Content>

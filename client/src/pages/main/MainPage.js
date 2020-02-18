@@ -20,7 +20,7 @@ const featuredPosts = [
       '우리 지역의 국회의원을 찾아보세요!',
     image: 'http://www.urbanbrush.net/web/wp-content/uploads/edd/2018/06/web-20180620025328990421.png',
     imageText: 'Image Text',
-    link: '/PoliticianPage',
+    link: '/view/PoliticianPage',
   },
   {
     title: '나와 잘맞는 정치인 찾기',
@@ -28,7 +28,7 @@ const featuredPosts = [
       '공약으로 찾아가는 카드게임',
     image: 'https://alinechicago.com/wp-content/uploads/2019/12/shot-cropped-1565091512150.png',
     imageText: 'Image Text',
-    link:'/CardGame',
+    link:'/view/CardGame',
   },
   {
     title: '나의 정치성향 테스트',
@@ -36,7 +36,7 @@ const featuredPosts = [
       '나의 정치 성향은 무엇일까?',
     image: 'https://images.joins.com/newsroom/myPoliticsTest/sns_thumb.png',
     imageText: 'Image Text',
-    link: '/Test',
+    link: '/view/Test',
   },
 ];
 
@@ -46,7 +46,7 @@ export default function Blog() {
       <CssBaseline />
       <Container maxWidth="lg">
         <main>
-          <Link to="/CandidateCard" style={{ textDecoration: 'none' }}>
+          <Link to="/view/CandidateCard" style={{ textDecoration: 'none' }}>
           <MainFeaturedPost post={mainFeaturedPost} />
           </Link>
           <Grid>
