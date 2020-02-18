@@ -14,7 +14,7 @@ public class Politiciancomment {
 	private String pCommentContent;
 	private String writeDate;
 	private String modifyDate;
-	
+
 	public Politiciancomment(int pCommentId, int pId, String uMail, String uName, String pCommentContent,
 			String writeDate, String modifyDate) {
 		super();
@@ -26,7 +26,7 @@ public class Politiciancomment {
 		this.writeDate = writeDate;
 		this.modifyDate = modifyDate;
 	}
-	
+
 	public Politiciancomment() {
 		super();
 	}
@@ -93,6 +93,5 @@ public class Politiciancomment {
 				+ ", pCommentContent=" + pCommentContent + ", writeDate=" + writeDate + ", modifyDate=" + modifyDate
 				+ "]";
 	}
-	
-	
+
 }

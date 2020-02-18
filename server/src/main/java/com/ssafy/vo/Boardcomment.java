@@ -14,7 +14,7 @@ public class Boardcomment {
 	private String bodCommentContent;
 	private String writeDate;
 	private String modifyDate;
-	
+
 	public Boardcomment(int bodCommentId, int bodId, String uMail, String uName, String bodCommentContent,
 			String writeDate, String modifyDate) {
 		super();
@@ -93,6 +93,5 @@ public class Boardcomment {
 				+ uName + ", bodCommentContent=" + bodCommentContent + ", writeDate=" + writeDate + ", modifyDate="
 				+ modifyDate + "]";
 	}
-	
-	
+
 }

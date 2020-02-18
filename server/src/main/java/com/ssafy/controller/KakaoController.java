@@ -33,29 +33,24 @@ public class KakaoController {
 	@Autowired
 	private kakaoAPI kakao;
 
-	
-	
-	@GetMapping(value = "/kakaologin")	
-	  public ResponseEntity<Map<String, Object>> login(@RequestParam("code") String
-	  code, HttpServletResponse res) {
-			/*public r login(@RequestParam("code") String code, HttpServletResponse res, RedirectAttributes redirectAttributes)*/ 
-	
-		//redirectAttributes.addAttribute("test", "test");
-		//redirectAttributes.addFlashAttribute("test", "test");
+	@GetMapping(value = "/kakaologin")
+	public ResponseEntity<Map<String, Object>> login(@RequestParam("code") String code, HttpServletResponse res) {
+		/*
+		 * public r login(@RequestParam("code") String code, HttpServletResponse res,
+		 * RedirectAttributes redirectAttributes)
+		 */
 
-	    
-		
-
-	
+		// redirectAttributes.addAttribute("test", "test");
+		// redirectAttributes.addFlashAttribute("test", "test");
 
 		System.out.println("진입");
 		System.out.println(code);
 		String access_Token = kakao.getAccessToken(code);
 		HashMap<String, Object> userInfo = kakao.getUserInfo(access_Token);
-		String kId = (String) Integer.toString((int)userInfo.get("id")) ;
+		String kId = (String) Integer.toString((int) userInfo.get("id"));
 		String uMail = (String) userInfo.get("email");
-		System.out.println("kId="+kId);
-		System.out.println("uMail="+uMail);
+		System.out.println("kId=" + kId);
+		System.out.println("uMail=" + uMail);
 		System.out.println("login Controller : " + userInfo);
 
 		Map<String, Object> resultMap = new HashMap<>();
@@ -106,10 +101,8 @@ public class KakaoController {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 
 		}
-		
+
 		return new ResponseEntity<Map<String, Object>>(resultMap, status);
-		
-		
 
 	}
 
