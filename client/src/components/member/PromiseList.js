@@ -46,7 +46,7 @@ export default function VirtualizedList(props) {
     var promiseList
     const pId = props.pId;
     const pName = props.pName;
-    console.log(pId);
+    // console.log(pId);
     const [promises, setPromises] = useState({});
 
     const [expanded, setExpanded] = React.useState('panel1');
@@ -65,10 +65,10 @@ export default function VirtualizedList(props) {
         fetchMyAPI();
     }, []);
 
-    console.log(promises);
+    // console.log(promises);
     if (promises[0]) {
         promiseList = promises.map((promise, index) => (
-            <ExpansionPanel square expanded={expanded === index} onChange={handleChange(index)}>
+            <ExpansionPanel square expanded={expanded === index} onChange={handleChange(index)} key={index}>
                 <ExpansionPanelSummary aria-controls="indexd-content" id="indexd-header">
                     <Typography>{promise.title}</Typography>
                 </ExpansionPanelSummary>
@@ -84,7 +84,7 @@ export default function VirtualizedList(props) {
 
     return (
         <div>
-            <Typography style={{margin : '10px'}}>
+            <Typography style={{margin : '10px'}} component={'div'} variant={'body2'}>
                 <Box fontWeight="fontWeightBold" fontSize={20}>
                     {pName} 의원이 약속한 공약
                 </Box>
