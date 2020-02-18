@@ -47,11 +47,11 @@ public class UserController {
 	@GetMapping(value = "/{uMail}")
 	public ResponseEntity<Boolean> duplicateCheckMail(@PathVariable("uMail") String uMail) {
 
-		return new ResponseEntity<Boolean> (userService.checkByMail(uMail),HttpStatus.OK);
+		return new ResponseEntity<Boolean>(userService.checkByMail(uMail), HttpStatus.OK);
 
 	}
 
-	//유저삭제
+	// 유저삭제
 
 	@DeleteMapping
 
@@ -61,8 +61,8 @@ public class UserController {
 			userService.checkPass(user);
 			userService.deleteById(user.getuMail());
 			status = HttpStatus.OK;
-		}catch (Exception e) {
-			
+		} catch (Exception e) {
+
 			status = HttpStatus.NO_CONTENT;
 
 		}
@@ -86,27 +86,29 @@ public class UserController {
 
 	@PostMapping(value = "/signUp")
 
-	public ResponseEntity<User> signUp(@RequestBody User user) {
+	public ResponseEntity<Void> signUp(@RequestBody User user) {
 
-		return new ResponseEntity<User>(userService.save(user), HttpStatus.OK);
+		HttpStatus status=HttpStatus.OK;
+		try {
+			userService.save(user);
+		}catch (Exception e) {
+			status=HttpStatus.CONFLICT;
+		}
+		return new ResponseEntity<Void>(status);
 
 	}
 
 	@PostMapping(value = "/signIn")
-	public ResponseEntity<Map<String, Object>> signIn(@RequestBody HashMap<String, String> map, HttpServletResponse res) {
+	public ResponseEntity<Map<String, Object>> signIn(@RequestBody User user, HttpServletResponse res) {
 		Map<String, Object> resultMap = new HashMap<>();
 		HttpStatus status = null;
 		try {
-			User user = new User(map.get("uMail"), map.get("uPass"), "", "");
+			// User user = new User(u.get("uMail"), map.get("uPass"), "", "","");
 			User reqUser = userService.checkPass(user);
-			
-			String token;
 
-			token = jwtService.create(reqUser);
+			res.setHeader("jwt-auth-token", jwtService.create(reqUser));
 
 			resultMap = userService.makeSignInResultMap(reqUser, true);
-
-			res.setHeader("jwt-auth-token", token);
 
 			status = HttpStatus.ACCEPTED;
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ssafy.repository.BoardCommentRepository;
 import com.ssafy.repository.BoardLikeRepository;
 import com.ssafy.repository.BoardRepository;
 import com.ssafy.vo.Board;
@@ -20,6 +21,10 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
 	BoardRepository bodRepository;
+	
+	@Autowired
+	BoardCommentRepository bodCommentRepository;
+	
 	
 	@Autowired
 	BoardLikeRepository bodLikeRepository;
@@ -38,7 +43,12 @@ public class BoardServiceImpl implements BoardService {
 	
 	public void deleteBod(int bodId) {
 		// TODO Auto-generated method stub
-		bodRepository.deleteById(bodId);
+		try {
+			bodCommentRepository.deleteByBoardId(bodId);
+			bodRepository.deleteById(bodId);
+		} catch (RuntimeException e) {
+			System.out.println(e);
+		}
 	}
 	
 	public void updateBod(Board bod) { 
@@ -76,8 +86,11 @@ public class BoardServiceImpl implements BoardService {
 		return map;
 	}
 
-
-	
+	@Override
+	public Board save(Board bod) {
+		// TODO Auto-generated method stub
+		return bodRepository.save(bod);
+	}
 
 	
 }

@@ -1,0 +1,133 @@
+.cardGame {
+  text-align: center;
+}
+
+h1 {
+  /* font-family: 'Alatsi', sans-serif; */
+  font-family: "Damion", cursive;
+  /* color: #F38D68; */
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.3);
+}
+
+.swipe {
+  position: absolute;
+}
+
+.cardContainer {
+  width: 90vw;
+  max-width: 350px;
+  height: 450px;
+}
+/* scale 변화, size 변화 */
+.card {
+  position: relative;
+  /* background-color: #fff; */
+  /* background: linear-gradient(black, yellow); */
+  background-image: url("./image.png");
+  border-color: rgb(250, 250, 250) !important;
+  width: 80vw;
+  max-width: 500px;
+  height: 450px;
+  /* box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30); */
+  border-radius: 20px;
+  background-size: contain;
+  background-repeat:no-repeat;
+  background-position: center;
+}
+
+.cardTitle {
+  color: #000000;
+  font-family: "Jeju Gothic", "Montserrat", sans-serif;
+  font-size: 1.5vw;
+  line-height: 36pt;
+  margin-left: 10%;
+  margin-right: 38%;
+  margin-top: 60pt;
+  margin-bottom: 50pt;
+}
+
+.cardContent {
+  width: 100%;
+  height: 100%;
+}
+
+.card h3 {
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  color: #fff;
+}
+
+.infoText {
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  display: flex;
+  /* color: #F38D68; */
+  color: rgb(0, 0, 0);
+  animation: popup 200ms;
+}
+
+.cardButton {
+  border-radius: 4px;
+  background-color: #dfa609;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  height: 80px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.cardButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.cardButton span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.cardButton:hover span {
+  padding-right: 25px;
+}
+
+.cardButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.likeHate {
+  color: #000000;
+  font-family: "Jeju Gothic", "Montserrat", sans-serif;
+  font-size: 25pt;
+  text-align: center;
+  margin: 20px;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  85% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

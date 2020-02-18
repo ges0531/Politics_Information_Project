@@ -24,5 +24,8 @@ public interface UserService {
 	
 	User checkPass(User user);
 	Map<String, Object> makeSignInResultMap(User user,boolean status);
+	
+	User UserByKid(String kId);
+	Boolean checkUserByKid(String kId);
 
 }

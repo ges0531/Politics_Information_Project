@@ -91,6 +91,31 @@ public class UserServiceImpl implements UserService {
 		resultMap.put("user", user);
 		return resultMap;
 	}
+
+	@Override
+	public User UserByKid(String kId) {
+		// TODO Auto-generated method stub
+	
+		try {
+			return userRepository.findBykId(kId);
+			
+		}catch (Exception e) {
+			return null;
+		}
+		
+	}
+
+	@Override
+	public Boolean checkUserByKid(String kId) {
+		// TODO Auto-generated method stub
+		
+		User user = UserByKid(kId);
+		if(user!=null) {
+			return true;
+		}else
+			return false;
+		
+	}
 	
 	
 }
