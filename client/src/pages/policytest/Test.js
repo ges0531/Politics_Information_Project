@@ -268,6 +268,7 @@ function Test() {
   //     `&g=${calc_score(govt, max_govt)}` +
   //     `&s=${calc_score(scty, max_scty)}`;
   // }
+  window.scrollTo(0, 0)
   return (
     <div>
       <h2 style={{ textAlign: "center" }} id="question-number">
@@ -306,9 +307,19 @@ function Test() {
           <button
             className="button_test"
             onClick={() => {
-              next_question(6.7);
+              next_question(5);
             }}
             style={{ backgroundColor: "#bbbbbb" }}
+          >
+            잘 모르겠음
+          </button>{" "}
+          <br />
+          <button
+            className="button_test"
+            onClick={() => {
+              next_question(6.7);
+            }}
+            style={{ backgroundColor: "#f44336" }}
           >
             {questions[qn].answer_3}
           </button>{" "}
@@ -318,19 +329,9 @@ function Test() {
             onClick={() => {
               next_question(10);
             }}
-            style={{ backgroundColor: "#f44336" }}
-          >
-            {questions[qn].answer_4}
-          </button>{" "}
-          <br />
-          <button
-            className="button_test"
-            onClick={() => {
-              next_question(0);
-            }}
             style={{ backgroundColor: "#b71c1c" }}
           >
-            모르겠당
+            {questions[qn].answer_4}
           </button>{" "}
           {/* <br />
           <button
