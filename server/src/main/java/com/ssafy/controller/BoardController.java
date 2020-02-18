@@ -34,9 +34,9 @@ public class BoardController {
 	JwtService jwtService;
 
 	@PostMapping
-	public  ResponseEntity<Board> post(Board bod) {
-		
-		return new ResponseEntity<Board>(bodService.save(bod),HttpStatus.OK);
+	public ResponseEntity<Board> post(Board bod) {
+
+		return new ResponseEntity<Board>(bodService.save(bod), HttpStatus.OK);
 	}
 
 	@GetMapping
@@ -69,25 +69,23 @@ public class BoardController {
 		return new ResponseEntity<Map<String, Object>>(resMap, HttpStatus.OK);
 
 	}
-	
-	@PostMapping(value="/{bodId}/{uMail}")
-	public ResponseEntity<Void> likeBod(@PathVariable("bodId") int bodId, @PathVariable("uMail") String uMail){
-		Board bod=bodService.selectOne(bodId);
-		if(bod.getuMail().equals(uMail)) {
+
+	@PostMapping(value = "/{bodId}/{uMail}")
+	public ResponseEntity<Void> likeBod(@PathVariable("bodId") int bodId, @PathVariable("uMail") String uMail) {
+		Board bod = bodService.selectOne(bodId);
+		if (bod.getuMail().equals(uMail)) {
 			return new ResponseEntity<Void>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		bodService.plusLikeCnt(bodId);
 		bodService.insertLikeBod(bodId, uMail);
-		
+
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	
+
 	/*
-    @GetMapping("accounts")
-        public Page<Board .Res> getAccounts(final PageRequest pageable) {
-            return accountService.findAll(pageable.of()).map(AccountDto.Res::new);
-        }
-    */
-    
+	 * @GetMapping("accounts") public Page<Board .Res> getAccounts(final PageRequest
+	 * pageable) { return
+	 * accountService.findAll(pageable.of()).map(AccountDto.Res::new); }
+	 */
 
 }
