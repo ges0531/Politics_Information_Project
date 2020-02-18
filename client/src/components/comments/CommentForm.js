@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Link from "@material-ui/core/Link";
 
 // 댓글 입력하는 창
 export default class CommentForm extends Component {
@@ -77,7 +76,6 @@ export default class CommentForm extends Component {
           comment.writeDate = res.writeDate;
           this.props.addComment(comment);
 
-          // clear the message box
           this.setState({
             loading: false,
             comment: { ...comment, pCommentContent: "" }
@@ -93,9 +91,6 @@ export default class CommentForm extends Component {
       });
   }
 
-  /**
-   * Simple validation
-   */
   isFormValid() {
     return (
       this.state.comment.uName !== "" &&
@@ -116,7 +111,6 @@ export default class CommentForm extends Component {
           <form method="post" onSubmit={this.onSubmit}>
             <div className="form-group">
               <input
-                // onChange={this.handleFieldChange}
                 value={localStorage.getItem("nick")}
                 className="form-control"
                 name="uName"
@@ -147,7 +141,6 @@ export default class CommentForm extends Component {
           <div>
             <div className="form-group">
               <input
-                // onChange={this.handleFieldChange}
                 placeholder="로그인을 해 주세요."
                 className="form-control"
                 name="uName"

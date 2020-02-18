@@ -10,10 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-// import Button from '@material-ui/core/Button';
 import Button from '../common/Button';
-
-import kakao_btn from '../../images/kakao_btn.png';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -162,10 +159,6 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             >
               {text}
             </Button>
-            <a href={"https://kauth.kakao.com/oauth/authorize?client_id=dc342e3fecee26b6e0568c4b04fb1caa&redirect_uri=http://70.12.246.50:3000/KakaoTest&response_type=code"}>
-              <img src={kakao_btn}/>
-            </a>
-            {/* <KakaoLogin /> */}
           </form>
           <Footer>
             {type === 'login' ? (

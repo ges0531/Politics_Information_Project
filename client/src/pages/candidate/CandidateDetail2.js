@@ -1,11 +1,9 @@
-// import React, { Component } from "react";
 import { Document, Page } from "react-pdf/dist/entry.webpack";
 import pdfFile from "./pdf/Candidate_2.pdf";
 import CommentViewer from '../../components/comments/CommentViewer'
 
-import _ from "lodash";
 import React, { Component, createRef } from "react";
-import { Grid, Image, Rail, Ref, Segment, Sticky } from "semantic-ui-react";
+import { Grid, Rail, Ref, Sticky } from "semantic-ui-react";
 
 export default class StickyExampleAdjacentContext extends Component {
   state = {

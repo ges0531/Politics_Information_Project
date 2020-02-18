@@ -13,7 +13,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import UserIcon from '@material-ui/icons/AccountCircle';
-import BoardIcon from '@material-ui/icons/BorderColor';
 import FaceIcon from '@material-ui/icons/Face';
 import SearchIcon from '@material-ui/icons/FindInPage';
 import GroupIcon from '@material-ui/icons/Group';
@@ -69,27 +68,21 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
     >
       <List>
         <ListItem button key={'마이페이지'}>
-            <UserIcon />
+        <img src={`https://api.adorable.io/avatars/48/${nick}@adorable.io.png`}/>
             <ListItemText primary={'마이페이지'} style={{ marginTop: 0, marginLeft: 15 }} />
-        </ListItem>
-        <ListItem button key={'자유게시판'}>
-            <BoardIcon />
-            <Link to='/PostListPage' className={classes.link}>
-              <ListItemText primary={'자유게시판'} style={{ marginTop: 0, marginLeft: 15 }} />
-            </Link>
         </ListItem>
       </List>
       <Divider />
       <List>
         <ListItem button key={'우리동네 후보자 살펴보기'}>
             <FaceIcon />
-            <Link to='/CandidateMain' className={classes.link}>
+            <Link to='/CandidateCard' className={classes.link}>
               <ListItemText primary={'우리동네 후보자 살펴보기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
         </ListItem>
         <ListItem button key={'국회의원 찾기'}>
             <SearchIcon />
-            <Link to='/MemberList' className={classes.link}>
+            <Link to='/PoliticianPage' className={classes.link}>
               <ListItemText primary={'국회의원 찾기'} style={{ marginTop: 0, marginLeft: 15 }} />
             </Link>
         </ListItem>
