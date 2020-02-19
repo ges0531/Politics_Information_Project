@@ -43,8 +43,15 @@ h1 {
   line-height: 36pt;
   margin-left: 10%;
   margin-right: 38%;
-  margin-top: 60pt;
   margin-bottom: 50pt;
+}
+.cardIndex {
+  color: #000000;
+  font-family: "Jeju Gothic", "Montserrat", sans-serif;
+  font-size: 1.5vw;
+  line-height: 36pt;
+  margin-left: 48%;
+  margin-top: 50pt;
 }
 
 .cardContent {
