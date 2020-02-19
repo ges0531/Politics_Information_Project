@@ -17,6 +17,7 @@ import SearchIcon from '@material-ui/icons/FindInPage';
 import GroupIcon from '@material-ui/icons/Group';
 import CheckIcon from '@material-ui/icons/Check';
 import InputIcon from '@material-ui/icons/Input';
+import Heart from '@material-ui/icons/Favorite';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -107,6 +108,15 @@ const Header = ({ isLoginSuccess, nick, onLogout }) => {
           <CheckIcon />
           <Link to='/view/Test' className={classes.link}>
             <ListItemText primary={'나의 정치성향 테스트'} style={{ marginTop: 0, marginLeft: 15 }} />
+          </Link>
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem button key={'싸피는 하나당'}>
+          <Heart />
+          <Link to='/view/TeamPage' className={classes.link}>
+            <ListItemText primary={'싸피는 하나당'} style={{ marginTop: 0, marginLeft: 15 }} />
           </Link>
         </ListItem>
       </List>
