@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Cardgame.css";
 import Reactcard from "./react_card";
 import Grid from "@material-ui/core/Grid";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from "@material-ui/core/CircularProgress";
 import PoliticianCard from "./PoliticianCard";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 function Cardgame() {
-  var politiciansPageIndex
+  var politiciansPageIndex;
   var flag_array = new Array();
   var name_array = [];
   var id_array = [];
@@ -30,6 +29,8 @@ function Cardgame() {
     dataSet(response);
   }
 
+
+
   useEffect(() => {
     fetchMyAPI();
   }, []);
@@ -38,7 +39,9 @@ function Cardgame() {
     useData = data;
   } else {
     return (
-      <CircularProgress disableShrink />
+      <Grid container direction="column" justify="center" alignItems="center">
+        <CircularProgress disableShrink />
+      </Grid>
     );
   }
   // console.log(useData);
@@ -62,7 +65,7 @@ function Cardgame() {
         }
       }
     }
-    politiciansPageIndex = flag_array.indexOf(Math.max.apply(null, flag_array))
+    politiciansPageIndex = flag_array.indexOf(Math.max.apply(null, flag_array));
     return useData.politicians[
       flag_array.indexOf(Math.max.apply(null, flag_array))
     ];
@@ -138,7 +141,7 @@ function Cardgame() {
         // </div>
         <div>
           <h1>공약</h1>
-          <div className='likeHate'> 👈 싫어요 : 좋아요 👉 </div>
+          <div className="likeHate"> 👈 싫어요 : 좋아요 👉 </div>
           <div className="cardContainer">
             {useData.promises.map(promise => (
               <Reactcard
@@ -151,6 +154,7 @@ function Cardgame() {
                   // style={{ backgroundImage: "url(" + character.url + ")" }}
                   className="card"
                 >
+                  <div className="cardIndex">{25-useData.promises.indexOf(promise)}/25</div>
                   <div className="cardTitle">{promise.title}</div>
                 </div>
               </Reactcard>
@@ -183,7 +187,12 @@ function Cardgame() {
               >
                 <span>재시작</span>
               </button>
-              <Link to={"/view/PoliticianPage"+`/${useData.politicians[politiciansPageIndex].pId}`}>
+              <Link
+                to={
+                  "/view/PoliticianPage" +
+                  `/${useData.politicians[politiciansPageIndex].pId}`
+                }
+              >
                 <button className="cardButton">더 알아보기</button>
               </Link>
             </div>
