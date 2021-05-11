@@ -82,7 +82,7 @@
   },
   "devDependencies": {
     "faker": "^4.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "react-faker": "^0.1.2",
     "redux-devtools": "^3.5.0"
   }
