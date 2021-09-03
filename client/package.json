@@ -21,7 +21,7 @@
     "cors": "^2.8.5",
     "create-react-class": "^15.6.3",
     "gulp": "^4.0.2",
-    "immer": "^5.3.4",
+    "immer": "^9.0.6",
     "kakaojs": "^1.2.0",
     "markdown-to-jsx": "^6.11.0",
     "mdbreact": "^4.25.1",
